@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color:rgb(0, 0, 0);
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -13,9 +15,45 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.question{
+  position:center;
+  width: 40pc;
+  color:red;
+}
+
+.qaborder{
+  height:30px;
+}
+
+.answer{
+  position:center;
+  width: 40pc;
+  color:green;
+}
+
+.nextcardbutton{
+  position:center;
+  width: 40pc;
+  color:rgb(0, 0, 0);
+  align-self:top;
+  background-color: #ffffff;
+}
+
+.flashcard {
+  background-color: #000000;
+  border-top:50vh;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.nextcard {
+  background-color: #000000;
+  min-height: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
