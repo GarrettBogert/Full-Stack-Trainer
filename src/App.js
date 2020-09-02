@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
-import * as CSharp from './cSharpQuestions.js';
+import * as Questions from './StaticCards/Questions.js';
+import Checkbox from './Checkbox.js';
+import {Navbar, Nav, NavDropdown, Button, Form, FormControl} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
-
-function ToggleAnswer(props){
-return (
-  <button
-  onClick={props.onClick}>
-    {props.isHidden? 'Show answer':'Hide answer'}
+function ToggleAnswer(props) {
+  return (
+    <button className='nextcardbutton'
+      onClick={props.onClick}>
+      {props.isHidden ? 'Show answer' : 'Hide answer'}
     </button>
-)
+  )
 }
-
 
 function NextQuestion(props) {
   return (
     <div className='nextcard'>
       <button
-      className='nextcardbutton'
+        className='nextcardbutton'
         onClick={props.onClick}>
         Next question
       </button>
@@ -28,57 +27,122 @@ function NextQuestion(props) {
 }
 
 function Card(props) {
-    return (
-      <div>
-        <div className='question'>{props.question}</div> 
-        <div className='qaborder'></div>
-        <div className='answer'
+  return (
+    <div>
+      <div className='question'>{props.question}</div>
+      <div className='qaborder'></div>
+      <div className='answer'
         hidden={props.answerHidden}>{props.answer}</div>
-        <ToggleAnswer
+      <ToggleAnswer
         onClick={props.onClick}
         isHidden={props.answerHidden}
-        />
-      </div>
-    )
-  }
+      />
+    </div>
+  )
+}
 
- 
+const CATEGORIES = ['csharp', 'html', 'css', 'sql'];
+const APPS = ['Flash cards', 'Multiple choice', 'Recruiter tracking'];
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      categories: CATEGORIES.reduce(
+        (options, option) => ({
+          ...options,
+          [option]: true
+        }),
+        {}
+      ),
       question: "Click 'next question' for question",
       answer: "",
-      answerHidden:true
+      answerHidden: true,
+      currentPage: APPS[0]
     };
   }
+  
 
-  handleToggleAnswerClick(){
+  handleToggleAnswerClick() {
     this.setState({
       answerHidden: !this.state.answerHidden
     })
   }
 
+  createCheckbox = (category) => (
+    <Checkbox
+      label={category}
+      isSelected={this.state.categories[category]}
+      onCheckboxChange={this.handleCheckboxChange}
+      key={category}
+    />
+  );
+
+  handleCheckboxChange = changeEvent => {
+    const { name } = changeEvent.target;
+
+    this.setState(prevState => ({
+      categories: {
+        ...prevState.categories,
+        [name]: !prevState.categories[name]
+      }
+    }));
+  };
+
+  renderFlashCardApp(){
+
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="flashcard">
-          {this.renderCard({ question: this.state.question, answer: this.state.answer, answerHidden: this.state.answerHidden })}         
+    
+    return (      
+      <div className="App">     
+
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="#home">Full Stack Trainer</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <NavDropdown title="Mini-apps" id="basic-nav-dropdown">
+      <NavDropdown.Item href="#action/3.1">Flash cards</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Multiple choice </NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Recruiter tracking</NavDropdown.Item>      
+      </NavDropdown>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
+
+        <header className="currentApp">
+          {this.renderCard({ question: this.state.question, answer: this.state.answer, answerHidden: this.state.answerHidden })}
         </header>
         <NextQuestion
           onClick={() => this.handleNextCard()}
-        />       
+        />
+        <div className='categories'>
+          {this.createCheckbox('csharp')}
+          {this.createCheckbox('html')}
+          {this.createCheckbox('css')}
+          {this.createCheckbox('sql')}
+        </div>
       </div>
+
     )
   }
 
   handleNextCard() {
-    let card = CSharp.getRandom();
+    let enabledCategories = Object.entries(this.state.categories).filter(category=>category[1] === true).map(category=>category[0]);
+    let card = Questions.getRandom(enabledCategories);
     this.setState({
       question: card.question,
       answer: card.answer,
-      answerHidden:true
+      answerHidden: true
     })
   }
 
@@ -88,18 +152,10 @@ class App extends React.Component {
         question={i.question}
         answer={i.answer}
         answerHidden={i.answerHidden}
-        onClick={() => this.handleToggleAnswerClick()}              
+        onClick={() => this.handleToggleAnswerClick()}
       />
     )
-        }
-      }
-  
-
-
-
- 
-
-
-
+  }
+}
 
 export default App;

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color:rgb(0, 0, 0);
+  background-color:#557a95;
   min-height: 100vh;
 }
 
@@ -15,10 +15,17 @@
   }
 }
 
+.categories{
+  padding-top: 40px;
+  display:flex;
+  flex-direction:column-reverse;
+  justify-content:center;
+}
+
 .question{
   position:center;
   width: 40pc;
-  color:red;
+  color:#ffffff;
 }
 
 .qaborder{
@@ -28,7 +35,7 @@
 .answer{
   position:center;
   width: 40pc;
-  color:green;
+  color:#ffffff;
 }
 
 .nextcardbutton{
@@ -36,11 +43,11 @@
   width: 40pc;
   color:rgb(0, 0, 0);
   align-self:top;
-  background-color: #ffffff;
+  background-color: #969696;
 }
 
-.flashcard {
-  background-color: #000000;
+.currentApp {
+  background-color: #557a95;
   border-top:50vh;
   min-height: 40vh;
   display: flex;
@@ -52,7 +59,7 @@
 }
 
 .nextcard {
-  background-color: #000000;
+  background-color: #557a95;
   min-height: 20px;
   display: flex;
   flex-direction: column;
