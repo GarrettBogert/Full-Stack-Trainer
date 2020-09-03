@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import * as Questions from './StaticCards/Questions.js';
 import Checkbox from './Checkbox.js';
-import {Navbar, Nav, NavDropdown, Button, Form, FormControl} from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ToggleAnswer(props) {
@@ -63,7 +63,7 @@ class App extends React.Component {
       currentPage: APPS[0]
     };
   }
-  
+
 
   handleToggleAnswerClick() {
     this.setState({
@@ -91,53 +91,60 @@ class App extends React.Component {
     }));
   };
 
-  renderFlashCardApp(){
+  renderFlashCardApp() {
 
   }
-
+  
+  renderNavBar() {
+    return (
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">Full Stack Trainer</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <NavDropdown title="Mini-apps" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Flash cards</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Multiple choice </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Recruiter tracking</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+    )
+  }
   render() {
-    
-    return (      
-      <div className="App">     
 
-<Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#home">Full Stack Trainer</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <NavDropdown title="Mini-apps" id="basic-nav-dropdown">
-      <NavDropdown.Item href="#action/3.1">Flash cards</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Multiple choice </NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Recruiter tracking</NavDropdown.Item>      
-      </NavDropdown>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-    </Form>
-  </Navbar.Collapse>
-</Navbar>
+    return (
+      <div className="App">
+        {this.renderNavBar()}
 
-        <header className="currentApp">
+        <div className="currentApp">
+
           {this.renderCard({ question: this.state.question, answer: this.state.answer, answerHidden: this.state.answerHidden })}
-        </header>
-        <NextQuestion
-          onClick={() => this.handleNextCard()}
-        />
-        <div className='categories'>
-          {this.createCheckbox('csharp')}
-          {this.createCheckbox('html')}
-          {this.createCheckbox('css')}
-          {this.createCheckbox('sql')}
+
+          <NextQuestion
+            onClick={() => this.handleNextCard()}
+          />
+          <div className='categories'>
+            {this.createCheckbox('csharp')}
+            {this.createCheckbox('html')}
+            {this.createCheckbox('css')}
+            {this.createCheckbox('sql')}
+          </div>
         </div>
       </div>
+
 
     )
   }
 
   handleNextCard() {
-    let enabledCategories = Object.entries(this.state.categories).filter(category=>category[1] === true).map(category=>category[0]);
+    let enabledCategories = Object.entries(this.state.categories).filter(category => category[1] === true).map(category => category[0]);
     let card = Questions.getRandom(enabledCategories);
     this.setState({
       question: card.question,
