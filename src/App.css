@@ -4,69 +4,48 @@
   min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.column{
+  float:left;
+  padding:10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.left, .right{  
+  width:25%;
+}
+
+.center{
+  width:50%;
+  background-color: #557a95;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.right{
+  width:20%;
+  float:right;
 }
 
 .categories{
   padding-top: 40px;
   display:flex;
-  flex-direction:column-reverse;
+  flex-direction:row;
   justify-content:center;
 }
 
 .question{
   position:center;
-  width: 40pc;
   color:#ffffff;
-}
-
-.qaborder{
-  height:30px;
 }
 
 .answer{
   position:center;
-  width: 40pc;
-  color:#ffffff;
+  color:#ecff97;
 }
 
-.nextcardbutton{
+.greybutton{
   position:center;
-  width: 40pc;
   color:rgb(0, 0, 0);
-  align-self:top;
   background-color: #969696;
-}
-
-.currentApp {
-  background-color: #557a95;
-  border-top:50vh;
-  min-height: 40vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.nextcard {
-  background-color: #557a95;
-  min-height: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

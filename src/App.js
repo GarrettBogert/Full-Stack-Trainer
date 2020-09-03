@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ToggleAnswer(props) {
   return (
-    <button className='nextcardbutton'
+    <button className='greybutton'
       onClick={props.onClick}>
       {props.isHidden ? 'Show answer' : 'Hide answer'}
     </button>
@@ -16,28 +16,27 @@ function ToggleAnswer(props) {
 
 function NextQuestion(props) {
   return (
-    <div className='nextcard'>
+    <>
       <button
-        className='nextcardbutton'
+        className='greybutton'
         onClick={props.onClick}>
         Next question
       </button>
-    </div>
+    </>
   )
 }
 
 function Card(props) {
   return (
-    <div>
+    <>
       <div className='question'>{props.question}</div>
-      <div className='qaborder'></div>
       <div className='answer'
         hidden={props.answerHidden}>{props.answer}</div>
       <ToggleAnswer
         onClick={props.onClick}
         isHidden={props.answerHidden}
       />
-    </div>
+    </>
   )
 }
 
@@ -94,7 +93,7 @@ class App extends React.Component {
   renderFlashCardApp() {
 
   }
-  
+
   renderNavBar() {
     return (
       <Navbar bg="light" expand="lg">
@@ -122,9 +121,9 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.renderNavBar()}
-
-        <div className="currentApp">
-
+        <div className="column left"></div>
+        <div className="column center">
+       
           {this.renderCard({ question: this.state.question, answer: this.state.answer, answerHidden: this.state.answerHidden })}
 
           <NextQuestion
@@ -137,6 +136,7 @@ class App extends React.Component {
             {this.createCheckbox('sql')}
           </div>
         </div>
+        <div className="column right"></div>
       </div>
 
 
