@@ -26,21 +26,7 @@ function NextQuestion(props) {
   )
 }
 
-function AddCategory(props) {
-  return (
-    <>
-      <img
-        onClick={props.handleAddCategoryClick}
-        alt="missing"
-        width='12px'
-        height='12px'
-        src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
-        margin-right='3px' />
-        {!props.isAddingCategory? <span>Add category</span> : <><input type='text'></input><div className='confirmCategory'>Confirm category</div></> }
-        
-    </>
-  )
-}
+
 
 function Card(props) {
   return (
@@ -112,14 +98,31 @@ const renderCurrentPage = (currentPage) => {
 
 function FlashCardApp() {
 
+  const getLocalStorageCategories = () => {
+    const rawCategories = JSON.parse(localStorage.getItem('categories'));
+    return rawCategories?? [];      
+  };
+
+  const saveLocalStorageCategories = (cats) => {
+    localStorage.setItem('categories', JSON.stringify(cats));
+  };
+
   const [answerVisible, setAnswerVisible] = useState(false);
   const [answer, setAnswer] = useState("");
   const [question, setQuestion] = useState("Click 'next question' for question");
-  const [categories] = useState(CATEGORIES);
+  const [categories, setCategories] = useState(CATEGORIES);
+  const [userCategories, setUserCategories] = useState(getLocalStorageCategories())
   const [checkedCategories, setCheckedCategories] = useState([]);
-  const [userCategories, setUserCategories] = useState([]);
+  
+
   const [addCategoryText, setAddCategoryText] = useState();
   const [isAddingCategory, setIsAddingCategory] = useState(false);
+
+
+  
+  
+
+ 
 
   const handleToggleAnswerClick = () => {
     setAnswerVisible(!answerVisible);
@@ -150,11 +153,26 @@ function FlashCardApp() {
     setAddCategoryText(event.target.value);
   };
 
-  const handleAddCategoryClick = (event) => {
+  const handleNewCategoryClick = () => {    
     setIsAddingCategory(!isAddingCategory);
   }
 
+  useEffect(() => {
+    saveLocalStorageCategories(userCategories);
+  }, [userCategories]); // run whenever beerCount is changed
+
+  const handleConfirmCategory = () =>{
+    if([...categories,...userCategories].includes(addCategoryText)){
+      window.alert(`Category ${addCategoryText} already exists!`);
+    }
+    else{
+      setUserCategories([...userCategories,addCategoryText]);
+      setIsAddingCategory(!isAddingCategory);
+    }    
+  }
+ 
   return (
+    
     <>
       <Card
         question={question}
@@ -173,7 +191,7 @@ function FlashCardApp() {
             onCheckboxChange={handleCheckboxChange}
             key={category}
           />)
-        })}
+        })}       
         {userCategories.map(category => {
           return (<Checkbox
             label={category}
@@ -181,14 +199,37 @@ function FlashCardApp() {
             onCheckboxChange={handleCheckboxChange}
             key={category}
           />)
-        })}
+        })}       
       </div>
       <div className='addCategory'>
 <AddCategory
-handleAddCategoryClick={handleAddCategoryClick}
+handleConfirmCategory={handleConfirmCategory}
+handleAddCategoryNameChange={handleAddCategoryNameChange}
+handleNewCategoryClick={handleNewCategoryClick}
 isAddingCategory={isAddingCategory}
 />
       </div>
+    </>
+  )
+}
+
+function AddCategory(props) {
+  return (
+    <>
+      <img
+        onClick={props.handleNewCategoryClick}
+        alt="missing"
+        width='12px'
+        height='12px'
+        src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
+        margin-right='3px' />
+        {!props.isAddingCategory? <span>Add category</span> 
+        : <>
+        <input type='text' value={props.addCategoryText} onChange={props.handleAddCategoryNameChange}>
+          </input>
+          <button className='confirmCategory' onClick={props.handleConfirmCategory}>Confirm category
+          </button></> 
+          }        
     </>
   )
 }
@@ -198,7 +239,6 @@ function Home() {
     <p>
       Welcome to Full Stack Trainer. This application is a series of 'mini-apps' that will help aid in your journey to broadening your programming skills in an ever-demanding job market.
     </p>
-
   )
 }
 export default App;
