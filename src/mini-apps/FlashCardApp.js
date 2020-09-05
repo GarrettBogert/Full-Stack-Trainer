@@ -42,7 +42,7 @@ export default function FlashCardApp() {
     const [addCardQuestionText, setAddCardQuestionText] = useState();
     const [addCardAnswerText, setAddCardAnswerText] = useState();
     const [isAddingCard, setIsAddingCard] = useState(false);
-    const [addCardSelectedCategory, setAddCardSelectedCategory] = useState('Select a category');
+    const [addCardSelectedCategory, setAddCardSelectedCategory] = useState('csharp');
 
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
@@ -103,15 +103,19 @@ export default function FlashCardApp() {
         else {
             setUserCategories([...userCategories, addCategoryText]);
             setIsAddingCategory(!isAddingCategory);
+            clearAddCategoryForm();
         }
     };
 
     function deleteAllUserCategories() {
         setUserCategories([]);
     };
+    
+    const clearAddCategoryForm = () =>{
+        setAddCategoryText('');
+    }
 
     //Add Card crud
-
     const handleAddCardQuestionChange = (event) => {
         setAddCardQuestionText(event.target.value);
     };
@@ -130,6 +134,13 @@ export default function FlashCardApp() {
                     'category':category};
         setUserCards([...userCards, card ])
         setIsAddingCard(!isAddingCard);
+        clearAddCardForm();
+    }
+
+    const clearAddCardForm = () =>{
+        setAddCardQuestionText('');
+        setAddCardAnswerText('');
+        setAddCardSelectedCategory('csharp');
     }
 
     function deleteAllUserFlashCards() {
@@ -194,6 +205,9 @@ export default function FlashCardApp() {
                 {renderCardBody()}
             </div>
             <div className="column right">
+                {userCards.map(card=> {return <div margin='2px'><p>Question: {card.question}</p>
+                                              <p>Answer: {card.answer}</p>
+                                              <p>Category: {card.category}</p></div> })}
                 <div className='addCustom'>
 
                 </div>
