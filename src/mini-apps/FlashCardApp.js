@@ -1,21 +1,10 @@
 import * as Questions from '../StaticCards/Questions.js';
 import React, { useState, useEffect } from 'react';
-import Categories from '../Categories.js';
 import Checkbox from '../Checkbox.js';
 
-const CATEGORIES = ['csharp', 'html', 'css', 'sql'];
 
-export default function FlashCardApp() {
 
-    const getLocalStorageCategories = () => {
-        const rawCategories = JSON.parse(localStorage.getItem('categories'));
-        return rawCategories ?? [];
-    };
-
-    const saveLocalStorageCategories = (cats) => {
-        localStorage.setItem('categories', JSON.stringify(cats));
-    };
-
+export default function FlashCardApp(props) {
     const saveLocalStorageCards = (cards) => {
         localStorage.setItem('cards', JSON.stringify(cards));
     };
@@ -29,28 +18,17 @@ export default function FlashCardApp() {
     const [answerVisible, setAnswerVisible] = useState(false);
     const [answer, setAnswer] = useState("");
     const [question, setQuestion] = useState("Click 'next question' for question");
-    const [categories, setCategories] = useState(CATEGORIES);
-    const [userCategories, setUserCategories] = useState(getLocalStorageCategories())
+
     const [userCards, setUserCards] = useState(getLocalStorageCards())
-    const [checkedCategories, setCheckedCategories] = useState([]);
-
-    //Add Category state
-    const [addCategoryText, setAddCategoryText] = useState('');
-    const [isAddingCategory, setIsAddingCategory] = useState(false);
-
-    //Add Card state
-    const [addCardQuestionText, setAddCardQuestionText] = useState();
-    const [addCardAnswerText, setAddCardAnswerText] = useState();
-    const [isAddingCard, setIsAddingCard] = useState(false);
-    const [addCardSelectedCategory, setAddCardSelectedCategory] = useState('csharp');
-
+    const [checkedCardCategories, setCheckedCardCategories] = useState([]);
+    
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
     }
 
     const handleNextCardClick = (setQuestion, setAnswer) => {
-        if (checkedCategories.length > 0) {
-            let card = Questions.getRandom(checkedCategories, userCards);
+        if (checkedCardCategories.length > 0) {
+            let card = Questions.getRandom(checkedCardCategories, userCards);
             if (card !== null) {
                 setQuestion(card.question);
                 setAnswer(card.answer);
@@ -62,156 +40,52 @@ export default function FlashCardApp() {
         }
     }
 
-    //Add Category crud
-    const handleCategoryCheckboxChange = (event) => {
+    const handleCardCategoryCheckboxChange = (event) => {
         const { name, checked } = event.target;
         if (checked) {
-            setCheckedCategories([...checkedCategories, name]);
+            setCheckedCardCategories([...checkedCardCategories, name]);
         } else {
-            setCheckedCategories(checkedCategories.filter(category => category !== name));
+            setCheckedCardCategories(checkedCardCategories.filter(category => category !== name));
         }
     };
-
-    const handleAddCategoryNameChange = (event) => {
-        setAddCategoryText(event.target.value);
-    };
-
-    const handleNewCategoryClick = () => {
-        setIsAddingCategory(!isAddingCategory);
-    };
-
-    const handleNewCardClick = () => {
-        setIsAddingCard(!isAddingCard);
-    };
-
-    useEffect(() => {
-        saveLocalStorageCategories(userCategories);
-    }, [userCategories]);
 
     useEffect(() => {
         saveLocalStorageCards(userCards);
     }, [userCards]);
 
-    const handleConfirmCategory = () => {
-        if (addCategoryText === '' || addCategoryText === null) {
-            window.alert('Please enter a category name before saving.');
-        }
-        else if ([...categories, ...userCategories].includes(addCategoryText)) {
-            window.alert(`Category '${addCategoryText}' already exists!`);
-        }
-
-        else {
-            setUserCategories([...userCategories, addCategoryText]);
-            setIsAddingCategory(!isAddingCategory);
-            clearAddCategoryForm();
-        }
-    };
-
-    function deleteAllUserCategories() {
-        setUserCategories([]);
-    };
-    
-    const clearAddCategoryForm = () =>{
-        setAddCategoryText('');
-    }
-
-    //Add Card crud
-    const handleAddCardQuestionChange = (event) => {
-        setAddCardQuestionText(event.target.value);
-    };
-
-    const handleAddCardAnswerChange = (event) => {
-        setAddCardAnswerText(event.target.value);
-    };
-
-    const handleAddCardCategoryChange = (event) => {
-        setAddCardSelectedCategory(event.target.value);
-    }
-
-    const handleConfirmAddCard = (question, answer, category) =>{
-        let card = {'question': question,
-                    'answer':answer,
-                    'category':category};
-        setUserCards([...userCards, card ])
-        setIsAddingCard(!isAddingCard);
-        clearAddCardForm();
-    }
-
-    const clearAddCardForm = () =>{
-        setAddCardQuestionText('');
-        setAddCardAnswerText('');
-        setAddCardSelectedCategory('csharp');
-    }
-
-    function deleteAllUserFlashCards() {
-        setUserCards([]);
-    };
-
-    const renderCardBody = () => {
-        return (
-            <>
-                <Card
-                    question={question}
-                    answer={answer}
-                    answerVisible={answerVisible}
-                    onClick={() => handleToggleAnswerClick()}
-                    onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
-                />
-                <Categories
-                    categories={categories}
-                    userCategories={userCategories}
-                    checkedCategories={checkedCategories}
-                    handleCheckboxChange={handleCategoryCheckboxChange}
-                    handleConfirmCategory={handleConfirmCategory}
-                    handleAddCategoryNameChange={handleAddCategoryNameChange}
-                    handleNewCategoryClick={handleNewCategoryClick}
-                    isAddingCategory={isAddingCategory}
-                    addCategoryText={addCategoryText}
-                />
-
-            </>
-        )
-    };
-
     return (
         <>
-            <div className="column left">
-                <button onClick={deleteAllUserCategories}>Delete all custom categories</button>
-                <button onClick={deleteAllUserFlashCards}>Delete all custom flash cards</button>
-                <div className='addCustom'>
-                    <AddCategory
-                        handleConfirmCategory={handleConfirmCategory}
-                        handleAddCategoryNameChange={handleAddCategoryNameChange}
-                        handleNewCategoryClick={handleNewCategoryClick}
-                        isAddingCategory={isAddingCategory}
-                        addCategoryText={addCategoryText}
-                    />
-                    <AddCard
-                        handleConfirmAddCard={handleConfirmAddCard}
-                        handleAddCardQuestionChange={handleAddCardQuestionChange}
-                        handleAddCardAnswerChange={handleAddCardAnswerChange}
-                        handleNewCardClick={handleNewCardClick}
-                        isAddingCard={isAddingCard}
-                        addCardQuestionText={addCardQuestionText}
-                        addCardAnswerText={addCardAnswerText}
-                        userCategories={userCategories}
-                        categories={categories}
-                        handleSelectedCategoryChange={handleAddCardCategoryChange}
-                        selectedCategory={addCardSelectedCategory}
-                    />
-                </div>
-            </div>
-            <div className="column center">
-                {renderCardBody()}
-            </div>
-            <div className="column right">
-                {userCards.map(card=> {return <div margin='2px'><p>Question: {card.question}</p>
-                                              <p>Answer: {card.answer}</p>
-                                              <p>Category: {card.category}</p></div> })}
-                <div className='addCustom'>
+            <Card
+                question={question}
+                answer={answer}
+                answerVisible={answerVisible}
+                onClick={() => handleToggleAnswerClick()}
+                onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
+            />
 
-                </div>
+            <div className='cardCategoryContainer'>
+                {props.categories.map(category => {
+                    return (<Checkbox
+                        label={category}
+                        isChecked={checkedCardCategories.includes(category)}
+                        onCheckboxChange={handleCardCategoryCheckboxChange}
+                        key={category}
+                    />)
+                })}
+                {props.userCategories.map(category => {
+                    return (<Checkbox
+                        label={category}
+                        isChecked={checkedCardCategories.includes(category)}
+                        onCheckboxChange={handleCardCategoryCheckboxChange}
+                        key={category}
+                    />)
+                })}
             </div>
+            <AddCard
+            userCards={userCards}
+            setUserCards={setUserCards}
+            categories={props.categories}
+            userCategories={props.userCategories}/>
         </>
     )
 }
@@ -236,24 +110,61 @@ function Card(props) {
 }
 
 function AddCard(props) {
+
+    const [addCardQuestionText, setAddCardQuestionText] = useState();
+    const [addCardAnswerText, setAddCardAnswerText] = useState();
+    const [isAddingCard, setIsAddingCard] = useState(false);
+    const [addCardSelectedCategory, setAddCardSelectedCategory] = useState('csharp');
+
+    const handleNewCardClick = () => {
+        setIsAddingCard(!isAddingCard);
+    };
+
+    const handleAddCardQuestionChange = (event) => {
+        setAddCardQuestionText(event.target.value);
+    };
+
+    const handleAddCardAnswerChange = (event) => {
+        setAddCardAnswerText(event.target.value);
+    };
+
+    const handleAddCardCategoryChange = (event) => {
+        setAddCardSelectedCategory(event.target.value);
+    }
+
+    const handleConfirmAddCard = (question, answer, category) =>{
+        let card = {'question': question,
+                    'answer':answer,
+                    'category':category};
+        props.setUserCards([...props.userCards, card ])
+        setIsAddingCard(!isAddingCard);
+        clearAddCardForm();
+    }
+
+    const clearAddCardForm = () =>{
+        setAddCardQuestionText('');
+        setAddCardAnswerText('');
+        setAddCardSelectedCategory('csharp');
+    }
+
     return (
         <>
             <img
-                onClick={props.handleNewCardClick}
+                onClick={handleNewCardClick}
                 alt="missing"
                 width='12px'
                 height='12px'
-                src={props.isAddingCard ? '/images/cancel.png' : '/images/add.png'}
+                src={isAddingCard ? '/images/cancel.png' : '/images/add.png'}
                 margin-right='3px' />
-            {!props.isAddingCard ? <span>Add card</span>
+            {!isAddingCard ? <span>Add card</span>
                 : <>
-                <label>Question</label>
-                    <input type='text' value={props.addCardQuestionText} onChange={props.handleAddCardQuestionChange}>
+                    <label>Question</label>
+                    <input type='text' value={addCardQuestionText} onChange={handleAddCardQuestionChange}>
                     </input>
                     <label>Answer</label>
-                    <input type='text' value={props.addCardAnswerText} onChange={props.handleAddCardAnswerChange}>
+                    <input type='text' value={addCardAnswerText} onChange={handleAddCardAnswerChange}>
                     </input>
-                    <select value={props.selectedCategory} onChange={props.handleSelectedCategoryChange}>
+                    <select value={addCardSelectedCategory} onChange={handleAddCardCategoryChange}>
                         {props.categories.map(category => {
                             return (<option value={category}>{category}</option>)
                         })}
@@ -262,9 +173,8 @@ function AddCard(props) {
                         })}
                     </select>
 
-                    <button className='confirmCategory' 
-                    onClick={() => 
-                        {props.handleConfirmAddCard(props.addCardQuestionText,props.addCardAnswerText, props.selectedCategory)}}>Confirm card
+                    <button className='confirmCategory'
+                        onClick={()=>handleConfirmAddCard(addCardQuestionText, addCardAnswerText, addCardSelectedCategory)}>Confirm card
             </button>
                 </>
             }
@@ -272,24 +182,3 @@ function AddCard(props) {
     )
 }
 
-function AddCategory(props) {
-    return (
-        <>
-            <img
-                onClick={props.handleNewCategoryClick}
-                alt="missing"
-                width='12px'
-                height='12px'
-                src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
-                margin-right='3px' />
-            {!props.isAddingCategory ? <span>Add category</span>
-                : <>
-                    <input type='text' value={props.addCategoryText} onChange={props.handleAddCategoryNameChange}>
-                    </input>
-                    <button className='confirmCategory' onClick={props.handleConfirmCategory}>Confirm category
-            </button>
-                </>
-            }
-        </>
-    )
-}
