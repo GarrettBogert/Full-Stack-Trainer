@@ -1,22 +1,19 @@
 import React from "react";
 
-// at least use the same name XD (bothers me)
-const Checkbox = ({ label, isChecked, onCheckboxChange }) => {
-  console.log(`Checkbox- ${label} isChecked: ${isChecked}`);
+export default function Checkbox ( {label, isChecked, onCheckboxChange}) {
   return (
-  <div className="form-check">
-    <label>
-      <input
-        type="checkbox"
-        name={label}
-        checked={isChecked}
-        onChange={onCheckboxChange}
-        className="form-check-input"
-      />
-      {label}
-    </label>
-  </div>
-);
-  }
+    <div className="form-check categorybox">
+      <label>
+        <input
+          type="checkbox"
+          name={label}
+          checked={isChecked}
+          onChange={onCheckboxChange}
+          className="form-check-input"
+        />
+        {label}
+      </label>
+    </div>
+  );
+}
 
-export default Checkbox;

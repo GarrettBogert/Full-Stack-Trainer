@@ -73,13 +73,16 @@ export function getAll(){
         ]
 }
     
-export function getRandom(enabledCategories){
-    let allQuestions = getAll();
+export function getRandom(enabledCategories, userCards){
+    let allQuestions = [...getAll(),...userCards];
     let questionsWeWant = allQuestions.filter(question => enabledCategories.includes(question.category));
     return getRandomItem(questionsWeWant);
 }
 
 function getRandomItem(array){
-
-    return array[Math.floor(Math.random() * array.length - 1) + 1]
+if(array.length > 0){
+    return array[Math.floor(Math.random() * array.length - 1) + 1];
+}
+window.alert(`Your selected categories ${array.join()} do not have any flash cards associated with them.`);
+return null;
 }

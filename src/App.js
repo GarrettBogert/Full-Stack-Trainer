@@ -12,11 +12,7 @@ function App() {
   return (
     <div className="App">
       {renderNavBar(setCurrentPage)}
-      <div className="column left"></div>
-      <div className="column center">
         {renderCurrentPage(currentPage)}
-      </div>
-      <div className="column right"></div>
     </div>
   )
 }
@@ -34,11 +30,7 @@ const renderNavBar = (setCurrentPage) => {
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Multiple choice (coming soon) </NavDropdown.Item>
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Recruiter tracking (coming soon)</NavDropdown.Item>
           </NavDropdown>
-        </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+        </Nav>        
       </Navbar.Collapse>
     </Navbar>
   )
