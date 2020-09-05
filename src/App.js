@@ -31,6 +31,7 @@ function AddCategory(props) {
     <>
       <img
         onClick={props.handleAddCategoryClick}
+        alt="missing"
         width='12px'
         height='12px'
         src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
