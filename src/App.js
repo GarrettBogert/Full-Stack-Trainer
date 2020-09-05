@@ -26,6 +26,21 @@ function NextQuestion(props) {
   )
 }
 
+function AddCategory(props) {
+  return (
+    <>
+      <img
+        onClick={props.handleAddCategoryClick}
+        width='12px'
+        height='12px'
+        src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
+        margin-right='3px' />
+        {!props.isAddingCategory? <span>Add category</span> : <><input type='text'></input><div className='confirmCategory'>Confirm category</div></> }
+        
+    </>
+  )
+}
+
 function Card(props) {
   return (
     <>
@@ -103,6 +118,7 @@ function FlashCardApp() {
   const [checkedCategories, setCheckedCategories] = useState([]);
   const [userCategories, setUserCategories] = useState([]);
   const [addCategoryText, setAddCategoryText] = useState();
+  const [isAddingCategory, setIsAddingCategory] = useState(false);
 
   const handleToggleAnswerClick = () => {
     setAnswerVisible(!answerVisible);
@@ -130,11 +146,11 @@ function FlashCardApp() {
   };
 
   const handleAddCategoryNameChange = (event) => {
-  setAddCategoryText(event.target.value);
+    setAddCategoryText(event.target.value);
   };
 
-  const handleAddCategoryClick = (event) =>{
-    
+  const handleAddCategoryClick = (event) => {
+    setIsAddingCategory(!isAddingCategory);
   }
 
   return (
@@ -164,16 +180,13 @@ function FlashCardApp() {
             onCheckboxChange={handleCheckboxChange}
             key={category}
           />)
-        })}            
+        })}
       </div>
-      <div className='addCategory'>            
-      <img 
-      onClick={handleAddCategoryClick}
-      width='12px' 
-      height='12px' 
-      src='/images/add.png'/>
-          <span>Add category</span>
-    
+      <div className='addCategory'>
+<AddCategory
+handleAddCategoryClick={handleAddCategoryClick}
+isAddingCategory={isAddingCategory}
+/>
       </div>
     </>
   )

@@ -49,6 +49,17 @@
   color:#ecff97;
 }
 
+.confirmCategory{
+  background-color: #969696;
+  border-style:solid;
+  border-color:black;
+  display:flex;
+  flex-direction: row-reverse;
+  padding:5px;
+  align-self:flex-end;
+  color:black;
+}
+
 .greybutton{
   position:center;
   color:rgb(0, 0, 0);
