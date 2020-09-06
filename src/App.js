@@ -20,29 +20,53 @@ function App() {
 
   const [currentPage, setCurrentPage] = useState(PAGES[0]);
 
-  //Add Category state (user is able to add categories from any page)
+  //Add Category state (user is able to add categories from any page).
+  //Also, checkedcategories lives here because I want the same checked categories to persist from mini-app to mini-app, as a single user is likely to want that behavior.
   const [addCategoryText, setAddCategoryText] = useState('');
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [userCategories, setUserCategories] = useState(getLocalStorageCategories())
   const [categories, setCategories] = useState(CATEGORIES);
+  const [checkedCategories, setCheckedCategories] = useState([]);
+
+  
+  const handleCategoryCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    if (checked) {
+        setCheckedCategories([...checkedCategories, name]);
+    } else {
+        setCheckedCategories(checkedCategories.filter(category => category !== name));
+    }
+};
 
   
 const renderCurrentPage = (currentPage) => {
   switch (currentPage) {
+
     case 'Flash cards':
       return (
         <FlashCardApp
         userCategories={userCategories}
         categories={categories}
+        checkedCategories={checkedCategories}
+        setCheckedCategories={setCheckedCategories}
+        handleCategoryCheckboxChange={handleCategoryCheckboxChange}
         />
       );
+
     case 'Home':
       return Home();
+
       case 'Multiple choice':
         return(
         <MultipleChoiceApp
+        userCategories={userCategories}
+        categories={categories}
+        checkedCategories={checkedCategories}
+        setCheckedCategories={setCheckedCategories}
+        handleCategoryCheckboxChange={handleCategoryCheckboxChange}
         />
         )
+        
     default:
       return Home();
   }
@@ -87,7 +111,8 @@ const clearAddCategoryForm = () =>{
     <div className="App">
       {renderNavBar(setCurrentPage)}
       <div className="column left">
-                <button onClick={deleteAllUserCategories}>Delete all custom categories</button>               
+        {currentPage !== 'Home'? 
+        <><button onClick={deleteAllUserCategories}>Delete all custom categories</button>               
                 <div className='addCustom'>
                     <AddCategory
                         handleConfirmCategory={handleConfirmCategory}
@@ -96,8 +121,12 @@ const clearAddCategoryForm = () =>{
                         isAddingCategory={isAddingCategory}
                         addCategoryText={addCategoryText}
                     />                
-                </div>
+                </div> 
+                </>
+                : null}
+                
             </div>
+
             <div className="column center">
             {renderCurrentPage(currentPage)}
             </div>

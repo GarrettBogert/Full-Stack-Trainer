@@ -1,10 +1,11 @@
-import * as Questions from '../StaticCards/Questions.js';
+import * as FlashCards from '../PrefabQuizzes/FlashCards.js';
 import React, { useState, useEffect } from 'react';
 import Checkbox from '../Checkbox.js';
 
 
 
 export default function FlashCardApp(props) {
+    
     const saveLocalStorageCards = (cards) => {
         localStorage.setItem('cards', JSON.stringify(cards));
     };
@@ -20,15 +21,15 @@ export default function FlashCardApp(props) {
     const [question, setQuestion] = useState("Click 'next question' for question");
 
     const [userCards, setUserCards] = useState(getLocalStorageCards())
-    const [checkedCardCategories, setCheckedCardCategories] = useState([]);
+    
     
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
     }
 
     const handleNextCardClick = (setQuestion, setAnswer) => {
-        if (checkedCardCategories.length > 0) {
-            let card = Questions.getRandom(checkedCardCategories, userCards);
+        if (props.checkedCategories.length > 0) {
+            let card = FlashCards.getRandom(props.checkedCategories, userCards);
             if (card !== null) {
                 setQuestion(card.question);
                 setAnswer(card.answer);
@@ -39,15 +40,6 @@ export default function FlashCardApp(props) {
             window.alert("Please check at least one category in order to display next question.")
         }
     }
-
-    const handleCardCategoryCheckboxChange = (event) => {
-        const { name, checked } = event.target;
-        if (checked) {
-            setCheckedCardCategories([...checkedCardCategories, name]);
-        } else {
-            setCheckedCardCategories(checkedCardCategories.filter(category => category !== name));
-        }
-    };
 
     useEffect(() => {
         saveLocalStorageCards(userCards);
@@ -63,20 +55,20 @@ export default function FlashCardApp(props) {
                 onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
             />
 
-            <div className='cardCategoryContainer'>
+            <div className='selectCategoriesContainer'>
                 {props.categories.map(category => {
                     return (<Checkbox
                         label={category}
-                        isChecked={checkedCardCategories.includes(category)}
-                        onCheckboxChange={handleCardCategoryCheckboxChange}
+                        isChecked={props.checkedCategories.includes(category)}
+                        onCheckboxChange={props.handleCardCategoryCheckboxChange}
                         key={category}
                     />)
                 })}
                 {props.userCategories.map(category => {
                     return (<Checkbox
                         label={category}
-                        isChecked={checkedCardCategories.includes(category)}
-                        onCheckboxChange={handleCardCategoryCheckboxChange}
+                        isChecked={props.checkedCategories.includes(category)}
+                        onCheckboxChange={props.handleCardCategoryCheckboxChange}
                         key={category}
                     />)
                 })}
