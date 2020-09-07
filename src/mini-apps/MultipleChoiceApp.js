@@ -17,6 +17,7 @@ export default function MultipleChoiceApp(props) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState();
     const [correctlyAnsweredQuestions, setCorrectlyAnsweredQuestions] = useState([]);
     const [incorrectlyAnsweredQuestions, setincorrectlyAnsweredQuestions] = useState([]);
+    const [currentlySelectedAnswer, setCurrentlySelectedAnswer] = useState(null);
 
     //quizPool is a collection of quizzes that will get initialized once a quiz is started with categories selected. 
     const [questionPool, setQuestionPool] = useState([]);
@@ -33,25 +34,37 @@ export default function MultipleChoiceApp(props) {
 
     const handleSubmitClick = (event) => {
 
-        //Add logic to see the value (a number) of the currently selected radio button is equal to the correctAnswer.
-        //Then if its wrong, we have to remove the currentQuiz from the pool and add it to one of the two answered arrays.
-        const newQuestionPool = questionPool.filter((quiz, index) => index !== currentQuestionIndex);
-        setQuestionPool(newQuestionPool);
-
+       if(currentlySelectedAnswer === currentQuestion.correctAnswer){
+        setCorrectlyAnsweredQuestions(...correctlyAnsweredQuestions, currentQuestion);
+        setQuestionPool(questionPool.filter((question,index) => index !== currentQuestionIndex));
+        setCurrentQuestion(null);
+        setCurrentlySelectedAnswer(null);
+        //TODO: resolve the problem here where questionPool hasn't yet been updated by the asynchronous setQuestionPool call above.
         if (questionPool.length > 0) {
-            let question = getRandomQuestion(questionPool);
-            if (question !== null) {
-                setCurrentQuestion(question);               
-            }
+            let question = getRandomQuestion(questionPool);           
+                setCurrentQuestion(question);            
         }
         else {
             window.alert("Quiz complete!")
         }
+       }
+       else{
+           setUserHasGuessedWrong(true);
+       }
     }
 
     function populateNextQuestion(questionPool) {
         let question = getRandomQuestion(questionPool);
         setCurrentQuestion(question);
+        setUserHasGuessedWrong(false);
+    }
+
+    const handleNextQuestionClick = () =>{
+        populateNextQuestion(questionPool);
+    }
+
+    const onChangeSelectedAnswer = (event) => {
+        setCurrentlySelectedAnswer(parseInt(event.target.value));        
     }
 
     const handleStartQuizClick = () => {
@@ -80,11 +93,16 @@ export default function MultipleChoiceApp(props) {
                     <div>
                         {currentQuestion.question}
                     </div>
-                    <div className='multipleChoice'>
+                    <div onChange={onChangeSelectedAnswer} className='multipleChoice'>
                         {currentQuestion.answerChoices.map((choice, index) => {
                             return (
                                 <>
-                                    <input type="radio" value={index} name={choice} /> {choice}
+                                    <input 
+                                    disabled={userHasGuessedWrong} 
+                                    type="radio" 
+                                    value={index} 
+                                    name={'questionChoice'} /> 
+                                    {userHasGuessedWrong && index === currentQuestion.correctAnswer? choice + '(Correct)': choice }
                                 </>)
                         })}
                     </div>
@@ -94,8 +112,8 @@ export default function MultipleChoiceApp(props) {
 
             {quizActive ? <button
                 className='greybutton'
-                onClick={handleSubmitClick}>
-                Submit Answer
+                onClick={userHasGuessedWrong? handleNextQuestionClick: handleSubmitClick}>
+                {userHasGuessedWrong? 'Next Question' : 'Submit Answer'}
             </button>
                 : <button
                     className='greybutton'

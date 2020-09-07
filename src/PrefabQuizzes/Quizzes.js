@@ -8,7 +8,16 @@ export function getAll(){
                                 "It encrypts the value in-memory.",],
                 correctAnswer: 0,
                 category:"csharp"
-            }            
+            },
+            {
+                question: "What MS SQL server function will return the length of a string?",
+                answerChoices: ["LENGTH()",
+                                "COUNT()",
+                                "LEN()",
+                                "SUM()",],
+                correctAnswer: 2,
+                category:"sql"
+            }                        
         ]
 }
     
