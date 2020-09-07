@@ -37,10 +37,10 @@ export default function MultipleChoiceApp(props) {
         //If user guessed question right...
         if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
             //We add the current question to the list of correctly answered questions.
-            setCorrectlyAnsweredQuestions(prevAnswered =>[...prevAnswered, currentQuestion]);                                      
+            setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
         }
         else {
-            setIncorrectlyAnsweredQuestions(prevAnswered =>[...prevAnswered, currentQuestion]);
+            setIncorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
         }
         //We filter out the answered question from the pool, to avoid it being presented twice.  
         setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));
@@ -76,7 +76,7 @@ export default function MultipleChoiceApp(props) {
 
     const onChangeSelectedAnswer = (event) => {
         setCurrentlySelectedAnswer(parseInt(event.target.value));
-    }    
+    }
 
     const handleStartQuizClick = () => {
         if (props.checkedCategories.length > 0) {
@@ -87,7 +87,7 @@ export default function MultipleChoiceApp(props) {
                 setQuizActive(true);
                 let firstQuestion = getRandomQuestion(requestedQuestions);
                 setCurrentQuestion(firstQuestion);
-                
+
             }
             else {
                 window.alert("Selected categories contained no quizzes");

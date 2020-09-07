@@ -5,7 +5,7 @@ import Checkbox from '../Checkbox.js';
 
 
 export default function FlashCardApp(props) {
-    
+
     const saveLocalStorageCards = (cards) => {
         localStorage.setItem('cards', JSON.stringify(cards));
     };
@@ -21,8 +21,8 @@ export default function FlashCardApp(props) {
     const [question, setQuestion] = useState("Click 'next question' for question");
 
     const [userCards, setUserCards] = useState(getLocalStorageCards())
-    
-    
+
+
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
     }
@@ -74,10 +74,10 @@ export default function FlashCardApp(props) {
                 })}
             </div>
             <AddCard
-            userCards={userCards}
-            setUserCards={setUserCards}
-            categories={props.categories}
-            userCategories={props.userCategories}/>
+                userCards={userCards}
+                setUserCards={setUserCards}
+                categories={props.categories}
+                userCategories={props.userCategories} />
         </>
     )
 }
@@ -124,16 +124,18 @@ function AddCard(props) {
         setAddCardSelectedCategory(event.target.value);
     }
 
-    const handleConfirmAddCard = (question, answer, category) =>{
-        let card = {'question': question,
-                    'answer':answer,
-                    'category':category};
-        props.setUserCards([...props.userCards, card ])
+    const handleConfirmAddCard = (question, answer, category) => {
+        let card = {
+            'question': question,
+            'answer': answer,
+            'category': category
+        };
+        props.setUserCards([...props.userCards, card])
         setIsAddingCard(!isAddingCard);
         clearAddCardForm();
     }
 
-    const clearAddCardForm = () =>{
+    const clearAddCardForm = () => {
         setAddCardQuestionText('');
         setAddCardAnswerText('');
         setAddCardSelectedCategory('csharp');
@@ -166,7 +168,7 @@ function AddCard(props) {
                     </select>
 
                     <button className='confirmCategory'
-                        onClick={()=>handleConfirmAddCard(addCardQuestionText, addCardAnswerText, addCardSelectedCategory)}>Confirm card
+                        onClick={() => handleConfirmAddCard(addCardQuestionText, addCardAnswerText, addCardSelectedCategory)}>Confirm card
             </button>
                 </>
             }

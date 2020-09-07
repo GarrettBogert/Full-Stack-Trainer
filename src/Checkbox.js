@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Checkbox ( {label, isChecked, onCheckboxChange}) {
+export default function Checkbox({ label, isChecked, onCheckboxChange }) {
   return (
     <div className="form-check categorybox">
       <label>

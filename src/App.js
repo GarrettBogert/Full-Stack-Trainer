@@ -13,7 +13,7 @@ function App() {
     const rawCategories = JSON.parse(localStorage.getItem('categories'));
     return rawCategories ?? [];
   };
-  
+
   const saveLocalStorageCategories = (cats) => {
     localStorage.setItem('categories', JSON.stringify(cats));
   };
@@ -28,114 +28,114 @@ function App() {
   const [categories, setCategories] = useState(CATEGORIES);
   const [checkedCategories, setCheckedCategories] = useState([]);
 
-  
+
   const handleCategoryCheckboxChange = (event) => {
     const { name, checked } = event.target;
     if (checked) {
-        setCheckedCategories([...checkedCategories, name]);
+      setCheckedCategories([...checkedCategories, name]);
     } else {
-        setCheckedCategories(checkedCategories.filter(category => category !== name));
+      setCheckedCategories(checkedCategories.filter(category => category !== name));
     }
-};
+  };
 
-  
-const renderCurrentPage = (currentPage) => {
-  switch (currentPage) {
 
-    case 'Flash cards':
-      return (
-        <FlashCardApp
-        userCategories={userCategories}
-        categories={categories}
-        checkedCategories={checkedCategories}
-        setCheckedCategories={setCheckedCategories}
-        handleCategoryCheckboxChange={handleCategoryCheckboxChange}
-        />
-      );
+  const renderCurrentPage = (currentPage) => {
+    switch (currentPage) {
 
-    case 'Home':
-      return Home();
+      case 'Flash cards':
+        return (
+          <FlashCardApp
+            userCategories={userCategories}
+            categories={categories}
+            checkedCategories={checkedCategories}
+            setCheckedCategories={setCheckedCategories}
+            handleCategoryCheckboxChange={handleCategoryCheckboxChange}
+          />
+        );
+
+      case 'Home':
+        return Home();
 
       case 'Multiple choice':
-        return(
-        <MultipleChoiceApp
-        userCategories={userCategories}
-        categories={categories}
-        checkedCategories={checkedCategories}
-        setCheckedCategories={setCheckedCategories}
-        handleCategoryCheckboxChange={handleCategoryCheckboxChange}
-        />
+        return (
+          <MultipleChoiceApp
+            userCategories={userCategories}
+            categories={categories}
+            checkedCategories={checkedCategories}
+            setCheckedCategories={setCheckedCategories}
+            handleCategoryCheckboxChange={handleCategoryCheckboxChange}
+          />
         )
-        
-    default:
-      return Home();
+
+      default:
+        return Home();
+    }
   }
-}
-  
+
   useEffect(() => {
     saveLocalStorageCategories(userCategories);
-}, [userCategories]);
+  }, [userCategories]);
 
   const handleAddCategoryNameChange = (event) => {
     setAddCategoryText(event.target.value);
-};
+  };
 
-const handleNewCategoryClick = () => {
+  const handleNewCategoryClick = () => {
     setIsAddingCategory(!isAddingCategory);
-};
+  };
 
-const handleConfirmCategory = () => {
-  if (addCategoryText === '' || addCategoryText === null) {
+  const handleConfirmCategory = () => {
+    if (addCategoryText === '' || addCategoryText === null) {
       window.alert('Please enter a category name before saving.');
-  }
-  else if ([...categories, ...userCategories].includes(addCategoryText)) {
+    }
+    else if ([...categories, ...userCategories].includes(addCategoryText)) {
       window.alert(`Category '${addCategoryText}' already exists!`);
-  }
+    }
 
-  else {
+    else {
       setUserCategories([...userCategories, addCategoryText]);
       setIsAddingCategory(!isAddingCategory);
       clearAddCategoryForm();
+    }
+  };
+
+  function deleteAllUserCategories() {
+    setUserCategories([]);
+  };
+
+  const clearAddCategoryForm = () => {
+    setAddCategoryText('');
   }
-};
-
-function deleteAllUserCategories() {
-  setUserCategories([]);
-};
-
-const clearAddCategoryForm = () =>{
-  setAddCategoryText('');
-}
 
   return (
     <div className="App">
       {renderNavBar(setCurrentPage)}
       <div className="column left">
-        {currentPage !== 'Home'? 
-        <><button onClick={deleteAllUserCategories}>Delete all custom categories</button>               
-                <div className='addCustom'>
-                    <AddCategory
-                        handleConfirmCategory={handleConfirmCategory}
-                        handleAddCategoryNameChange={handleAddCategoryNameChange}
-                        handleNewCategoryClick={handleNewCategoryClick}
-                        isAddingCategory={isAddingCategory}
-                        addCategoryText={addCategoryText}
-                    />                
-                </div> 
-                </>
-                : null}
-                
+        {currentPage !== 'Home' ?
+          <><button onClick={deleteAllUserCategories}>Delete all custom categories</button>
+            <div className='addCustom'>
+              <AddCategory
+                handleConfirmCategory={handleConfirmCategory}
+                handleAddCategoryNameChange={handleAddCategoryNameChange}
+                handleNewCategoryClick={handleNewCategoryClick}
+                isAddingCategory={isAddingCategory}
+                addCategoryText={addCategoryText}
+              />
             </div>
+          </>
+          : null}
 
-            <div className="column center">
-            {renderCurrentPage(currentPage)}
-            </div>
-            <div className="column right">               
-                <div className='addCustom'>
+      </div>
 
-                </div>
-            </div>
-        
+      <div className="column center">
+        {renderCurrentPage(currentPage)}
+      </div>
+      <div className="column right">
+        <div className='addCustom'>
+
+        </div>
+      </div>
+
     </div>
   )
 }
@@ -153,7 +153,7 @@ const renderNavBar = (setCurrentPage) => {
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[2])}>Multiple choice</NavDropdown.Item>
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Recruiter tracking (coming soon)</NavDropdown.Item>
           </NavDropdown>
-        </Nav>        
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   )
@@ -169,23 +169,23 @@ function Home() {
 
 function AddCategory(props) {
   return (
-      <>
-          <img
-              onClick={props.handleNewCategoryClick}
-              alt="missing"
-              width='12px'
-              height='12px'
-              src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
-              margin-right='3px' />
-          {!props.isAddingCategory ? <span>Add category</span>
-              : <>
-                  <input type='text' value={props.addCategoryText} onChange={props.handleAddCategoryNameChange}>
-                  </input>
-                  <button className='confirmCategory' onClick={props.handleConfirmCategory}>Confirm category
+    <>
+      <img
+        onClick={props.handleNewCategoryClick}
+        alt="missing"
+        width='12px'
+        height='12px'
+        src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
+        margin-right='3px' />
+      {!props.isAddingCategory ? <span>Add category</span>
+        : <>
+          <input type='text' value={props.addCategoryText} onChange={props.handleAddCategoryNameChange}>
+          </input>
+          <button className='confirmCategory' onClick={props.handleConfirmCategory}>Confirm category
           </button>
-              </>
-          }
-      </>
+        </>
+      }
+    </>
   )
 }
 export default App;
