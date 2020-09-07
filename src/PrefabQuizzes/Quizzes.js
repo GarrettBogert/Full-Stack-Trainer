@@ -17,7 +17,34 @@ export function getAll(){
                                 "SUM()",],
                 correctAnswer: 2,
                 category:"sql"
-            }                        
+            },
+            {
+                question: "What character in csharp designates a type to be nullable when placed after the type name?",
+                answerChoices: ["?",
+                                "!",
+                                "#",
+                                "*",],
+                correctAnswer: 0,
+                category:"csharp"
+            },
+            {
+                question: "In csharp, which of the following signatures are not valid to include in an interface definition?",
+                answerChoices: ["Methods",
+                                "Properties",
+                                "Events",
+                                "Fields",],
+                correctAnswer: 3,
+                category:"csharp"
+            },
+            {
+                question: "In javascript, which keyword would you use in declaring a variable you intend to access only within an if block?",
+                answerChoices: ["var",
+                                "let",
+                                "const",
+                                ],
+                correctAnswer: 1,
+                category:"javascript"
+            }                                          
         ]
 }
     

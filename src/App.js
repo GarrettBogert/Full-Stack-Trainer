@@ -6,7 +6,7 @@ import MultipleChoiceApp from './mini-apps/MultipleChoiceApp.js';
 import FlashCardApp from './mini-apps/FlashCardApp.js'
 
 const PAGES = ['Home', 'Flash cards', 'Multiple choice', 'Recruiter tracking'];
-const CATEGORIES = ['csharp', 'html', 'css', 'sql'];
+const CATEGORIES = ['csharp', 'html', 'css', 'sql', 'javascript'];
 
 function App() {
   const getLocalStorageCategories = () => {
@@ -150,7 +150,7 @@ const renderNavBar = (setCurrentPage) => {
           <Nav.Link onClick={() => setCurrentPage(PAGES[0])}>Home</Nav.Link>
           <NavDropdown title="Mini-apps" id="basic-nav-dropdown">
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Flash cards</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setCurrentPage(PAGES[2])}>Multiple choice (coming soon) </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setCurrentPage(PAGES[2])}>Multiple choice</NavDropdown.Item>
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Recruiter tracking (coming soon)</NavDropdown.Item>
           </NavDropdown>
         </Nav>        

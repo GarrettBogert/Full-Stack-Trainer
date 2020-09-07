@@ -11,12 +11,12 @@ export default function MultipleChoiceApp(props) {
 
     const [quizActive, setQuizActive] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(null);
-    //userHasGuessedWrong will allow the display to indicate an incorrect guess, as well as hide the submit button so they cant guess twice.
-    const [userHasGuessedWrong, setUserHasGuessedWrong] = useState(false);
+    //userHasGuessed will allow the display to indicate whether the guess was correct or not
+    const [userHasGuessed, setUserHasGuessed] = useState(false);
     //The index of the current question from the quizPool being displayed.
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState();
     const [correctlyAnsweredQuestions, setCorrectlyAnsweredQuestions] = useState([]);
-    const [incorrectlyAnsweredQuestions, setincorrectlyAnsweredQuestions] = useState([]);
+    const [incorrectlyAnsweredQuestions, setIncorrectlyAnsweredQuestions] = useState([]);
     const [currentlySelectedAnswer, setCurrentlySelectedAnswer] = useState(null);
 
     //quizPool is a collection of quizzes that will get initialized once a quiz is started with categories selected. 
@@ -32,40 +32,51 @@ export default function MultipleChoiceApp(props) {
         }
     }
 
-    const handleSubmitClick = (event) => {
-
-       if(currentlySelectedAnswer === currentQuestion.correctAnswer){
-        setCorrectlyAnsweredQuestions(...correctlyAnsweredQuestions, currentQuestion);
-        setQuestionPool(questionPool.filter((question,index) => index !== currentQuestionIndex));
-        setCurrentQuestion(null);
+    const handleSubmitClick = () => {
+        setUserHasGuessed(true);
+        //If user guessed question right...
+        if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
+            //We add the current question to the list of correctly answered questions.
+            setCorrectlyAnsweredQuestions(prevAnswered =>[...prevAnswered, currentQuestion]);                                      
+        }
+        else {
+            setIncorrectlyAnsweredQuestions(prevAnswered =>[...prevAnswered, currentQuestion]);
+        }
+        //We filter out the answered question from the pool, to avoid it being presented twice.  
+        setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));
         setCurrentlySelectedAnswer(null);
-        //TODO: resolve the problem here where questionPool hasn't yet been updated by the asynchronous setQuestionPool call above.
+    }
+
+    const populateNextQuestion = () => {
         if (questionPool.length > 0) {
-            let question = getRandomQuestion(questionPool);           
-                setCurrentQuestion(question);            
+            let question = getRandomQuestion(questionPool);
+            setCurrentQuestion(question);
+            setUserHasGuessed(false);
+            setCurrentlySelectedAnswer(null)
         }
         else {
             window.alert("Quiz complete!")
         }
-       }
-       else{
-           setUserHasGuessedWrong(true);
-       }
+    };
+
+    const handleCancelQuizClick = () => {
+        setUserHasGuessed(false);
+        setIncorrectlyAnsweredQuestions([]);
+        setCorrectlyAnsweredQuestions([]);
+        setCurrentQuestion(null);
+        setQuizActive(false);
+        setCurrentlySelectedAnswer(null);
+        setQuestionPool([]);
+        setCurrentQuestionIndex(null);
     }
 
-    function populateNextQuestion(questionPool) {
-        let question = getRandomQuestion(questionPool);
-        setCurrentQuestion(question);
-        setUserHasGuessedWrong(false);
-    }
-
-    const handleNextQuestionClick = () =>{
-        populateNextQuestion(questionPool);
+    const handleNextQuestionClick = () => {
+        populateNextQuestion();
     }
 
     const onChangeSelectedAnswer = (event) => {
-        setCurrentlySelectedAnswer(parseInt(event.target.value));        
-    }
+        setCurrentlySelectedAnswer(parseInt(event.target.value));
+    }    
 
     const handleStartQuizClick = () => {
         if (props.checkedCategories.length > 0) {
@@ -73,9 +84,10 @@ export default function MultipleChoiceApp(props) {
             if (requestedQuestions.length > 0) {
                 //The useEffect hook on quizPool will cause the next quiz to display after this call finishes.
                 setQuestionPool(requestedQuestions);
-                setQuizActive(!quizActive);
-                //TODO: refactor this next call - ideally it would be reading from quizPool, but at this time, quizPool hasn't been populated by the asynchronous call. 
-                populateNextQuestion(requestedQuestions);
+                setQuizActive(true);
+                let firstQuestion = getRandomQuestion(requestedQuestions);
+                setCurrentQuestion(firstQuestion);
+                
             }
             else {
                 window.alert("Selected categories contained no quizzes");
@@ -97,24 +109,36 @@ export default function MultipleChoiceApp(props) {
                         {currentQuestion.answerChoices.map((choice, index) => {
                             return (
                                 <>
-                                    <input 
-                                    disabled={userHasGuessedWrong} 
-                                    type="radio" 
-                                    value={index} 
-                                    name={'questionChoice'} /> 
-                                    {userHasGuessedWrong && index === currentQuestion.correctAnswer? choice + '(Correct)': choice }
+                                    <input
+                                        disabled={userHasGuessed}
+                                        type="radio"
+                                        value={index}
+                                        name={'questionChoice'} />
+                                    {userHasGuessed && index === currentQuestion.correctAnswer ? choice + '(Correct)' : choice}
                                 </>)
                         })}
                     </div>
                 </>
                 : null}
+            {quizActive ?
+                <>
+                    <label>{`${correctlyAnsweredQuestions.length} correct answers.`}</label>
+                    <label>{`${incorrectlyAnsweredQuestions.length} incorrect answers.`}</label>
+                </>
+                : null
+            }
 
 
-            {quizActive ? <button
+            {quizActive ? <><button
                 className='greybutton'
-                onClick={userHasGuessedWrong? handleNextQuestionClick: handleSubmitClick}>
-                {userHasGuessedWrong? 'Next Question' : 'Submit Answer'}
+                onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
+                {userHasGuessed ? 'Next Question' : 'Submit Answer'}
             </button>
+                <button
+                    onClick={handleCancelQuizClick}>
+                    Cancel quiz
+                </button>
+            </>
                 : <button
                     className='greybutton'
                     onClick={handleStartQuizClick}>
