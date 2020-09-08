@@ -148,9 +148,9 @@ const renderNavBar = (setCurrentPage) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link onClick={() => setCurrentPage(PAGES[0])}>Home</Nav.Link>
-          <NavDropdown title="Mini-apps" id="basic-nav-dropdown">
-            <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Flash cards</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setCurrentPage(PAGES[2])}>Multiple choice</NavDropdown.Item>
+          <NavDropdown data-testid='miniapps' title="Mini-apps" id="basic-nav-dropdown">
+            <NavDropdown.Item data-testid='flashcards' onClick={() => setCurrentPage(PAGES[1])}>Flash cards</NavDropdown.Item>
+            <NavDropdown.Item data-testid='multiplechoice' onClick={() => setCurrentPage(PAGES[2])}>Multiple choice</NavDropdown.Item>
             <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Recruiter tracking (coming soon)</NavDropdown.Item>
           </NavDropdown>
         </Nav>
@@ -161,7 +161,7 @@ const renderNavBar = (setCurrentPage) => {
 
 function Home() {
   return (
-    <p>
+    <p data-testid='home'>
       Welcome to Full Stack Trainer. This application is a series of 'mini-apps' that will help aid in your journey to broadening your programming skills in an ever-demanding job market.
     </p>
   )

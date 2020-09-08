@@ -60,7 +60,7 @@ export default function FlashCardApp(props) {
                     return (<Checkbox
                         label={category}
                         isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCardCategoryCheckboxChange}
+                        onCheckboxChange={props.handleCategoryCheckboxChange}
                         key={category}
                     />)
                 })}
@@ -68,7 +68,7 @@ export default function FlashCardApp(props) {
                     return (<Checkbox
                         label={category}
                         isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCardCategoryCheckboxChange}
+                        onCheckboxChange={props.handleCategoryCheckboxChange}
                         key={category}
                     />)
                 })}
@@ -144,6 +144,7 @@ function AddCard(props) {
     return (
         <>
             <img
+                data-testid='addCard'
                 onClick={handleNewCardClick}
                 alt="missing"
                 width='12px'
@@ -153,12 +154,25 @@ function AddCard(props) {
             {!isAddingCard ? <span>Add card</span>
                 : <>
                     <label>Question</label>
-                    <input type='text' value={addCardQuestionText} onChange={handleAddCardQuestionChange}>
+                    <input 
+                    type='text' 
+                    value={addCardQuestionText} 
+                    onChange={handleAddCardQuestionChange}
+                    data-testid='addCardQuestion'
+                    >
                     </input>
                     <label>Answer</label>
-                    <input type='text' value={addCardAnswerText} onChange={handleAddCardAnswerChange}>
+                    <input 
+                    type='text' 
+                    value={addCardAnswerText} 
+                    onChange={handleAddCardAnswerChange}
+                    data-testid='addCardAnswer'
+                    >
                     </input>
-                    <select value={addCardSelectedCategory} onChange={handleAddCardCategoryChange}>
+                    <select 
+                    value={addCardSelectedCategory} 
+                    onChange={handleAddCardCategoryChange}
+                    >
                         {props.categories.map(category => {
                             return (<option value={category}>{category}</option>)
                         })}
