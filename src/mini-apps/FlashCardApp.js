@@ -88,7 +88,8 @@ function Card(props) {
             <div className='question'>{props.question}</div>
             <div className='answer'
                 hidden={!props.answerVisible}>{props.answer}</div>
-            <button className='greybutton'
+            <button 
+            className='greybutton'
                 onClick={props.onClick}>
                 {props.isVisible ? 'Hide answer' : 'Show answer'}
             </button>
