@@ -151,7 +151,6 @@ const renderNavBar = (setCurrentPage) => {
           <NavDropdown data-testid='miniapps' title="Mini-apps" id="basic-nav-dropdown">
             <NavDropdown.Item data-testid='flashcards' onClick={() => setCurrentPage(PAGES[1])}>Flash cards</NavDropdown.Item>
             <NavDropdown.Item data-testid='multiplechoice' onClick={() => setCurrentPage(PAGES[2])}>Multiple choice</NavDropdown.Item>
-            <NavDropdown.Item onClick={() => setCurrentPage(PAGES[1])}>Recruiter tracking (coming soon)</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
