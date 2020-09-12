@@ -147,7 +147,18 @@ export function getAll() {
                 "limited storage", 
                 "self-service management"               
             ],
-            correctAnswers: [2,3],
+            correctAnswer: [2,3],
+            category: "azure"
+        },
+        {
+            question: "When planning to migrate a public website to Azure, you must [plan to pay monthly usage costs]. Instructions: Review the text contained in square brackets. If it makes the statement correct, select 'No change is needed'. If the statement is incorrect, select the answer choice that makes the statement correct.",
+            answerChoices: [
+                "No change is needed.",
+                "Deploy a VPN", 
+                "pay to transfer all the website data to Azure", 
+                "reduce the number of connections to the website"                  
+            ],
+            correctAnswer: 0,
             category: "azure"
         },
     ]

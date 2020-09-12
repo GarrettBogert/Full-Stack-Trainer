@@ -29,8 +29,8 @@ export default function MultipleChoiceApp(props) {
             setCurrentQuestionIndex(currentQuizIndex);
             let question = quizPool[currentQuizIndex];
             //This hasMultipleAnswers property is essential in rendering single answer quizzes versus multiple answer differently.
-            let valueOfAnswersArray = typeof (question.correctAnswers);
-            question.hasMultipleAnswers = valueOfAnswersArray !== 'undefined';
+            let valueOfAnswersArray = typeof (question.correctAnswer);
+            question.hasMultipleAnswers = valueOfAnswersArray !== 'number';
             return question;
         }
     }
@@ -53,7 +53,7 @@ export default function MultipleChoiceApp(props) {
             return;
         setUserHasGuessed(true);
         if (currentQuestion.hasMultipleAnswers) {
-            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswers)) {
+            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswer)) {
                 //We add the current question to the list of correctly answered questions.
                 setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
             }
@@ -161,7 +161,7 @@ export default function MultipleChoiceApp(props) {
                                         {
                                             //If the user has guessed, we want to highlight which selected answer(s) are correct.
                                             currentQuestion.hasMultipleAnswers && userHasGuessed ?
-                                                userHasGuessed && currentQuestion.correctAnswers.includes(index) ? choice + '(Correct)' : choice
+                                                userHasGuessed && currentQuestion.correctAnswer.includes(index) ? choice + '(Correct)' : choice
                                                 :
                                                 userHasGuessed && index === currentQuestion.correctAnswer ? choice + '(Correct)' : choice
                                         }
