@@ -13,7 +13,7 @@ export default function MultipleChoiceApp(props) {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     //userHasGuessed will allow the display to indicate whether the guess was correct or not
     const [userHasGuessed, setUserHasGuessed] = useState(false);
-    //The index of the current question from the quizPool being displayed.
+    //The index of the current question from the quizPool being displayed.    
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState();
     const [correctlyAnsweredQuestions, setCorrectlyAnsweredQuestions] = useState([]);
     const [incorrectlyAnsweredQuestions, setIncorrectlyAnsweredQuestions] = useState([]);
@@ -21,30 +21,58 @@ export default function MultipleChoiceApp(props) {
 
     //quizPool is a collection of quizzes that will get initialized once a quiz is started with categories selected. 
     const [questionPool, setQuestionPool] = useState([]);
-
     const [userQuestions, setUserQuestions] = useState(getLocalStorageQuizzes())
 
     function getRandomQuestion(quizPool) {
         if (quizPool.length > 0) {
             let currentQuizIndex = Math.floor(Math.random() * quizPool.length - 1) + 1;
             setCurrentQuestionIndex(currentQuizIndex);
-            return quizPool[currentQuizIndex];
+            let question = quizPool[currentQuizIndex];
+            //This hasMultipleAnswers property is essential in rendering single answer quizzes versus multiple answer differently.
+            let valueOfAnswersArray = typeof (question.correctAnswers);
+            question.hasMultipleAnswers = valueOfAnswersArray !== 'undefined';
+            return question;
         }
     }
 
+    function ArraysAreEqual(arr1, arr2) {
+        arr1.sort();
+        arr2.sort();
+        if (arr1.length !== arr2.length)
+            return false;
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] !== arr2[i])
+                return false;
+        }
+        return true;
+
+    }
+
     const handleSubmitClick = () => {
+        if (currentlySelectedAnswer === null)
+            return;
         setUserHasGuessed(true);
-        //If user guessed question right...
-        if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
-            //We add the current question to the list of correctly answered questions.
-            setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+        if (currentQuestion.hasMultipleAnswers) {
+            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswers)) {
+                //We add the current question to the list of correctly answered questions.
+                setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+            }
+            else {
+                setIncorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+            }
         }
         else {
-            setIncorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+            if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
+                //We add the current question to the list of correctly answered questions.
+                setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+            }
+            else {
+                setIncorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
+            }
         }
+
         //We filter out the answered question from the pool, to avoid it being presented twice.  
-        setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));
-        setCurrentlySelectedAnswer(null);
+        setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));      
     }
 
     const populateNextQuestion = () => {
@@ -71,11 +99,19 @@ export default function MultipleChoiceApp(props) {
     }
 
     const handleNextQuestionClick = () => {
+        setCurrentlySelectedAnswer(null);
         populateNextQuestion();
     }
 
     const onChangeSelectedAnswer = (event) => {
         setCurrentlySelectedAnswer(parseInt(event.target.value));
+    }
+    //TODO: Implement this handler properly to extract and set ALL checked checkboxes. We are dealing with checkboxes in this handler - not radio buttons.
+    const onChangeSelectedAnswers = (event) => {
+        let checkBoxes = [...event.currentTarget.children];
+        let checkedBoxes = checkBoxes.filter(box => box.checked);
+        let checkedValues = checkedBoxes.map(box => parseInt(box.value));
+        setCurrentlySelectedAnswer(checkedValues);
     }
 
     const handleStartQuizClick = () => {
@@ -105,18 +141,33 @@ export default function MultipleChoiceApp(props) {
                     <div>
                         {currentQuestion.question}
                     </div>
-                    <div onChange={onChangeSelectedAnswer} className='multipleChoice'>
-                        {currentQuestion.answerChoices.map((choice, index) => {
-                            return (
-                                <>
-                                    <input
-                                        disabled={userHasGuessed}
-                                        type="radio"
-                                        value={index}
-                                        name={'questionChoice'} />
-                                    {userHasGuessed && index === currentQuestion.correctAnswer ? choice + '(Correct)' : choice}
-                                </>)
-                        })}
+                    <div onChange={currentQuestion.hasMultipleAnswers ? onChangeSelectedAnswers : onChangeSelectedAnswer} className='multipleChoice'>
+                        {
+
+                            currentQuestion.answerChoices.map((choice, index) => {
+                                return (
+                                    <>
+                                        <input
+                                            disabled={userHasGuessed}
+                                            //Read this and weep - A ternary nested in another ternary!
+                                            //Currently selected answer can be null, so we have the null check before we use .includes().
+                                            checked={currentQuestion.hasMultipleAnswers ? currentlySelectedAnswer !== null ?
+                                                currentlySelectedAnswer.includes(index) : false
+                                                : currentlySelectedAnswer === index}
+                                            //This renders questions with only a single answer as radio buttons, but questions with multiple answers as checkboxes.
+                                            type={currentQuestion.hasMultipleAnswers ? "checkbox" : "radio"}
+                                            value={index}
+                                            name={'questionChoice'} />
+                                        {
+                                            //If the user has guessed, we want to highlight which selected answer(s) are correct.
+                                            currentQuestion.hasMultipleAnswers && userHasGuessed ?
+                                                userHasGuessed && currentQuestion.correctAnswers.includes(index) ? choice + '(Correct)' : choice
+                                                :
+                                                userHasGuessed && index === currentQuestion.correctAnswer ? choice + '(Correct)' : choice
+                                        }
+                                    </>)
+                            })
+                        }
                     </div>
                 </>
                 : null}

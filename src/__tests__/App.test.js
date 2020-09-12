@@ -14,7 +14,7 @@ it('can render flash cards mini-app', async() => {
   const leftClick = { button: 0 }
   const { getByTestId } = render(<App/>);
   const appsDropdown = getByTestId('miniapps').firstChild;
-  fireEvent.click(appsDropdown, leftClick);// Dirty hack. I need to understand my navbar more if I'm going to keep using it!
+  fireEvent.click(appsDropdown, leftClick);
   await waitForElement(
     () => getByTestId('flashcards')
   );
@@ -28,7 +28,7 @@ it(`can render multiple choice mini-app`, async()=>{
   const leftClick = { button: 0 }
   const { getByTestId } = render(<App/>);
   const appsDropdown = getByTestId('miniapps').firstChild;
-  fireEvent.click(appsDropdown, leftClick);// Dirty hack. I need to understand my navbar more if I'm going to keep using it!
+  fireEvent.click(appsDropdown, leftClick);
   await waitForElement(
     () => getByTestId('multiplechoice')
   );
