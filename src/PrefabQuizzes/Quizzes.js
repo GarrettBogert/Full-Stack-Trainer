@@ -161,6 +161,151 @@ export function getAll() {
             correctAnswer: 0,
             category: "azure"
         },
+        {
+            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+            Your company plans to migrate all its data and resources to Azure.
+            The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
+            You need to deploy an Azure environment that supports the planned migration.
+            Solution: You create an Azure App Service and Azure SQL databases.
+            Does this meet the goal?`,
+            answerChoices: [
+                "yes",
+                "no",                                  
+            ],
+            correctAnswer: 0,
+            category: "azure"
+        },
+        {
+            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+            Your company plans to migrate all its data and resources to Azure.
+            The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
+            You need to deploy an Azure environment that supports the planned migration.
+            Solution: You create an Azure App Service and Azure virtual machines that have Microsoft SQL Server installed.
+            Does this meet the goal?`,
+            answerChoices: [
+                "yes",
+                "no",                                  
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
+            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
+            Your company plans to migrate all its data and resources to Azure.
+            The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
+            You need to deploy an Azure environment that supports the planned migration.
+            Solution: You create an Azure App Service and Azure Storage accounts.
+            Does this meet the goal?`,
+            answerChoices: [
+                "yes",
+                "no",                                  
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `Your company hosts an accounting named App1 that is used by all the customers of the company.
+            App1 has low usage during the first three weeks of each month and very high usage during the last week of each month.
+            Which benefit of Azure Cloud Services supports cost management for this type of usage pattern?`,
+            answerChoices: [
+                "high availability",
+                "high latency",
+                "elasticity",
+                "load balancing"                                  
+            ],
+            correctAnswer: 2,
+            category: "azure"
+        },
+        {
+            question: `You plan to migrate a web application to Azure. The web application is accessed by external users.
+            You need to recommend a cloud deployment solution to minimize the amount of administrative effort used to manage the web application.
+            What should you include in the recommendation?`,
+            answerChoices: [
+                "software as a service (SaaS)",
+                "platform as a service (PaaS)",
+                "infrastructure as a service (Iaas)",
+                "database as a service (DaaS)"                            
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `Which cloud deployment solution is used for Azure virtual machines`,
+            answerChoices: [                                
+                "infrastructure as a service (Iaas)",
+                "platform as a service (PaaS)",
+                "software as a service (SaaS)"                                  
+            ],
+            correctAnswer: 0,
+            category: "azure"
+        },
+        {
+            question: `Which cloud deployment solution is used for Azure SQL databases`,
+            answerChoices: [                                
+                "infrastructure as a service (Iaas)",
+                "platform as a service (PaaS)",
+                "software as a service (SaaS)"                                  
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `You have an on-premises network that contains 100 servers.
+            You need to recommend a solution that provides additional resources to your users. The solution must minimize capital and operational expenditure costs.
+            What should you include in the recommendation?`,
+            answerChoices: [                                
+                "a complete migration to the public cloud",
+                "an additional data center",
+                "a private cloud",
+                "a hybrid cloud"                                  
+            ],
+            correctAnswer: 2,
+            category: "azure"
+        },
+        {
+            question: `To achieve a hybrid cloud model, a company must always migrate from a private cloud model.`,
+            answerChoices: [                                
+                "true",
+                "false"                                    
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `A company can extend the capacity of its internal network by using the public cloud`,
+            answerChoices: [                                
+                "true",
+                "false"                                    
+            ],
+            correctAnswer: 0,
+            category: "azure"
+        },
+        {
+            question: `In a public cloud model, only guest users at your company can access the resources in the cloud.`,
+            answerChoices: [                                
+                "true",
+                "false"                                    
+            ],
+            correctAnswer: 1,
+            category: "azure"
+        },
+        {
+            question: `You plan to migrate several servers from an on-premises network to Azure.
+            You need to identify the primary benefit of using a public cloud service for the servers.
+            What should you identify?`,
+            answerChoices: [                                
+                "The public cloud is owned by the public, NOT a private corporation",
+                "The public cloud is a crowd-sourcing solution that provides corporations with the ability to enhance the cloud" ,
+                "All public cloud resources can be freely accessed by every member of the public",
+                "The public cloud is a shared entity whereby multiple corporations each use a portion of the resources in the cloud"                                   
+            ],
+            correctAnswer: 3,
+            category: "azure"
+        },
+        
     ]
 }
 

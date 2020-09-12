@@ -195,6 +195,13 @@ export default function MultipleChoiceApp(props) {
                     onClick={handleStartQuizClick}>
                     Start Quiz
             </button>}
+            {quizActive && questionPool.length === 0 && correctlyAnsweredQuestions.length === 0 ? 
+            <form action = "https://zealous-sea-03d94b10f.azurestaticapps.net/">
+            <label>You seem to be struggling with this quiz. Maybe it's time to take a break?</label>
+            <input type="submit" value="Blow off some steam" />
+            
+            
+            </form> : null}
 
             {quizActive ? null : <div className='selectCategoriesContainer'>
                 {props.categories.map(category => {
