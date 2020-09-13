@@ -128,13 +128,15 @@ function App() {
   function addCategoryButton() {
     return (
       <>
-        {!isAddingCategory ? <Button
+      <Button
         size='small'
           variant='outlined'
           color='secondary'
-          onClick={handleNewCategoryClick}
-        >Create a custom category</Button>
-          : <>
+          onClick={isAddingCategory? handleCancelAddCategory : handleNewCategoryClick}
+        >{isAddingCategory? 'Cancel create category' : 'Create a category'}
+        </Button>
+        {isAddingCategory ? 
+           <>
             <form noValidate autoComplete="off">
               <TextField id="standard-basic" label="Category" value={addCategoryText} onChange={handleAddCategoryNameChange} />
             </form>
@@ -144,15 +146,9 @@ function App() {
               color='primary'
               onClick={handleConfirmCategory}>
               Confirm category
-            </Button>
-            <Button
-             size='small'
-              variant='contained'
-              color='secondary'
-              onClick={handleCancelAddCategory}>
-              cancel
-            </Button>
+            </Button>           
           </>
+          : null
         }
       </>
     )

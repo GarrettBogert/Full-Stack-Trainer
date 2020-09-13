@@ -57,12 +57,15 @@ export default function FlashCardApp(props) {
                 onClick={() => handleToggleAnswerClick()}
                 onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
             />
+            <div className='centered'>
+            {props.renderSelectableCategories()}</div>  
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}
                 categories={props.categories}
                 userCategories={props.userCategories} />
-            {props.renderAddCategory()}
+            {props.renderAddCategory()}    
+                
         </>
     )
 }
@@ -72,14 +75,13 @@ function Card(props) {
         <>
             <div className='question'>
                 <TextField
-                    id="outlined-multiline-static"
-                    label="Question"
+                    id="outlined-multiline-static"                    
                     multiline
                     value={props.question}
                     variant="outlined"
                 />
             </div>
-            {props.renderSelectableCategories()}
+            
             <div className='answer'>
                 <TextField
                     id="outlined-multiline-static"
@@ -88,12 +90,14 @@ function Card(props) {
                     value={props.answer}
                     variant="outlined"
                     hidden={!props.answerVisible}
-                />
+                />            
             </div>
+            
             <Button
                 variant='contained'
                 color='secondary'
                 onClick={props.onClick}
+                hidden={props.question==="Click 'next question' for question"}
             >
                 {props.isVisible ? 'Hide answer' : 'Show answer'}
             </Button>
@@ -154,7 +158,7 @@ function AddCard(props) {
                 color='secondary'
                 data-testid='addCard'
                 onClick={handleNewCardClick}
-            >{isAddingCard ? 'Cancel' : 'Add Card'}
+            >{isAddingCard ? 'Cancel create flash card' : 'Create a flash card'}
             </Button>
             {!isAddingCard ? null
                 : <div className='addcard'>
