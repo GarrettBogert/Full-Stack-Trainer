@@ -50,16 +50,24 @@ export default function FlashCardApp(props) {
     return (
         <>
         <h1>Flash cards</h1>
-            <Card
-                renderSelectableCategories={props.renderSelectableCategories}
-                question={question}
-                answer={answer}
-                answerVisible={answerVisible}
-                onClick={() => handleToggleAnswerClick()}
-                onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
-            />
-            <div className='centered'>
-            {props.renderSelectableCategories()}</div>  
+        {props.checkedCategories.length === 0 ?
+                <>
+                    <div>To get started, select one or many categories.</div>
+                </>
+                : null
+            }
+            {props.renderSelectableCategories()}
+            {props.checkedCategories.length !== 0 ?
+               <Card               
+               question={question}
+               answer={answer}
+               answerVisible={answerVisible}
+               onClick={() => handleToggleAnswerClick()}
+               onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
+           />   
+           : null 
+            }
+                
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}

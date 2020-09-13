@@ -207,6 +207,12 @@ export default function MultipleChoiceApp(props) {
     return (
         <>
             <h1>Multiple choice quizzes</h1>
+            {props.checkedCategories.length === 0 ?
+                <>
+                    <div>To get started, select one or many categories and click 'Start Quiz' to begin a quiz session!</div>
+                </>
+                : null
+            }
             {currentQuestion !== null ? (
                 <TextField
                     id="outlined-multiline-static"
