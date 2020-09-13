@@ -1002,7 +1002,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "true",
-                "false"                
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1015,7 +1015,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "true",
-                "false"                
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1028,7 +1028,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "true",
-                "false"                
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1042,7 +1042,7 @@ export function getAll() {
                 "one network security group (NSG)",
                 "10 virtual network gateways",
                 "10 Azure ExpressRoute circuits",
-                "one Azure firewall"             
+                "one Azure firewall"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1121,7 +1121,7 @@ export function getAll() {
                 "a virtual network",
                 "a gateway subnet"
             ],
-            correctAnswer: [3,4],
+            correctAnswer: [3, 4],
             category: "Azure AZ-900"
         },
         {
@@ -1322,7 +1322,7 @@ export function getAll() {
                 "Azure IoT Hub",
                 "Azure Notification Hubs"
             ],
-            correctAnswer: [1,3],
+            correctAnswer: [1, 3],
             category: "Azure AZ-900"
         },
         {
@@ -1337,7 +1337,7 @@ export function getAll() {
                 "Windows PowerShell",
                 "Azure Storage Explorer"
             ],
-            correctAnswer: [0,2],
+            correctAnswer: [0, 2],
             category: "Azure AZ-900"
         },
         {
@@ -1401,7 +1401,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "yes",
-                "no",                
+                "no",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1414,7 +1414,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "yes",
-                "no",                
+                "no",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1427,7 +1427,7 @@ export function getAll() {
             `,
             answerChoices: [
                 "yes",
-                "no",                
+                "no",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1436,21 +1436,21 @@ export function getAll() {
             question: `Which two types of customers are eligible to use Azure Government to develop a cloud solution? Each correct answer presents a complete solution.
             `,
             answerChoices: [
-               "a Canadian government contractor",
-               "a European government contractor",
-               "a United States government entity",
-               "a United States government contractor",
-               "a European government entity"             
+                "a Canadian government contractor",
+                "a European government contractor",
+                "a United States government entity",
+                "a United States government contractor",
+                "a European government entity"
             ],
-            correctAnswer: [2,3],
+            correctAnswer: [2, 3],
             category: "Azure AZ-900"
         },
         {
             question: `To implement an Azure Multi-Factor Authentication(MFA) solution, you must deploy a federation solution or sync on-premises identities to the cloud
             `,
             answerChoices: [
-               "true",
-               "false"                         
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1459,8 +1459,8 @@ export function getAll() {
             question: `Two valid methods for Azure Multi-Factor Authentication (MFA) are picture identification and a passport number
             `,
             answerChoices: [
-               "true",
-               "false"                         
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1469,8 +1469,8 @@ export function getAll() {
             question: `Azure Multi-Factor Authentication (MFA) can be required for administrative and non-administrative user accounts
             `,
             answerChoices: [
-               "true",
-               "false"                         
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1480,10 +1480,10 @@ export function getAll() {
             Which Azure service should you use?
             `,
             answerChoices: [
-             "Azure AD Connect Health",
-             "Azure AD Privileged Identity Management",
-             "Azure Advanced Threat Protection (ATP)",
-             "Azure AD Identity Protection"               
+                "Azure AD Connect Health",
+                "Azure AD Privileged Identity Management",
+                "Azure Advanced Threat Protection (ATP)",
+                "Azure AD Identity Protection"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1492,10 +1492,10 @@ export function getAll() {
             question: `What provides statistics that help you understand how you spend your time at work?
             `,
             answerChoices: [
-             "eDiscovery",
-             "Customer Lockbox",
-             "PSTN Calling",
-             "My Analytics"     
+                "eDiscovery",
+                "Customer Lockbox",
+                "PSTN Calling",
+                "My Analytics"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1504,10 +1504,10 @@ export function getAll() {
             question: `What extends an existing telephone system for call delegation and call on-behalf functionality?
             `,
             answerChoices: [
-             "eDiscovery",
-             "Customer Lockbox",
-             "PSTN Calling",
-             "My Analytics"     
+                "eDiscovery",
+                "Customer Lockbox",
+                "PSTN Calling",
+                "My Analytics"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1516,10 +1516,10 @@ export function getAll() {
             question: `What controls how a Microsoft support engineer access your data during a help session?
             `,
             answerChoices: [
-             "eDiscovery",
-             "Customer Lockbox",
-             "PSTN Calling",
-             "My Analytics"     
+                "eDiscovery",
+                "Customer Lockbox",
+                "PSTN Calling",
+                "My Analytics"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1528,10 +1528,10 @@ export function getAll() {
             question: `What Identifies and delivers electronic information that can be used as evidence in legal cases?
             `,
             answerChoices: [
-             "eDiscovery",
-             "Customer Lockbox",
-             "PSTN Calling",
-             "My Analytics"     
+                "eDiscovery",
+                "Customer Lockbox",
+                "PSTN Calling",
+                "My Analytics"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1542,10 +1542,10 @@ export function getAll() {
             What should you include in the recommendation?
             `,
             answerChoices: [
-             "network security groups (NSGs)",
-             "Azure Service Bus",
-             "a local network gateway",
-             "a route filter"
+                "network security groups (NSGs)",
+                "Azure Service Bus",
+                "a local network gateway",
+                "a route filter"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1554,10 +1554,10 @@ export function getAll() {
             question: `To what should an application connect to retrieve security tokens?
             `,
             answerChoices: [
-             "an Azure Storage account",
-             "Azure Active Directory(Azure AD)",
-             "a certificate store",
-             "an Azure key vault"
+                "an Azure Storage account",
+                "Azure Active Directory(Azure AD)",
+                "a certificate store",
+                "an Azure key vault"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1567,10 +1567,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "Management groups",
-             "Azure policies",
-             "Azure App Service plans"
+                "No change is needed",
+                "Management groups",
+                "Azure policies",
+                "Azure App Service plans"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1582,10 +1582,10 @@ export function getAll() {
             What should you recommend?
             `,
             answerChoices: [
-             "Implement Azure Multi-Factor Authentication(MFA)",
-             "Sync all the Active Directory user accounts to Azure Active Directory (Azure AD)",
-             "Instruct all users to change their password",
-             "Create a guest user account in Azure Active Directory (Azure AD) for each user"
+                "Implement Azure Multi-Factor Authentication(MFA)",
+                "Sync all the Active Directory user accounts to Azure Active Directory (Azure AD)",
+                "Instruct all users to change their password",
+                "Create a guest user account in Azure Active Directory (Azure AD) for each user"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1596,8 +1596,8 @@ export function getAll() {
             Which setting should you use? To answer, select the appropriate setting in the answer area.
             `,
             answerChoices: [
-             "Delete lock",
-             "Read-only lock",             
+                "Delete lock",
+                "Read-only lock",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1606,10 +1606,10 @@ export function getAll() {
             question: `Which Azure service should you use to store certificates?
             `,
             answerChoices: [
-             "Azure Security Center",
-             "an Azure Storage account",
-             "Azure Key Vault",
-             "Azure Information Protection"             
+                "Azure Security Center",
+                "an Azure Storage account",
+                "Azure Key Vault",
+                "Azure Information Protection"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1621,10 +1621,10 @@ export function getAll() {
             What should you use?
             `,
             answerChoices: [
-             "a lock",
-             "an Azure role",
-             "a tag",
-             "an Azure policy"             
+                "a lock",
+                "an Azure role",
+                "a tag",
+                "an Azure policy"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1633,10 +1633,10 @@ export function getAll() {
             question: `What can Azure Information Protection encrypt?
             `,
             answerChoices: [
-             "network traffic",
-             "documents and email messages",
-             "an Azure Storage account",
-             "an Azure SQL database"             
+                "network traffic",
+                "documents and email messages",
+                "an Azure Storage account",
+                "an Azure SQL database"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1645,10 +1645,10 @@ export function getAll() {
             question: `What should you use to evaluate whether your company's Azure environment meets regulatory requirements?
             `,
             answerChoices: [
-             "the Knowledge Center website",
-             "the Advisor blade from the Azure portal",
-             "Compliance Manager from the Security Trust Portal",
-             "the Security Center blade from the Azure portal"             
+                "the Knowledge Center website",
+                "the Advisor blade from the Azure portal",
+                "Compliance Manager from the Security Trust Portal",
+                "the Security Center blade from the Azure portal"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1657,8 +1657,8 @@ export function getAll() {
             question: `Azure Advisor can generate a list of Azure virtual machines that are protected by Azure Backup.
             `,
             answerChoices: [
-             "yes",
-             "no"                 
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1667,8 +1667,8 @@ export function getAll() {
             question: `If you implement the security recommendations provided by Azure Advisor, your company's secure score will decrease.
             `,
             answerChoices: [
-             "yes",
-             "no"                 
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1677,8 +1677,8 @@ export function getAll() {
             question: `To maintain Microsoft support, you must implement the security recommendations provided by Azure Advisor within a period of 30 days.
             `,
             answerChoices: [
-             "yes",
-             "no"                 
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1688,10 +1688,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "DDos protection",
-             "Azure Information Protection",
-             "Azure Active Directory (Azure AD) identity Protection"                 
+                "No change is needed",
+                "DDos protection",
+                "Azure Information Protection",
+                "Azure Active Directory (Azure AD) identity Protection"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1701,10 +1701,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "Azure Event Hubs",
-             "Azure Activity Log",
-             "Azure Service Health"                 
+                "No change is needed",
+                "Azure Event Hubs",
+                "Azure Activity Log",
+                "Azure Service Health"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1715,10 +1715,10 @@ export function getAll() {
             Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "is moved automatically to another resource group",
-             "continues to function normally",
-             "is now a read-only object"                 
+                "No change is needed",
+                "is moved automatically to another resource group",
+                "continues to function normally",
+                "is now a read-only object"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1727,8 +1727,8 @@ export function getAll() {
             question: `Azure Firewall will encrypt all network traffic sent from Azure to the Internet
             `,
             answerChoices: [
-             "true",
-             "false"              
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1737,8 +1737,8 @@ export function getAll() {
             question: `A netwoork security group (NSG) will encrypt all the network traffic sent from Azure to the internet.
             `,
             answerChoices: [
-             "true",
-             "false"              
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1747,8 +1747,8 @@ export function getAll() {
             question: `Azure virtual machines that run Windows Server 2016 can encrypt the network traffic sent from the virtual machines to a host on the internet.
             `,
             answerChoices: [
-             "true",
-             "false"              
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1760,10 +1760,10 @@ export function getAll() {
             What should you create?
             `,
             answerChoices: [
-             "a read-only lock",
-             "an Azure Policy",
-             "a management group",
-             "a reservation"              
+                "a read-only lock",
+                "an Azure Policy",
+                "a management group",
+                "a reservation"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1773,10 +1773,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "Authentication",
-             "Federation",
-             "Ticketing"              
+                "No change is needed",
+                "Authentication",
+                "Federation",
+                "Ticketing"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1788,10 +1788,10 @@ export function getAll() {
             What should you include in the solution?
             `,
             answerChoices: [
-             "Azure Firewall",
-             "a network security group (NSG)",
-             "Azure Information Protection",
-             "DDoS protection"              
+                "Azure Firewall",
+                "a network security group (NSG)",
+                "Azure Information Protection",
+                "DDoS protection"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1800,10 +1800,10 @@ export function getAll() {
             question: `Which of the following services monitors threats by using sensors?
             `,
             answerChoices: [
-             "Azure Monitor",
-             "Azure Security Center",
-             "Azure Active Directory (Azure AD) Identity Protection",
-             "Azure Advanced Threat Protection (ATP)"              
+                "Azure Monitor",
+                "Azure Security Center",
+                "Azure Active Directory (Azure AD) Identity Protection",
+                "Azure Advanced Threat Protection (ATP)"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1812,10 +1812,10 @@ export function getAll() {
             question: `Which of the following services enforces Azure MFA based on a condition?
             `,
             answerChoices: [
-             "Azure Monitor",
-             "Azure Security Center",
-             "Azure Active Directory (Azure AD) Identity Protection",
-             "Azure Advanced Threat Protection (ATP)"              
+                "Azure Monitor",
+                "Azure Security Center",
+                "Azure Active Directory (Azure AD) Identity Protection",
+                "Azure Advanced Threat Protection (ATP)"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -1824,8 +1824,8 @@ export function getAll() {
             question: `From Azure Service Health, an administrator can view the health of all the services deployed to an Azure environment and all the other services available in Azure.
             `,
             answerChoices: [
-             "true",
-             "false"             
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1834,8 +1834,8 @@ export function getAll() {
             question: `From Azure Service Health, and administrator can create a rule to be alerted if an Azure service fails.
             `,
             answerChoices: [
-             "true",
-             "false"             
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1844,8 +1844,8 @@ export function getAll() {
             question: `From Azure Service Health, and administrator can prevent a service failure from affecting a specific virtual machine
             `,
             answerChoices: [
-             "true",
-             "false"             
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1855,10 +1855,10 @@ export function getAll() {
             What should you use?
             `,
             answerChoices: [
-             "the Knowledge Center",
-             "Azure Marketplace"   ,
-             "the Azure portal",
-             "the Trust Center"          
+                "the Knowledge Center",
+                "Azure Marketplace",
+                "the Azure portal",
+                "the Trust Center"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1868,10 +1868,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-             "No change is needed",
-             "Azure Active Directory (Azure AD) administrative accounts"   ,
-             "Personally Identifiable Information (PII)",
-             "server applications"          
+                "No change is needed",
+                "Azure Active Directory (Azure AD) administrative accounts",
+                "Personally Identifiable Information (PII)",
+                "server applications"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1880,8 +1880,8 @@ export function getAll() {
             question: `Authorization to access Azure resources can be provided only to Azure Active Directory (Azure AD) users.
             `,
             answerChoices: [
-             "true",
-             "false" 
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1890,8 +1890,8 @@ export function getAll() {
             question: `Identities stored in Azure Active directory (Azure AD), third-party cloud services, and on-premises Active Directory can be used to access Azure Resources.
             `,
             answerChoices: [
-             "true",
-             "false" 
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1900,8 +1900,8 @@ export function getAll() {
             question: `Azure has built-in authentication and authorization services that provide secure access to Azure resources.
             `,
             answerChoices: [
-             "true",
-             "false" 
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1913,10 +1913,10 @@ export function getAll() {
             What should you include in the recommendation?
             `,
             answerChoices: [
-             "Azure Key Vault",
-             "Azure Information Protection",
-             "Azure Security Center",
-             "Azure Multi-Factor Authentication (MFA)"
+                "Azure Key Vault",
+                "Azure Information Protection",
+                "Azure Security Center",
+                "Azure Multi-Factor Authentication (MFA)"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1927,10 +1927,10 @@ export function getAll() {
             What should you use?
             `,
             answerChoices: [
-             "a network security group (NSG)",
-             "an Azure Active Directory (Azure AD) role",
-             "an Azure Active Directory group",
-             "an Azure key vault"
+                "a network security group (NSG)",
+                "an Azure Active Directory (Azure AD) role",
+                "an Azure Active Directory group",
+                "an Azure key vault"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1940,10 +1940,10 @@ export function getAll() {
             Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "The virtual machines can be moved to the new subscription",
-           "The virtual machines can be moved to the new subscription only if they are all in the same resource group",
-           "The virtual machines can be moved to the new subscription only if they run Windows Server 2016."
+                "No change is needed",
+                "The virtual machines can be moved to the new subscription",
+                "The virtual machines can be moved to the new subscription only if they are all in the same resource group",
+                "The virtual machines can be moved to the new subscription only if they run Windows Server 2016."
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1953,10 +1953,10 @@ export function getAll() {
             What should you do to increase the limits?
             `,
             answerChoices: [
-           "Create a service health alert",
-           "Upgrade your support plan",
-           "Modify an Azure policy",
-           "Create a new support request"
+                "Create a service health alert",
+                "Upgrade your support plan",
+                "Modify an Azure policy",
+                "Create a new support request"
             ],
             correctAnswer: 3,
             category: "Azure AZ-900"
@@ -1965,8 +1965,8 @@ export function getAll() {
             question: `If your company uses an Azure free account, you will only be exposed to a subset of Azure services
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1975,8 +1975,8 @@ export function getAll() {
             question: `All Azure free accounts expire after a specific period.
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1985,8 +1985,8 @@ export function getAll() {
             question: `You can create up to 10 Azure free accounts by using the same Microsoft account
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1995,8 +1995,8 @@ export function getAll() {
             question: `Each Azure subscription can contain multiple account administrators
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2005,8 +2005,8 @@ export function getAll() {
             question: `Each Azure subscription can be managed by using a Microsoft account only
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2015,8 +2015,8 @@ export function getAll() {
             question: `An Azure resource group contains multiple Azure subscriptions
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2026,10 +2026,10 @@ export function getAll() {
             Which Azure Resource Manager feature should you use before you generate the reports?
             `,
             answerChoices: [
-           "tags",
-           "templates",
-           "locks",
-           "policies"
+                "tags",
+                "templates",
+                "locks",
+                "policies"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2038,8 +2038,8 @@ export function getAll() {
             question: `In Azure Active Directory premium, at least 99.9 percent availability is guaranteed.
             `,
             answerChoices: [
-           "true",
-           "false"  
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2048,8 +2048,8 @@ export function getAll() {
             question: `The Service Level Agreement (SLA) for Azure Active Directory Basic is the same as the SLA for Azure Active Directory Free.
             `,
             answerChoices: [
-           "true",
-           "false"  
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2058,8 +2058,8 @@ export function getAll() {
             question: `All paying Azure customers can claim a credit if their monthly uptime percentage is below the guaranteed amount in the Service Level Agreement (SLA)
             `,
             answerChoices: [
-           "true",
-           "false"  
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2069,10 +2069,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "automatically migrate the resource to another subscription",
-            "automatically credit your account",
-            "send you a coupon code that you can redeem for Azure credits"  
+                "No change is needed",
+                "automatically migrate the resource to another subscription",
+                "automatically credit your account",
+                "send you a coupon code that you can redeem for Azure credits"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -2081,8 +2081,8 @@ export function getAll() {
             question: `All Azure services in private preview must be accessed by using a separate Azure portal
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2091,8 +2091,8 @@ export function getAll() {
             question: `Azure services in public preview can be used in production environments
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2101,8 +2101,8 @@ export function getAll() {
             question: `Azure services in public preview are subject to a Service Level Agreement (SLA)
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2111,8 +2111,8 @@ export function getAll() {
             question: `A Standard support plan is included in an Azure free account.
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2121,8 +2121,8 @@ export function getAll() {
             question: `A Premier support plan can only be purchased by companies that have an Enterprise Agreement (EA)
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2131,8 +2131,8 @@ export function getAll() {
             question: `Support from MSDN forums is only provided to companies that have a pay-as-you-go subscription.
             `,
             answerChoices: [
-           "true",
-           "false",            
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2143,10 +2143,10 @@ export function getAll() {
             What should you include in the recommendation?
             `,
             answerChoices: [
-           "multiple subscriptions",
-           "multiple Azure Active Directory (Azure AD) directories",
-           "multiple regions",
-           "multiple resource groups"            
+                "multiple subscriptions",
+                "multiple Azure Active Directory (Azure AD) directories",
+                "multiple regions",
+                "multiple resource groups"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2162,8 +2162,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"     
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2179,8 +2179,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"     
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2196,8 +2196,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"     
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2206,12 +2206,12 @@ export function getAll() {
             question: `How should you calculate the monthly uptime percentage?
             `,
             answerChoices: [
-           "Downtime in minutes / 60 * 100",
-           "Downtime in minutes / 60 * 99.99",
-           "Downtime in minutes / 60 * 1.440",
-           "(Maximum available minutes - downtime in minutes) / 1,440 * 99.99",
-           "(Maximum available minutes - downtime in minutes) / maximum available minutes * 99.99",
-           "(Maximum available minutes - downtime in minutes) / maximum available minutes * 100",
+                "Downtime in minutes / 60 * 100",
+                "Downtime in minutes / 60 * 99.99",
+                "Downtime in minutes / 60 * 1.440",
+                "(Maximum available minutes - downtime in minutes) / 1,440 * 99.99",
+                "(Maximum available minutes - downtime in minutes) / maximum available minutes * 99.99",
+                "(Maximum available minutes - downtime in minutes) / maximum available minutes * 100",
             ],
             correctAnswer: 5,
             category: "Azure AZ-900"
@@ -2220,8 +2220,8 @@ export function getAll() {
             question: `By creating additional resource groups in an Azure subscription, additional costs are incurred.
             `,
             answerChoices: [
-           "true",
-           "false"     
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2230,8 +2230,8 @@ export function getAll() {
             question: `By copying several gigabits of data to Azure from an on-premises network over a VPN, additional data transfer costs are incurred.
             `,
             answerChoices: [
-           "true",
-           "false"     
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2240,8 +2240,8 @@ export function getAll() {
             question: `By copying several GB of data from Azure to an on-premises network over a VPN, additional data transfer costs are incurred.
             `,
             answerChoices: [
-           "true",
-           "false"     
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2251,10 +2251,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "Developer"     ,
-           "Basic",
-           "Premier"
+                "No change is needed",
+                "Developer",
+                "Basic",
+                "Premier"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -2266,8 +2266,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no" 
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2276,10 +2276,10 @@ export function getAll() {
             question: `In which Azure support plans can you open a new support request?
             `,
             answerChoices: [
-           "Premier and Professional Direct only",
-           "Premier, Professional Direct, and Standard only" ,
-           "Premier, Professional Direct, Standard, and Developer only",
-           "Premier, Professional Direct, Standard, Developer, and Basic"
+                "Premier and Professional Direct only",
+                "Premier, Professional Direct, and Standard only",
+                "Premier, Professional Direct, Standard, and Developer only",
+                "Premier, Professional Direct, Standard, Developer, and Basic"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -2289,10 +2289,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed." If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "the Azure portal" ,
-           "the Knowledge Center",
-           "the Security and Compliance admin center"
+                "No change is needed",
+                "the Azure portal",
+                "the Knowledge Center",
+                "the Security and Compliance admin center"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2308,8 +2308,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no" 
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2318,10 +2318,10 @@ export function getAll() {
             question: `What is guaranteed in an Azure Service Level Agreement (SLA)?
             `,
             answerChoices: [
-           "uptime",
-           "feature availability",
-           "bandwidth",
-           "performance"
+                "uptime",
+                "feature availability",
+                "bandwidth",
+                "performance"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2331,10 +2331,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "private preview",
-           "development",
-           "an Enterprise Agreement (EA) subscription"
+                "No change is needed",
+                "private preview",
+                "development",
+                "an Enterprise Agreement (EA) subscription"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2347,8 +2347,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2361,8 +2361,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2375,8 +2375,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2388,10 +2388,10 @@ export function getAll() {
             Which support plan should you recommend?
             `,
             answerChoices: [
-           "Premier",
-           "Developer",
-           "Professional Direct",
-           "Standard"
+                "Premier",
+                "Developer",
+                "Professional Direct",
+                "Standard"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2400,8 +2400,8 @@ export function getAll() {
             question: `Most Azure services are introduced in private preview before being introduced in public preview, and then in general availability.
             `,
             answerChoices: [
-           "true",
-           "false"           
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2410,8 +2410,8 @@ export function getAll() {
             question: `Azure services in public preview can be managed only by using the Azure CLI
             `,
             answerChoices: [
-           "true",
-           "false"           
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2420,8 +2420,8 @@ export function getAll() {
             question: `The cost of an Azure service in private preview decreases when the service becomes generally available.
             `,
             answerChoices: [
-           "true",
-           "false"           
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2430,10 +2430,10 @@ export function getAll() {
             question: `What is required to use Azure Cost Management?
             `,
             answerChoices: [
-           "a Dev/Test subscription",
-           "Software Assurance",
-           "an Enterprise Agreement (EA)",
-           "a pay-as-you-go subscription"           
+                "a Dev/Test subscription",
+                "Software Assurance",
+                "an Enterprise Agreement (EA)",
+                "a pay-as-you-go subscription"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -2443,10 +2443,10 @@ export function getAll() {
             Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
             `,
             answerChoices: [
-           "No change is needed",
-           "start an existing Azure virtual machine",
-           "access your data stored in Azure",
-           "access the Azure portal"         
+                "No change is needed",
+                "start an existing Azure virtual machine",
+                "access your data stored in Azure",
+                "access the Azure portal"
             ],
             correctAnswer: 2,
             category: "Azure AZ-900"
@@ -2459,8 +2459,8 @@ export function getAll() {
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2472,10 +2472,10 @@ export function getAll() {
             What should you create for each department?
             `,
             answerChoices: [
-           "a reservation",
-           "a subscription",
-           "a resource group",
-           "a container instance"
+                "a reservation",
+                "a subscription",
+                "a resource group",
+                "a container instance"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2484,8 +2484,8 @@ export function getAll() {
             question: `An Azure free account has a spending limit
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2494,8 +2494,8 @@ export function getAll() {
             question: `An Azure free account has a limit for the amount of data that can be uploaded to Azure.
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2504,8 +2504,8 @@ export function getAll() {
             question: `An Azure free account can contain an unlimited number of web apps.
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2514,8 +2514,8 @@ export function getAll() {
             question: `An Azure service in private preview is released to all Azure customers.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2524,8 +2524,8 @@ export function getAll() {
             question: `An Azure service in public preview is released to all Azure customers.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2534,8 +2534,8 @@ export function getAll() {
             question: `An Azure service in general availability is released to a subset of Azure customers.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2544,8 +2544,8 @@ export function getAll() {
             question: `A single Microsoft account can be used to manage multiple Azure subscriptions.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2554,8 +2554,8 @@ export function getAll() {
             question: `Two Azure subscriptions can be merged into a single subscription by creating a support request.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2564,8 +2564,8 @@ export function getAll() {
             question: `A company can store resources in multiple subscriptions.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2574,8 +2574,8 @@ export function getAll() {
             question: `The Service Level Agreement (SLA) guaranteed uptime for paid Azure services is at least 99.9 percent.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2584,8 +2584,8 @@ export function getAll() {
             question: `Companies can increase the Service Level Agreement (SLA) guaranteed uptime by adding Azure resources to multiple regions.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2594,8 +2594,8 @@ export function getAll() {
             question: `Companies can increase the Service Level Agreement (SLA) guaranteed uptime by purchasing multiple subscriptions.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2604,8 +2604,8 @@ export function getAll() {
             question: `Storing 1 TB of data in Azure Blob storage will always cost the same, regardless of the Azure region in which the data is located.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2614,8 +2614,8 @@ export function getAll() {
             question: `When you use a general-purpose v2 Azure Storage account, you are only charged for the amount of data that is stored. All read and write operations are free.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2624,8 +2624,8 @@ export function getAll() {
             question: `Transferring data between Azure Storage accounts in different Azure regions is free.
             `,
             answerChoices: [
-           "true",
-           "false"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2635,10 +2635,10 @@ export function getAll() {
             Which resource is an example of IaaS?
             `,
             answerChoices: [
-           "an Azure web app",
-           "an Azure virtual machine",
-           "an Azure logic app",
-           "an Azure SQL database"
+                "an Azure web app",
+                "an Azure virtual machine",
+                "an Azure logic app",
+                "an Azure SQL database"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2650,10 +2650,10 @@ export function getAll() {
             What should you recommend?
             `,
             answerChoices: [
-           "Azure Reserved Virtual Machines (VM) Instances.",
-           "Azure DevTest Labs",
-           "Azure virtual machine scale sets",
-           "Microsoft Managed Desktop"
+                "Azure Reserved Virtual Machines (VM) Instances.",
+                "Azure DevTest Labs",
+                "Azure virtual machine scale sets",
+                "Microsoft Managed Desktop"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2664,16 +2664,203 @@ export function getAll() {
             
             UbuntuLTS --generate-ssh-keys -
             You need to create VM1 in Subscription1 by using the command.
-            Solution: From the Azure portal, launch Azure Cloud Shell and select PowerShell. Run the command in Cloud Shell.
+            Solution: From the Azure portal, laugnch Azure Cloud Shell and select PowerShell. Run the command in Cloud Shell.
             Does this meet the goal?
             `,
             answerChoices: [
-           "yes",
-           "no"
+                "yes",
+                "no"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
         },
+        {
+            question: `You have an Azure subscription named Subscription1. You sign in to the Azure portal and create a resource group named RG1.
+            From Azure documentation, you have the following command that creates a virtual machine named VM1. az vm create --resource-group RG1 --name VM1 -- image
+            
+            UbuntuLTS --generate-ssh-keys -
+            You need to create VM1 in Subscription1 by using the command.
+            Solution: From a computer that runs Windows 10, install Azure CLI. From PowerShell, sign in to Azure and then run the command.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have an Azure subscription named Subscription1. You sign in to the Azure portal and create a resource group named RG1.
+            From Azure documentation, you have the following command that creates a virtual machine named VM1. az vm create --resource-group RG1 --name VM1 -- image
+            
+            UbuntuLTS --generate-ssh-keys -
+            You need to create VM1 in Subscription1 by using the command.
+            Solution: From a computer that runs Windows 10, install Azure CLI. From a command prompt, sign in to Azure and then run the command.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have an Azure subscription named Subscription1. You sign in to the Azure portal and create a resource group named RG1.
+            From Azure documentation, you have the following command that creates a virtual machine named VM1. az vm create --resource-group RG1 --name VM1 -- image
+            
+            UbuntuLTS --generate-ssh-keys -
+            You need to create VM1 in Subscription1 by using the command.
+            Solution: From a computer that runs Windows 10, install Azure CLI. From a command prompt, sign in to Azure and then run the command.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `If Microsoft plans to end support for an Azure service that does NOT have a successor service, Microsoft will provide notification at least [12 months] before.
+            Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed",
+                "6 months",
+                "90 days",
+                "30 days"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to deploy several custom applications to Azure. The applications will provide invoicing services to the customers of the company. Each application will have several prerequisite applications and services installed.
+            You need to recommend a cloud deployment solution for all the applications.
+            What should you recommend?
+            `,
+            answerChoices: [
+                "Software as a service (SaaS)",
+                "Platform as a service (PaaS)",
+                "Infrastructure as a service (IaaS)"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which service provides serverless computing in Azure?
+            `,
+            answerChoices: [
+                "Azure Virtual Machines",
+                "Azure Functions",
+                "Azure storage account",
+                "Azure Container Instances"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which Azure service provides a set of version control tools to manage code?
+            `,
+            answerChoices: [
+                "Azure Repos",
+                "Azure DevTest Labs",
+                "Azure Storage",
+                "Azure Cosmos DB"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which service provides network traffic filtering across multiple Azure subscriptions and virtual networks?
+            `,
+            answerChoices: [
+                "Azure Firewall",
+                "an application security group",
+                "Azure DDoS protection",
+                "a network security group (NSG)"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `From [Azure Cloud Shell], you can track your company's regulatory standards and regulations, such as ISO 27001.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed." If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed",
+                "the Microsoft Cloud Partner Portal",
+                "Compliance Manager",
+                "the Trust Center"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `The [Microsoft Online Services Privacy Statement] explains what data Microsoft processes, how Microsoft processes the data, and the purpose of processing the data.
+            Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed." If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed",
+                "Microsoft Online Services Terms",
+                "Microsoft Online Service Level Agreement",
+                "Online Subscription Agreement for Microsoft Azure"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to migrate to Azure. The company has several departments. All the Azure resources used by each department will be managed by a department administrator.
+            What are two possible techniques to segment Azure for the departments?
+            `,
+            answerChoices: [
+                "multiple subscriptions",
+                "multiple Azure Active Directory (Azure AD) directories",
+                "multiple regions",
+                "multiple resource groups"
+            ],
+            correctAnswer: [0, 3],
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which statement accurately describes the Modern Lifecycle Policy for Azure services
+            `,
+            answerChoices: [
+                "Microsoft provides mainstream support for a service for five years",
+                "Microsoft provides a minimum of 12 months' notice before ending suppoort for a service",
+                "After a service is made generally available, Microsoft provides support for the service for a minimum of four years",
+                "When a service is retired, you can purchase extended support for the service for up to five years."
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You can use [Advisor recommendations] in Azure to send email alerts when the cost of the current billing period for an Azure subscription exceeds a specified limit.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed." If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed.",
+                "Access control (IAM)",
+                "Budget alerts",
+                "Compliance"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `The Azure [Standard] support plan is the lowest cost option to receive 24x7 access to support engineers by phone.
+            Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+            "No change is needed",
+            "Developer",
+            "Basic",
+            "Professional Direct"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        }
     ]
 }
 
