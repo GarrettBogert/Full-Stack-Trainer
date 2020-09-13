@@ -49,6 +49,7 @@ export default function FlashCardApp(props) {
 
     return (
         <>
+        <h1>Flash cards</h1>
             <Card
                 renderSelectableCategories={props.renderSelectableCategories}
                 question={question}

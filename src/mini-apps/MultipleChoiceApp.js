@@ -206,6 +206,7 @@ export default function MultipleChoiceApp(props) {
 
     return (
         <>
+         <h1>Multiple choice quizzes</h1>
             {currentQuestion !== null ? (
                 <TextField
                     id="outlined-multiline-static"
