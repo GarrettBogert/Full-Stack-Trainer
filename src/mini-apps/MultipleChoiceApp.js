@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Checkbox from '../Checkbox.js';
 import * as Questions from '../PrefabQuizzes/Quizzes.js';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export default function MultipleChoiceApp(props) {
 
@@ -72,7 +78,7 @@ export default function MultipleChoiceApp(props) {
         }
 
         //We filter out the answered question from the pool, to avoid it being presented twice.  
-        setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));      
+        setQuestionPool(oldPool => oldPool.filter((question, index) => index !== currentQuestionIndex));
     }
 
     const populateNextQuestion = () => {
@@ -114,6 +120,93 @@ export default function MultipleChoiceApp(props) {
         setCurrentlySelectedAnswer(checkedValues);
     }
 
+    function getQuestionChoicesAsCheckbox() {
+        return (
+            currentQuestion.answerChoices.map((choice, index) => {
+                return (
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                disabled={userHasGuessed}
+                                checked={currentlySelectedAnswer !== null ? currentlySelectedAnswer.includes(index) : false}
+                                value={index}
+                                name={'questionChoice'} />
+                        }
+                        label={choice}
+                    />
+                )
+            }
+            )
+        )
+    }
+
+    function getQuestionChoicesAsRadio() {
+        return (
+            currentQuestion.answerChoices.map((choice, index) => {
+                return (
+                    <FormControlLabel value={index} control={<Radio />} label={choice} />
+                )
+            }
+            )
+        )
+    }
+    function renderRelevantButtons() {
+        return (
+            quizActive ? <>
+            <Button
+               variant='contained'
+               color='primary'
+                onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
+                {userHasGuessed ? 'Next Question' : 'Submit Answer'}
+            </Button>
+                <Button
+                variant='contained'
+                color='secondary'
+                    onClick={handleCancelQuizClick}>
+                    Cancel quiz
+                    </Button>
+            </>
+                : <Button
+                    variant='contained'
+                    color='primary'
+                    onClick={handleStartQuizClick}>
+                    Start Quiz
+                </Button>
+        )
+    }
+    function renderConsulationToBadQuizTaker() {
+        return (
+            quizActive && questionPool.length === 0 && correctlyAnsweredQuestions.length === 0 ?
+                <form action="https://zealous-glacier-069535a10.azurestaticapps.net">
+                    <label>You seem to be struggling with this quiz. Maybe it's time to take a break?</label>
+                    <input type="submit" value="Blow off some steam" />
+                </form> : null
+        )
+    }
+    function renderSelectableCategories() {
+        return (
+            quizActive ? null : <div className='selectCategoriesContainer'>
+                {props.categories.map(category => {
+                    return (<Checkbox
+                        disabled={quizActive}
+                        label={category}
+                        isChecked={props.checkedCategories.includes(category)}
+                        onCheckboxChange={props.handleCategoryCheckboxChange}
+                        key={category}
+                    />)
+                })}
+                {props.userCategories.map(category => {
+                    return (<Checkbox
+                        disabled={quizActive}
+                        label={category}
+                        isChecked={props.checkedCategories.includes(category)}
+                        onCheckboxChange={props.handleCategoryCheckboxChange}
+                        key={category}
+                    />)
+                })}
+            </div>
+        )
+    }
     const handleStartQuizClick = () => {
         if (props.checkedCategories.length > 0) {
             let requestedQuestions = Questions.getPool(props.checkedCategories, userQuestions);
@@ -136,94 +229,46 @@ export default function MultipleChoiceApp(props) {
 
     return (
         <>
-            {currentQuestion !== null ?
-                <>
-                    <div>
-                        {currentQuestion.question}
-                    </div>
-                    <div onChange={currentQuestion.hasMultipleAnswers ? onChangeSelectedAnswers : onChangeSelectedAnswer} className='multipleChoice'>
-                        {
-
-                            currentQuestion.answerChoices.map((choice, index) => {
-                                return (
-                                    <>
-                                        <input
-                                            disabled={userHasGuessed}
-                                            //Read this and weep - A ternary nested in another ternary!
-                                            //Currently selected answer can be null, so we have the null check before we use .includes().
-                                            checked={currentQuestion.hasMultipleAnswers ? currentlySelectedAnswer !== null ?
-                                                currentlySelectedAnswer.includes(index) : false
-                                                : currentlySelectedAnswer === index}
-                                            //This renders questions with only a single answer as radio buttons, but questions with multiple answers as checkboxes.
-                                            type={currentQuestion.hasMultipleAnswers ? "checkbox" : "radio"}
-                                            value={index}
-                                            name={'questionChoice'} />
-                                        {
-                                            //If the user has guessed, we want to highlight which selected answer(s) are correct.
-                                            currentQuestion.hasMultipleAnswers && userHasGuessed ?
-                                                userHasGuessed && currentQuestion.correctAnswer.includes(index) ? choice + '(Correct)' : choice
-                                                :
-                                                userHasGuessed && index === currentQuestion.correctAnswer ? choice + '(Correct)' : choice
-                                        }
-                                    </>)
-                            })
-                        }
-                    </div>
-                </>
-                : null}
-            {quizActive ?
-                <>
-                    <label>{`${correctlyAnsweredQuestions.length} correct answers.`}</label>
-                    <label>{`${incorrectlyAnsweredQuestions.length} incorrect answers.`}</label>
-                </>
+            {currentQuestion !== null ? (
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Question"
+                    multiline
+                    value={currentQuestion.question}
+                    variant="outlined"
+                />       
+                )
                 : null
             }
+       
+            {currentQuestion !== null ? currentQuestion.hasMultipleAnswers ?
+                (
+                    <FormGroup
+                        onChange={onChangeSelectedAnswers}>
+                        {getQuestionChoicesAsCheckbox()}
+                    </FormGroup>
+                )
 
-
-            {quizActive ? <><button
-                className='greybutton'
-                onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
-                {userHasGuessed ? 'Next Question' : 'Submit Answer'}
-            </button>
-                <button
-                    onClick={handleCancelQuizClick}>
-                    Cancel quiz
-                </button>
-            </>
-                : <button
-                    className='greybutton'
-                    onClick={handleStartQuizClick}>
-                    Start Quiz
-            </button>}
-            {quizActive && questionPool.length === 0 && correctlyAnsweredQuestions.length === 0 ? 
-            <form action = "https://zealous-glacier-069535a10.azurestaticapps.net">
-            <label>You seem to be struggling with this quiz. Maybe it's time to take a break?</label>
-            <input type="submit" value="Blow off some steam" />
+                :
+                (<RadioGroup
+                value={currentlySelectedAnswer}
+                onChange={onChangeSelectedAnswer}>
+                    {getQuestionChoicesAsRadio()}
+                </RadioGroup>
+                ) : null
+            }
             
-            
-            </form> : null}
-
-            {quizActive ? null : <div className='selectCategoriesContainer'>
-                {props.categories.map(category => {
-                    return (<Checkbox
-                        disabled={quizActive}
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-                {props.userCategories.map(category => {
-                    return (<Checkbox
-                        disabled={quizActive}
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-            </div>}
-
+            {renderRelevantButtons()}
+            {
+                quizActive ?
+                    <>
+                        <label className='small'>{`${correctlyAnsweredQuestions.length} correct answers.`}</label>
+                        <label className='small'>{`${incorrectlyAnsweredQuestions.length} incorrect answers.`}</label>
+                    </>
+                    : null
+            }
+            {renderConsulationToBadQuizTaker()}
+            {renderSelectableCategories()}
         </>
     )
 }

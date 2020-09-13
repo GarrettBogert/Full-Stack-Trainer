@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MultipleChoiceApp from './mini-apps/MultipleChoiceApp.js';
 import FlashCardApp from './mini-apps/FlashCardApp.js'
 
+
 const PAGES = ['Home', 'Flash cards', 'Multiple choice', 'Recruiter tracking'];
 const CATEGORIES = ['csharp', 'html', 'css', 'sql', 'javascript', 'Azure AZ-900'];
 

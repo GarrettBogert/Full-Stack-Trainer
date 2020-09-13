@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color:#557a95;
   min-height: 100vh;
 }
 
@@ -20,9 +19,8 @@
 
 .center{
   width:50%;
-  background-color: #557a95;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .selectCategoriesContainer{
@@ -69,10 +67,12 @@
   color:black;
 }
 
-.greybutton{
-  position:center;
-  color:rgb(0, 0, 0);
-  background-color: #969696;
+label.small{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-content: center;
+  font-size: small
 }
 
 .App-link {
