@@ -20,13 +20,10 @@ export default function FlashCardApp(props) {
         return rawCards ?? [];
     };
 
-
     const [answerVisible, setAnswerVisible] = useState(false);
     const [answer, setAnswer] = useState("");
     const [question, setQuestion] = useState("Click 'next question' for question");
-
     const [userCards, setUserCards] = useState(getLocalStorageCards())
-
 
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
@@ -53,22 +50,20 @@ export default function FlashCardApp(props) {
     return (
         <>
             <Card
-            renderSelectableCategories={props.renderSelectableCategories}
+                renderSelectableCategories={props.renderSelectableCategories}
                 question={question}
                 answer={answer}
                 answerVisible={answerVisible}
                 onClick={() => handleToggleAnswerClick()}
                 onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
-            />       
-
+            />
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}
                 categories={props.categories}
                 userCategories={props.userCategories} />
-              
+            {props.renderAddCategory()}
         </>
-        
     )
 }
 
@@ -107,7 +102,7 @@ function Card(props) {
                 color='primary'
                 onClick={props.onNextCardClick}>
                 Next question
-            </Button>           
+            </Button>
         </>
     )
 }
@@ -151,15 +146,12 @@ function AddCard(props) {
         setAddCardAnswerText('');
         setAddCardSelectedCategory('csharp');
     }
-
-
-
     return (
         <div className='addcard'>
             <Button
-            size='small'
-                variant='contained'
-                color='primary'
+                size='small'
+                variant='outlined'
+                color='secondary'
                 data-testid='addCard'
                 onClick={handleNewCardClick}
             >{isAddingCard ? 'Cancel' : 'Add Card'}
@@ -191,7 +183,7 @@ function AddCard(props) {
                             })}
                         </Select>
                     </FormControl>
-                   
+
 
                     <Button
                         variant='contained'

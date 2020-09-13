@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import * as Questions from '../PrefabQuizzes/Quizzes.js';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -60,8 +59,7 @@ export default function MultipleChoiceApp(props) {
             return;
         setUserHasGuessed(true);
         if (currentQuestion.hasMultipleAnswers) {
-            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswer)) {
-                //We add the current question to the list of correctly answered questions.
+            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswer)) {               
                 setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
             }
             else {
@@ -69,8 +67,7 @@ export default function MultipleChoiceApp(props) {
             }
         }
         else {
-            if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
-                //We add the current question to the list of correctly answered questions.
+            if (currentlySelectedAnswer === currentQuestion.correctAnswer) {             
                 setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
             }
             else {
@@ -113,7 +110,7 @@ export default function MultipleChoiceApp(props) {
     const onChangeSelectedAnswer = (event) => {
         setCurrentlySelectedAnswer(parseInt(event.target.value));
     }
-    //TODO: Implement this handler properly to extract and set ALL checked checkboxes. We are dealing with checkboxes in this handler - not radio buttons.
+   
     const onChangeSelectedAnswers = (event) => {
         let checkBoxes = [...event.currentTarget.children];
         let checkedBoxes = checkBoxes.filter(box => box.checked);
@@ -151,6 +148,7 @@ export default function MultipleChoiceApp(props) {
             )
         )
     }
+
     function renderRelevantButtons() {
         return (
             quizActive ? <>
@@ -159,7 +157,7 @@ export default function MultipleChoiceApp(props) {
                     color='primary'
                     onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
                     {userHasGuessed ? 'Next Question' : 'Submit Answer'}
-                </Button>              
+                </Button>
             </>
                 : <Button
                     variant='contained'
@@ -169,7 +167,8 @@ export default function MultipleChoiceApp(props) {
                 </Button>
         )
     }
-    function renderConsulationToBadQuizTaker() {
+
+    function renderConsulationForBadQuizTaker() {
         return (
             quizActive && questionPool.length === 0 && correctlyAnsweredQuestions.length === 0 ?
                 <form action="https://zealous-glacier-069535a10.azurestaticapps.net">
@@ -177,12 +176,12 @@ export default function MultipleChoiceApp(props) {
                     <Button type="submit"
                         variant='contained'
                         color='primary' >
-                        "Blow off some steam"
+                        "Blow off some steam!"
                         </Button>
                 </form> : null
         )
     }
-  
+
     const handleStartQuizClick = () => {
         if (props.checkedCategories.length > 0) {
             let requestedQuestions = Questions.getPool(props.checkedCategories, userQuestions);
@@ -232,7 +231,7 @@ export default function MultipleChoiceApp(props) {
                 </RadioGroup>
                 ) : null
             }
-           
+
             {renderRelevantButtons()}
             {
                 quizActive ?
@@ -242,18 +241,18 @@ export default function MultipleChoiceApp(props) {
                     </>
                     : null
             }
-            {quizActive? <Button
-            size='small'
-                    variant='contained'
-                    color='secondary'
-                    onClick={handleCancelQuizClick}>
-                    Cancel quiz
-                    </Button> : null}
-                   
-              
-            {renderConsulationToBadQuizTaker()}
-            {!quizActive ? props.renderSelectableCategories(): null}
+            {quizActive ? <Button
+                size='small'
+                variant='outlined'
+                color='secondary'
+                onClick={handleCancelQuizClick}>
+                Cancel quiz
+                    </Button>
+                : null
+            }
 
+            {renderConsulationForBadQuizTaker()}
+            {!quizActive ? props.renderSelectableCategories() : null}
         </>
     )
 }

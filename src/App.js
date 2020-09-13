@@ -41,17 +41,27 @@ function App() {
   const [categories, setCategories] = useState(CATEGORIES);
   const [checkedCategories, setCheckedCategories] = useState([]);
 
-  function getStyles(name, theme) {
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
+  function getStyles(name, checkedCategories, theme) {
     return {
       fontWeight:
-        name.indexOf(name) === -1
+      checkedCategories.indexOf(name) === -1
           ? theme.typography.fontWeightRegular
           : theme.typography.fontWeightMedium,
     };
   }
 
-  const theme = useTheme();
-
+  
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -71,9 +81,11 @@ function App() {
   }));
 
   const classes = useStyles();
+  const theme = useTheme();
 
   function renderSelectableCategories() {
     return (
+      <>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-mutiple-chip-label">Categories</InputLabel>
         <Select
@@ -91,20 +103,21 @@ function App() {
             </div>
           )
           }
+          MenuProps={MenuProps}
         >
           {categories.map((name) => (
-            <MenuItem key={name} value={name} style={getStyles(name, theme)}>
+            <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
               {name}
             </MenuItem>
           ))}
           {userCategories.map((name) => (
-            <MenuItem key={name} value={name}>
+            <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
               {name}
             </MenuItem>
           ))}
-        </Select>
-      </FormControl>
-
+        </Select>        
+      </FormControl>     
+      </>
     )
   }
 
@@ -116,21 +129,24 @@ function App() {
     return (
       <>
         {!isAddingCategory ? <Button
-          variant='contained'
+        size='small'
+          variant='outlined'
           color='secondary'
           onClick={handleNewCategoryClick}
-        >Add category</Button>
+        >Create a custom category</Button>
           : <>
             <form noValidate autoComplete="off">
               <TextField id="standard-basic" label="Category" value={addCategoryText} onChange={handleAddCategoryNameChange} />
             </form>
             <Button
+              size='small'
               variant='contained'
               color='primary'
               onClick={handleConfirmCategory}>
               Confirm category
             </Button>
             <Button
+             size='small'
               variant='contained'
               color='secondary'
               onClick={handleCancelAddCategory}>
@@ -155,6 +171,7 @@ function App() {
       case 'Flash cards':
         return (
           <FlashCardApp
+          renderAddCategory={addCategoryButton}
             renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
             categories={categories}
@@ -162,6 +179,7 @@ function App() {
             setCheckedCategories={setCheckedCategories}
             handleCategoryCheckboxChange={handleCategoryCheckboxChange}
           />
+
         );
 
       case 'Home':
