@@ -59,7 +59,7 @@ export default function MultipleChoiceApp(props) {
             return;
         setUserHasGuessed(true);
         if (currentQuestion.hasMultipleAnswers) {
-            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswer)) {               
+            if (ArraysAreEqual(currentlySelectedAnswer, currentQuestion.correctAnswer)) {
                 setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
             }
             else {
@@ -67,7 +67,7 @@ export default function MultipleChoiceApp(props) {
             }
         }
         else {
-            if (currentlySelectedAnswer === currentQuestion.correctAnswer) {             
+            if (currentlySelectedAnswer === currentQuestion.correctAnswer) {
                 setCorrectlyAnsweredQuestions(prevAnswered => [...prevAnswered, currentQuestion]);
             }
             else {
@@ -110,7 +110,7 @@ export default function MultipleChoiceApp(props) {
     const onChangeSelectedAnswer = (event) => {
         setCurrentlySelectedAnswer(parseInt(event.target.value));
     }
-   
+
     const onChangeSelectedAnswers = (event) => {
         let checkBoxes = [...event.currentTarget.children];
         let checkedBoxes = checkBoxes.filter(box => box.control.checked);
@@ -130,8 +130,8 @@ export default function MultipleChoiceApp(props) {
                                 value={index}
                                 name={'questionChoice'} />
                         }
-                        label={userHasGuessed? 
-                        currentQuestion.correctAnswer.includes(index) ? choice + "(correct)" : choice + "(incorrect)" : choice}
+                        label={userHasGuessed ?
+                            currentQuestion.correctAnswer.includes(index) ? choice + "(correct)" : choice + "(incorrect)" : choice}
                     />
                 )
             }
@@ -143,7 +143,7 @@ export default function MultipleChoiceApp(props) {
         return (
             currentQuestion.answerChoices.map((choice, index) => {
                 return (
-                    <FormControlLabel value={index} control={<Radio />}  label={userHasGuessed? 
+                    <FormControlLabel value={index} control={<Radio />} label={userHasGuessed ?
                         currentQuestion.correctAnswer === index ? choice + "(correct)" : choice : choice} />
                 )
             }
@@ -206,7 +206,7 @@ export default function MultipleChoiceApp(props) {
 
     return (
         <>
-         <h1>Multiple choice quizzes</h1>
+            <h1>Multiple choice quizzes</h1>
             {currentQuestion !== null ? (
                 <TextField
                     id="outlined-multiline-static"
@@ -234,7 +234,9 @@ export default function MultipleChoiceApp(props) {
                 </RadioGroup>
                 ) : null
             }
-
+            <div className='centered'>
+                {!quizActive ? props.renderSelectableCategories() : null}
+            </div>
             {renderRelevantButtons()}
             {
                 quizActive ?
@@ -255,10 +257,8 @@ export default function MultipleChoiceApp(props) {
             }
 
             {renderConsulationForBadQuizTaker()}
-            <div className='centered'>
-            {!quizActive ? props.renderSelectableCategories() : null}
-            </div>
-            
+
+
         </>
     )
 }
