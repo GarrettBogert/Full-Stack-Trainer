@@ -10,6 +10,108 @@ export function getAll() {
             category: "csharp"
         },
         {
+            question: "What is managed code?",
+            answerChoices: [
+                "Code that is reviewed closely by a manager before being used in productions.",
+                "Code that is executed by the Common Language Runtime",
+                "Code that does not declare variables using the 'var' keyword.",
+                "Code written in C++",],
+            correctAnswer: 1,
+            category: "csharp"
+        },
+        {
+            question: "What is an interface?",
+            answerChoices: [
+                "A class with no implementation.",
+                "A class with an implementation for every possible operation",
+                "An attribute used to describe a method belonging to an API",
+            ],
+            correctAnswer: 0,
+            category: "csharp"
+        },
+        {
+            question: "Which of the following are not actual class types in C#?",
+            answerChoices: [
+                "Abstract class",
+                "Partial class",
+                "Master class",
+                "Sealed class",
+                "Static class",
+                "Info class"
+            ],
+            correctAnswer: [2,5],
+            category: "csharp"
+        },
+        {
+            question: "Which of the following are not valid uses of 'using' in c#?",
+            answerChoices: [
+                "As a directive for referencing/importing libraries.",
+                "As a keyword to indicate the usage of an IDisposable",
+                "As a keyword before a variable initialization to put a resource lock on a variable.",
+                "As a directive for aliasing AND referencing/importing libraries",               
+            ],
+            correctAnswer: [2],
+            category: "csharp"
+        },
+        {
+            question: "Which of the following are not valid keywords of exception handling c#?",
+            answerChoices: [
+                "catch",
+                "try",
+                "toss",
+                "eventually",              
+                "throw",
+                "finally",   
+                "inject"            
+            ],
+            correctAnswer: [2,3,6],
+            category: "csharp"
+        },
+        {
+            question: "Which of the following are not valid keywords of exception handling c#?",
+            answerChoices: [
+                "catch",
+                "try",
+                "toss",
+                "eventually",              
+                "throw",
+                "finally",   
+                "inject"            
+            ],
+            correctAnswer: [2,3,6],
+            category: "csharp"
+        },
+        {
+            question: "Reference types are allocated on the Heap.",
+            answerChoices: [
+                "true",
+                "false"
+            ],
+            correctAnswer: 0,
+            category: "csharp"
+        },
+        {
+            question: "Value types are allocated on the stack.",
+            answerChoices: [
+                "true",
+                "false"
+            ],
+            correctAnswer: 0,
+            category: "csharp"
+        },
+        {
+            question: "What character denotes a destructor method?",
+            answerChoices: [
+                "^",
+                "!",
+                "!!",
+                "@",
+                "~"
+            ],
+            correctAnswer: 4,
+            category: "csharp"
+        },      
+        {
             question: "What MS SQL server function will return the length of a string?",
             answerChoices: ["LENGTH()",
                 "COUNT()",
