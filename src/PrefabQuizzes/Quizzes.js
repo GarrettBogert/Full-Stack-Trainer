@@ -1367,6 +1367,1313 @@ export function getAll() {
             correctAnswer: 1,
             category: "Azure AZ-900"
         },
+        {
+            question: `Azure Germany can be used by legal residents of Germany only.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed",
+                "only enterprises that are registered in Germany",
+                "only enterprises that purchase their azure licenses from a partner based in Germany",
+                "any user or enterprise that requires its data to reside in Germany"
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `After you create a virtual machine, you need to modify the [network security group (NSG)] to allow connections from TCP port 8080 to the virtual machine.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+                "No change is needed",
+                "virtual network gateway",
+                "virtual network",
+                "route table"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your Azure environment contains multiple Azure virtual machines.
+            You need to ensure that a virtual machine named VM1 is accessible from the Internet over HTTP.
+            Solution: You modify a DDoS protection plan.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no",                
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your Azure environment contains multiple Azure virtual machines.
+            You need to ensure that a virtual machine named VM1 is accessible from the Internet over HTTP.
+            Solution: You modify an Azure firewall.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no",                
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your Azure environment contains multiple Azure virtual machines.
+            You need to ensure that a virtual machine named VM1 is accessible from the Internet over HTTP.
+            Solution: You modify an Azure Traffic Manager profile.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+                "yes",
+                "no",                
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which two types of customers are eligible to use Azure Government to develop a cloud solution? Each correct answer presents a complete solution.
+            `,
+            answerChoices: [
+               "a Canadian government contractor",
+               "a European government contractor",
+               "a United States government entity",
+               "a United States government contractor",
+               "a European government entity"             
+            ],
+            correctAnswer: [2,3],
+            category: "Azure AZ-900"
+        },
+        {
+            question: `To implement an Azure Multi-Factor Authentication(MFA) solution, you must deploy a federation solution or sync on-premises identities to the cloud
+            `,
+            answerChoices: [
+               "true",
+               "false"                         
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Two valid methods for Azure Multi-Factor Authentication (MFA) are picture identification and a passport number
+            `,
+            answerChoices: [
+               "true",
+               "false"                         
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure Multi-Factor Authentication (MFA) can be required for administrative and non-administrative user accounts
+            `,
+            answerChoices: [
+               "true",
+               "false"                         
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You need to ensure that when Azure Active Directory (Azure AD) users connect to Azure AD from the Internet by using an anonymous IP address, the users are prompted automatically to change their password.
+            Which Azure service should you use?
+            `,
+            answerChoices: [
+             "Azure AD Connect Health",
+             "Azure AD Privileged Identity Management",
+             "Azure Advanced Threat Protection (ATP)",
+             "Azure AD Identity Protection"               
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What provides statistics that help you understand how you spend your time at work?
+            `,
+            answerChoices: [
+             "eDiscovery",
+             "Customer Lockbox",
+             "PSTN Calling",
+             "My Analytics"     
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What extends an existing telephone system for call delegation and call on-behalf functionality?
+            `,
+            answerChoices: [
+             "eDiscovery",
+             "Customer Lockbox",
+             "PSTN Calling",
+             "My Analytics"     
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What controls how a Microsoft support engineer access your data during a help session?
+            `,
+            answerChoices: [
+             "eDiscovery",
+             "Customer Lockbox",
+             "PSTN Calling",
+             "My Analytics"     
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What Identifies and delivers electronic information that can be used as evidence in legal cases?
+            `,
+            answerChoices: [
+             "eDiscovery",
+             "Customer Lockbox",
+             "PSTN Calling",
+             "My Analytics"     
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to deploy several web servers and several database servers to Azure.
+            You need to recommend an Azure solution to limit the types of connections from the web servers to the database servers.
+            What should you include in the recommendation?
+            `,
+            answerChoices: [
+             "network security groups (NSGs)",
+             "Azure Service Bus",
+             "a local network gateway",
+             "a route filter"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `To what should an application connect to retrieve security tokens?
+            `,
+            answerChoices: [
+             "an Azure Storage account",
+             "Azure Active Directory(Azure AD)",
+             "a certificate store",
+             "an Azure key vault"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `[Resource groups] provide organizations with the ability to manage the compliance of Azure resources across multiple subscriptions.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "Management groups",
+             "Azure policies",
+             "Azure App Service plans"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your network contains an Active Directory forest. The forest contains 5,000 user accounts.
+            Your company plans to migrate all network resources to Azure and to decommission the on-premises data center.
+            You need to recommend a solution to minimize the impact on users after the planned migration.
+            What should you recommend?
+            `,
+            answerChoices: [
+             "Implement Azure Multi-Factor Authentication(MFA)",
+             "Sync all the Active Directory user accounts to Azure Active Directory (Azure AD)",
+             "Instruct all users to change their password",
+             "Create a guest user account in Azure Active Directory (Azure AD) for each user"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You create a resource group named RG1 in Azure Resource Manager.
+            You need to prevent the deletion of the resources in RG1.
+            Which setting should you use? To answer, select the appropriate setting in the answer area.
+            `,
+            answerChoices: [
+             "Delete lock",
+             "Read-only lock",             
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which Azure service should you use to store certificates?
+            `,
+            answerChoices: [
+             "Azure Security Center",
+             "an Azure Storage account",
+             "Azure Key Vault",
+             "Azure Information Protection"             
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have a resource group named RG1.
+            You plan to create virtual networks and app services in RG1.
+            You need to prevent the creation of virtual machines only in RG1.
+            What should you use?
+            `,
+            answerChoices: [
+             "a lock",
+             "an Azure role",
+             "a tag",
+             "an Azure policy"             
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What can Azure Information Protection encrypt?
+            `,
+            answerChoices: [
+             "network traffic",
+             "documents and email messages",
+             "an Azure Storage account",
+             "an Azure SQL database"             
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What should you use to evaluate whether your company's Azure environment meets regulatory requirements?
+            `,
+            answerChoices: [
+             "the Knowledge Center website",
+             "the Advisor blade from the Azure portal",
+             "Compliance Manager from the Security Trust Portal",
+             "the Security Center blade from the Azure portal"             
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure Advisor can generate a list of Azure virtual machines that are protected by Azure Backup.
+            `,
+            answerChoices: [
+             "yes",
+             "no"                 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `If you implement the security recommendations provided by Azure Advisor, your company's secure score will decrease.
+            `,
+            answerChoices: [
+             "yes",
+             "no"                 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `To maintain Microsoft support, you must implement the security recommendations provided by Azure Advisor within a period of 30 days.
+            `,
+            answerChoices: [
+             "yes",
+             "no"                 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company implements [Azure policies] to automatically add a watermark to Microsoft Word documents that contain credit card information.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "DDos protection",
+             "Azure Information Protection",
+             "Azure Active Directory (Azure AD) identity Protection"                 
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `From [Azure Monitor], you can view which user turned off a specific virtual machine during the last 14 days.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "Azure Event Hubs",
+             "Azure Activity Log",
+             "Azure Service Health"                 
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have an Azure virtual network named VNET1 in a resource group named RG1.
+            You assign an Azure policy specifying that virtual networks are not an allowed resource type in RG1. VNET1 [is deleted automatically].
+            Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "is moved automatically to another resource group",
+             "continues to function normally",
+             "is now a read-only object"                 
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure Firewall will encrypt all network traffic sent from Azure to the Internet
+            `,
+            answerChoices: [
+             "true",
+             "false"              
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A netwoork security group (NSG) will encrypt all the network traffic sent from Azure to the internet.
+            `,
+            answerChoices: [
+             "true",
+             "false"              
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure virtual machines that run Windows Server 2016 can encrypt the network traffic sent from the virtual machines to a host on the internet.
+            `,
+            answerChoices: [
+             "true",
+             "false"              
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has an Azure environment that contains resources in several regions.
+            A company policy states that administrators must only be allowed to create additional Azure resources in a region in the country where their office is located.
+            You need to create the Azure resource that must be used to meet the policy requirement.
+            What should you create?
+            `,
+            answerChoices: [
+             "a read-only lock",
+             "an Azure Policy",
+             "a management group",
+             "a reservation"              
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `[Authorization] is the process of verifying a user's credentials.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "Authentication",
+             "Federation",
+             "Ticketing"              
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You need to configure an Azure solution that meets the following requirements:
+            ✑ Secures websites from attacks
+            ✑ Generates reports that contain details of attempted attacks
+            What should you include in the solution?
+            `,
+            answerChoices: [
+             "Azure Firewall",
+             "a network security group (NSG)",
+             "Azure Information Protection",
+             "DDoS protection"              
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which of the following services monitors threats by using sensors?
+            `,
+            answerChoices: [
+             "Azure Monitor",
+             "Azure Security Center",
+             "Azure Active Directory (Azure AD) Identity Protection",
+             "Azure Advanced Threat Protection (ATP)"              
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Which of the following services enforces Azure MFA based on a condition?
+            `,
+            answerChoices: [
+             "Azure Monitor",
+             "Azure Security Center",
+             "Azure Active Directory (Azure AD) Identity Protection",
+             "Azure Advanced Threat Protection (ATP)"              
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `From Azure Service Health, an administrator can view the health of all the services deployed to an Azure environment and all the other services available in Azure.
+            `,
+            answerChoices: [
+             "true",
+             "false"             
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `From Azure Service Health, and administrator can create a rule to be alerted if an Azure service fails.
+            `,
+            answerChoices: [
+             "true",
+             "false"             
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `From Azure Service Health, and administrator can prevent a service failure from affecting a specific virtual machine
+            `,
+            answerChoices: [
+             "true",
+             "false"             
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to migrate all on-premises data to Azure. You need to identify whether Azure complies with the company's regional requirements.
+            What should you use?
+            `,
+            answerChoices: [
+             "the Knowledge Center",
+             "Azure Marketplace"   ,
+             "the Azure portal",
+             "the Trust Center"          
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `[Azure Key Vault] is used to store secrets for Azure Active Directory (Azure AD) user accounts.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+             "No change is needed",
+             "Azure Active Directory (Azure AD) administrative accounts"   ,
+             "Personally Identifiable Information (PII)",
+             "server applications"          
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Authorization to access Azure resources can be provided only to Azure Active Directory (Azure AD) users.
+            `,
+            answerChoices: [
+             "true",
+             "false" 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Identities stored in Azure Active directory (Azure AD), third-party cloud services, and on-premises Active Directory can be used to access Azure Resources.
+            `,
+            answerChoices: [
+             "true",
+             "false" 
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure has built-in authentication and authorization services that provide secure access to Azure resources.
+            `,
+            answerChoices: [
+             "true",
+             "false" 
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to automate the deployment of servers to Azure.
+            Your manager is concerned that you may expose administrative credentials during the deployment.
+            You need to recommend an Azure solution that encrypts the administrative credentials during the deployment.
+            What should you include in the recommendation?
+            `,
+            answerChoices: [
+             "Azure Key Vault",
+             "Azure Information Protection",
+             "Azure Security Center",
+             "Azure Multi-Factor Authentication (MFA)"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You plan to deploy several Azure virtual machines.
+            You need to control the ports that devices on the Internet can use to access the virtual machines.
+            What should you use?
+            `,
+            answerChoices: [
+             "a network security group (NSG)",
+             "an Azure Active Directory (Azure AD) role",
+             "an Azure Active Directory group",
+             "an Azure key vault"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have several virtual machines in an Azure subscription. You create a new subscription. [The virtual machines cannot be moved to the new subscription].
+            Instructions: Review the underlined text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "The virtual machines can be moved to the new subscription",
+           "The virtual machines can be moved to the new subscription only if they are all in the same resource group",
+           "The virtual machines can be moved to the new subscription only if they run Windows Server 2016."
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You attempt to create several managed Microsoft SQL Server instances in an Azure environment and receive a message that you must increase your Azure subscription limits.
+            What should you do to increase the limits?
+            `,
+            answerChoices: [
+           "Create a service health alert",
+           "Upgrade your support plan",
+           "Modify an Azure policy",
+           "Create a new support request"
+            ],
+            correctAnswer: 3,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `If your company uses an Azure free account, you will only be exposed to a subset of Azure services
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `All Azure free accounts expire after a specific period.
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You can create up to 10 Azure free accounts by using the same Microsoft account
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Each Azure subscription can contain multiple account administrators
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Each Azure subscription can be managed by using a Microsoft account only
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure resource group contains multiple Azure subscriptions
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has 10 offices. You plan to generate several billing reports from the Azure portal. Each report will contain the Azure resource utilization of each office.
+            Which Azure Resource Manager feature should you use before you generate the reports?
+            `,
+            answerChoices: [
+           "tags",
+           "templates",
+           "locks",
+           "policies"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `In Azure Active Directory premium, at least 99.9 percent availability is guaranteed.
+            `,
+            answerChoices: [
+           "true",
+           "false"  
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `The Service Level Agreement (SLA) for Azure Active Directory Basic is the same as the SLA for Azure Active Directory Free.
+            `,
+            answerChoices: [
+           "true",
+           "false"  
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `All paying Azure customers can claim a credit if their monthly uptime percentage is below the guaranteed amount in the Service Level Agreement (SLA)
+            `,
+            answerChoices: [
+           "true",
+           "false"  
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You deploy an Azure resource. The resource becomes unavailable for an extended period due to a service outage. Microsoft will [automatically refund your bank account].
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "automatically migrate the resource to another subscription",
+            "automatically credit your account",
+            "send you a coupon code that you can redeem for Azure credits"  
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `All Azure services in private preview must be accessed by using a separate Azure portal
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure services in public preview can be used in production environments
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure services in public preview are subject to a Service Level Agreement (SLA)
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A Standard support plan is included in an Azure free account.
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A Premier support plan can only be purchased by companies that have an Enterprise Agreement (EA)
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Support from MSDN forums is only provided to companies that have a pay-as-you-go subscription.
+            `,
+            answerChoices: [
+           "true",
+           "false",            
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to migrate to Azure. The company has several departments. All the Azure resources used by each department will be managed by a department administrator.
+            You need to recommend an Azure deployment that provides the ability to segment Azure for the departments. The solution must minimize administrative effort.
+            What should you include in the recommendation?
+            `,
+            answerChoices: [
+           "multiple subscriptions",
+           "multiple Azure Active Directory (Azure AD) directories",
+           "multiple regions",
+           "multiple resource groups"            
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has an Azure subscription that contains the following unused resources:
+            ✑ 20 user accounts in Azure Active Directory (Azure AD)
+            ✑ Five groups in Azure AD
+            ✑ 10 public IP addresses
+            ✑ 10 network interfaces
+            You need to reduce the Azure costs for the company.
+            Solution: You remove the unused network interfaces.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"     
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has an Azure subscription that contains the following unused resources:
+            ✑ 20 user accounts in Azure Active Directory (Azure AD)
+            ✑ Five groups in Azure AD
+            ✑ 10 public IP addresses
+            ✑ 10 network interfaces
+            You need to reduce the Azure costs for the company.
+            Solution: You remove the unused public IP addresses.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"     
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has an Azure subscription that contains the following unused resources:
+            ✑ 20 user accounts in Azure Active Directory (Azure AD)
+            ✑ Five groups in Azure AD
+            ✑ 10 public IP addresses
+            ✑ 10 network interfaces
+            You need to reduce the Azure costs for the company.
+            Solution: You remove the unused user accounts.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"     
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `How should you calculate the monthly uptime percentage?
+            `,
+            answerChoices: [
+           "Downtime in minutes / 60 * 100",
+           "Downtime in minutes / 60 * 99.99",
+           "Downtime in minutes / 60 * 1.440",
+           "(Maximum available minutes - downtime in minutes) / 1,440 * 99.99",
+           "(Maximum available minutes - downtime in minutes) / maximum available minutes * 99.99",
+           "(Maximum available minutes - downtime in minutes) / maximum available minutes * 100",
+            ],
+            correctAnswer: 5,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `By creating additional resource groups in an Azure subscription, additional costs are incurred.
+            `,
+            answerChoices: [
+           "true",
+           "false"     
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `By copying several gigabits of data to Azure from an on-premises network over a VPN, additional data transfer costs are incurred.
+            `,
+            answerChoices: [
+           "true",
+           "false"     
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `By copying several GB of data from Azure to an on-premises network over a VPN, additional data transfer costs are incurred.
+            `,
+            answerChoices: [
+           "true",
+           "false"     
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A support plan solution that gives you best practice information, health status and notifications, and 24/7 access to billing information at the lowest possible cost is a [Standard] support plan.
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "Developer"     ,
+           "Basic",
+           "Premier"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You plan to deploy several Azure virtual machines.
+            You need to ensure that the services running on the virtual machines are available if a single data center fails.
+            Solution: You deploy the virtual machines to two or more resource groups.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no" 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `In which Azure support plans can you open a new support request?
+            `,
+            answerChoices: [
+           "Premier and Professional Direct only",
+           "Premier, Professional Direct, and Standard only" ,
+           "Premier, Professional Direct, Standard, and Developer only",
+           "Premier, Professional Direct, Standard, Developer, and Basic"
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You can create an Azure support request from [support.microsoft.com].
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed." If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "the Azure portal" ,
+           "the Knowledge Center",
+           "the Security and Compliance admin center"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has an Azure subscription that contains the following unused resources:
+            ✑ 20 user accounts in Azure Active Directory (Azure AD)
+            ✑ Five groups in Azure AD
+            ✑ 10 public IP addresses
+            ✑ 10 network interfaces
+            You need to reduce the Azure costs for the company.
+            Solution: You remove the unused groups.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no" 
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What is guaranteed in an Azure Service Level Agreement (SLA)?
+            `,
+            answerChoices: [
+           "uptime",
+           "feature availability",
+           "bandwidth",
+           "performance"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure service is available to all Azure customers when it is in [public preview].
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "private preview",
+           "development",
+           "an Enterprise Agreement (EA) subscription"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to purchase Azure.
+            The company's support policy states that the Azure environment must provide an option to access support engineers by phone or email.
+            You need to recommend which support plan meets the support policy requirement.
+            Solution: Recommend a Basic support plan.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to purchase Azure.
+            The company's support policy states that the Azure environment must provide an option to access support engineers by phone or email.
+            You need to recommend which support plan meets the support policy requirement.
+            Solution: Recommend a Standard support plan.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to purchase Azure.
+            The company's support policy states that the Azure environment must provide an option to access support engineers by phone or email.
+            You need to recommend which support plan meets the support policy requirement.
+            Solution: Recommend a Premier support plan.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to request an architectural review of an Azure environment from Microsoft.
+            The company currently has a Basic support plan.
+            You need to recommend a new support plan for the company. The solution must minimize costs.
+            Which support plan should you recommend?
+            `,
+            answerChoices: [
+           "Premier",
+           "Developer",
+           "Professional Direct",
+           "Standard"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Most Azure services are introduced in private preview before being introduced in public preview, and then in general availability.
+            `,
+            answerChoices: [
+           "true",
+           "false"           
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Azure services in public preview can be managed only by using the Azure CLI
+            `,
+            answerChoices: [
+           "true",
+           "false"           
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `The cost of an Azure service in private preview decreases when the service becomes generally available.
+            `,
+            answerChoices: [
+           "true",
+           "false"           
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `What is required to use Azure Cost Management?
+            `,
+            answerChoices: [
+           "a Dev/Test subscription",
+           "Software Assurance",
+           "an Enterprise Agreement (EA)",
+           "a pay-as-you-go subscription"           
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your Azure trial account expired last week. You are now unable to [create additional Azure Active Directory (Azure AD) user accounts].
+            Instructions: Review the square bracketed text. If it makes the statement correct, select "No change is needed". If the statement is incorrect, select the answer choice that makes the statement correct.
+            `,
+            answerChoices: [
+           "No change is needed",
+           "start an existing Azure virtual machine",
+           "access your data stored in Azure",
+           "access the Azure portal"         
+            ],
+            correctAnswer: 2,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company plans to purchase Azure.
+            The company's support policy states that the Azure environment must provide an option to access support engineers by phone or email.
+            You need to recommend which support plan meets the support policy requirement.
+            Solution: Recommend a Professional Direct support plan.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Your company has 10 departments.
+            The company plans to implement an Azure environment.
+            You need to ensure that each department can use a different payment option for the Azure services it consumes.
+            What should you create for each department?
+            `,
+            answerChoices: [
+           "a reservation",
+           "a subscription",
+           "a resource group",
+           "a container instance"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure free account has a spending limit
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure free account has a limit for the amount of data that can be uploaded to Azure.
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure free account can contain an unlimited number of web apps.
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure service in private preview is released to all Azure customers.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure service in public preview is released to all Azure customers.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `An Azure service in general availability is released to a subset of Azure customers.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A single Microsoft account can be used to manage multiple Azure subscriptions.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Two Azure subscriptions can be merged into a single subscription by creating a support request.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A company can store resources in multiple subscriptions.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `The Service Level Agreement (SLA) guaranteed uptime for paid Azure services is at least 99.9 percent.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Companies can increase the Service Level Agreement (SLA) guaranteed uptime by adding Azure resources to multiple regions.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Companies can increase the Service Level Agreement (SLA) guaranteed uptime by purchasing multiple subscriptions.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Storing 1 TB of data in Azure Blob storage will always cost the same, regardless of the Azure region in which the data is located.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `When you use a general-purpose v2 Azure Storage account, you are only charged for the amount of data that is stored. All read and write operations are free.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `Transferring data between Azure Storage accounts in different Azure regions is free.
+            `,
+            answerChoices: [
+           "true",
+           "false"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You plan to provision Infrastructure as a Service (IaaS) resources in Azure.
+            Which resource is an example of IaaS?
+            `,
+            answerChoices: [
+           "an Azure web app",
+           "an Azure virtual machine",
+           "an Azure logic app",
+           "an Azure SQL database"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `A team of developers at your company plans to deploy, and then remove, 50 virtual machines each week. All the virtual machines are configured by using Azure
+            Resource Manager templates.
+            You need to recommend which Azure service will minimize the administrative effort required to deploy and remove the virtual machines.
+            What should you recommend?
+            `,
+            answerChoices: [
+           "Azure Reserved Virtual Machines (VM) Instances.",
+           "Azure DevTest Labs",
+           "Azure virtual machine scale sets",
+           "Microsoft Managed Desktop"
+            ],
+            correctAnswer: 1,
+            category: "Azure AZ-900"
+        },
+        {
+            question: `You have an Azure subscription named Subscription1. You sign in to the Azure portal and create a resource group named RG1.
+            From Azure documentation, you have the following command that creates a virtual machine named VM1. az vm create --resource-group RG1 --name VM1 -- image
+            
+            UbuntuLTS --generate-ssh-keys -
+            You need to create VM1 in Subscription1 by using the command.
+            Solution: From the Azure portal, launch Azure Cloud Shell and select PowerShell. Run the command in Cloud Shell.
+            Does this meet the goal?
+            `,
+            answerChoices: [
+           "yes",
+           "no"
+            ],
+            correctAnswer: 0,
+            category: "Azure AZ-900"
+        },
     ]
 }
 
