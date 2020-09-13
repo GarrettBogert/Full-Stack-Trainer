@@ -108,7 +108,7 @@ function Card(props) {
                 onClick={props.onClick}
                 hidden={props.question==="Click 'next question' for question"}
             >
-                {props.isVisible ? 'Hide answer' : 'Show answer'}
+                {props.answerVisible ? 'Hide answer' : 'Show answer'}
             </Button>
             <Button
                 variant='contained'
