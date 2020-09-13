@@ -353,8 +353,10 @@ export function getAll() {
             You need to identify which expenditure model to use for the planned Azure solution.
             Which expenditure model should you identify?`,
             answerChoices: [
-                "yes",
-                "no"
+                "operational",
+                "elastic",
+                "capital",
+                "scalable"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
