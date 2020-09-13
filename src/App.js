@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Navbar, Nav, NavDropdown, Button, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MultipleChoiceApp from './mini-apps/MultipleChoiceApp.js';
 import FlashCardApp from './mini-apps/FlashCardApp.js'
-
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const PAGES = ['Home', 'Flash cards', 'Multiple choice', 'Recruiter tracking'];
 const CATEGORIES = ['csharp', 'html', 'css', 'sql', 'javascript', 'Azure AZ-900'];
@@ -29,7 +33,73 @@ function App() {
   const [categories, setCategories] = useState(CATEGORIES);
   const [checkedCategories, setCheckedCategories] = useState([]);
 
+  function renderSelectableCategories() {
+    return (   
+      <FormGroup
+        className='selectCategoriesContainer'>
+          <label>Select a category</label>
+        {categories.map(category => {
+          return (
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={handleCategoryCheckboxChange}
+                  checked={checkedCategories.includes(category)}
+                  name={category} />
+              }
+              label={category}
+            />
+          )
+        })}
+        {userCategories.map(category => {
+          return (<FormControlLabel
+            control={
+              <Checkbox
+                onChange={handleCategoryCheckboxChange}
+                checked={checkedCategories.includes(category)}
+                name={category} />
+            }
+            label={category}
+          />)
+        })}
+        {addCategoryButton()}
+      </FormGroup>    
+    )
+  }
 
+  const handleCancelAddCategory = () => {
+    setIsAddingCategory(false);
+  }
+
+  function addCategoryButton() {
+    return (
+      <>
+        {!isAddingCategory ? <Button
+          variant='contained'
+          color='secondary'
+          onClick={handleNewCategoryClick}
+        >Add category</Button>
+          : <>
+            <form noValidate autoComplete="off">
+              <TextField id="standard-basic" label="Category" value={addCategoryText} onChange={handleAddCategoryNameChange} />
+            </form>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={handleConfirmCategory}>
+              Confirm category
+            </Button>
+            <Button
+              variant='contained'
+              color='secondary'
+              onClick={handleCancelAddCategory}>
+              cancel
+            </Button>
+          </>
+        }
+      </>
+    )
+  }
   const handleCategoryCheckboxChange = (event) => {
     const { name, checked } = event.target;
     if (checked) {
@@ -46,6 +116,7 @@ function App() {
       case 'Flash cards':
         return (
           <FlashCardApp
+            renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
             categories={categories}
             checkedCategories={checkedCategories}
@@ -60,6 +131,7 @@ function App() {
       case 'Multiple choice':
         return (
           <MultipleChoiceApp
+            renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
             categories={categories}
             checkedCategories={checkedCategories}
@@ -112,20 +184,7 @@ function App() {
     <div className="App">
       {renderNavBar(setCurrentPage)}
       <div className="column left">
-        {currentPage !== 'Home' ?   
-        <>      
-            <div className='addCustom'>
-              <AddCategory
-                handleConfirmCategory={handleConfirmCategory}
-                handleAddCategoryNameChange={handleAddCategoryNameChange}
-                handleNewCategoryClick={handleNewCategoryClick}
-                isAddingCategory={isAddingCategory}
-                addCategoryText={addCategoryText}
-              />
-            </div>
-          </>
-          : null}
-
+        {currentPage === "Flash cards" || currentPage === "Multiple choice" ? renderSelectableCategories() : null}
       </div>
 
       <div className="column center">
@@ -170,21 +229,7 @@ function Home() {
 function AddCategory(props) {
   return (
     <>
-      <img
-        onClick={props.handleNewCategoryClick}
-        alt="missing"
-        width='12px'
-        height='12px'
-        src={props.isAddingCategory ? '/images/cancel.png' : '/images/add.png'}
-        margin-right='3px' />
-      {!props.isAddingCategory ? <span>Add category</span>
-        : <>
-          <input type='text' value={props.addCategoryText} onChange={props.handleAddCategoryNameChange}>
-          </input>
-          <button className='confirmCategory' onClick={props.handleConfirmCategory}>Confirm category
-          </button>
-        </>
-      }
+
     </>
   )
 }

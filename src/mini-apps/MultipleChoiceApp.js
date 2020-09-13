@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Checkbox from '../Checkbox.js';
+
 import * as Questions from '../PrefabQuizzes/Quizzes.js';
+import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
@@ -153,18 +154,12 @@ export default function MultipleChoiceApp(props) {
     function renderRelevantButtons() {
         return (
             quizActive ? <>
-            <Button
-               variant='contained'
-               color='primary'
-                onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
-                {userHasGuessed ? 'Next Question' : 'Submit Answer'}
-            </Button>
                 <Button
-                variant='contained'
-                color='secondary'
-                    onClick={handleCancelQuizClick}>
-                    Cancel quiz
-                    </Button>
+                    variant='contained'
+                    color='primary'
+                    onClick={userHasGuessed ? handleNextQuestionClick : handleSubmitClick}>
+                    {userHasGuessed ? 'Next Question' : 'Submit Answer'}
+                </Button>              
             </>
                 : <Button
                     variant='contained'
@@ -178,35 +173,16 @@ export default function MultipleChoiceApp(props) {
         return (
             quizActive && questionPool.length === 0 && correctlyAnsweredQuestions.length === 0 ?
                 <form action="https://zealous-glacier-069535a10.azurestaticapps.net">
-                    <label>You seem to be struggling with this quiz. Maybe it's time to take a break?</label>
-                    <input type="submit" value="Blow off some steam" />
+                    <label>You seem to have struggled with this quiz. Maybe it's time to take a break?</label>
+                    <Button type="submit"
+                        variant='contained'
+                        color='primary' >
+                        "Blow off some steam"
+                        </Button>
                 </form> : null
         )
     }
-    function renderSelectableCategories() {
-        return (
-            quizActive ? null : <div className='selectCategoriesContainer'>
-                {props.categories.map(category => {
-                    return (<Checkbox
-                        disabled={quizActive}
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-                {props.userCategories.map(category => {
-                    return (<Checkbox
-                        disabled={quizActive}
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-            </div>
-        )
-    }
+  
     const handleStartQuizClick = () => {
         if (props.checkedCategories.length > 0) {
             let requestedQuestions = Questions.getPool(props.checkedCategories, userQuestions);
@@ -236,11 +212,11 @@ export default function MultipleChoiceApp(props) {
                     multiline
                     value={currentQuestion.question}
                     variant="outlined"
-                />       
-                )
+                />
+            )
                 : null
             }
-       
+
             {currentQuestion !== null ? currentQuestion.hasMultipleAnswers ?
                 (
                     <FormGroup
@@ -248,16 +224,15 @@ export default function MultipleChoiceApp(props) {
                         {getQuestionChoicesAsCheckbox()}
                     </FormGroup>
                 )
-
                 :
                 (<RadioGroup
-                value={currentlySelectedAnswer}
-                onChange={onChangeSelectedAnswer}>
+                    value={currentlySelectedAnswer}
+                    onChange={onChangeSelectedAnswer}>
                     {getQuestionChoicesAsRadio()}
                 </RadioGroup>
                 ) : null
             }
-            
+
             {renderRelevantButtons()}
             {
                 quizActive ?
@@ -267,8 +242,17 @@ export default function MultipleChoiceApp(props) {
                     </>
                     : null
             }
+            {quizActive? <Button
+            size='small'
+                    variant='contained'
+                    color='secondary'
+                    onClick={handleCancelQuizClick}>
+                    Cancel quiz
+                    </Button> : null}
+              
             {renderConsulationToBadQuizTaker()}
-            {renderSelectableCategories()}
+            
+
         </>
     )
 }

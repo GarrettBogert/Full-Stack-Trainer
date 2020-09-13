@@ -13,20 +13,35 @@
   height: 100%;
 }
 
-.categorybox{
-  margin:3px;
-}
-
 .center{
   width:50%;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
 
+.card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-content: center;
+}
+
+.question,.answer{
+margin-top:10px;
+}
+
 .selectCategoriesContainer{
   padding-top: 40px;
   display:flex;
   flex-direction:row;
+  justify-content:center;
+  align-content: center;
+}
+
+.addcard{
+  padding-top: 40px;
+  display:flex;
+  flex-direction:column;
   justify-content:center;
   align-content: center;
 }
@@ -48,12 +63,12 @@
 
 .question{
   position:center;
-  color:#ffffff;
+  color:#000000;
 }
 
 .answer{
   position:center;
-  color:#ecff97;
+  color:#000000;
 }
 
 .confirmCategory{

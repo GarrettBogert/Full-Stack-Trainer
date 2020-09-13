@@ -1,8 +1,13 @@
 import * as FlashCards from '../PrefabQuizzes/FlashCards.js';
 import React, { useState, useEffect } from 'react';
-import Checkbox from '../Checkbox.js';
-
-
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 
 export default function FlashCardApp(props) {
 
@@ -53,26 +58,8 @@ export default function FlashCardApp(props) {
                 answerVisible={answerVisible}
                 onClick={() => handleToggleAnswerClick()}
                 onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
-            />
-
-            <div className='selectCategoriesContainer'>
-                {props.categories.map(category => {
-                    return (<Checkbox
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-                {props.userCategories.map(category => {
-                    return (<Checkbox
-                        label={category}
-                        isChecked={props.checkedCategories.includes(category)}
-                        onCheckboxChange={props.handleCategoryCheckboxChange}
-                        key={category}
-                    />)
-                })}
-            </div>
+            />       
+            
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}
@@ -85,19 +72,39 @@ export default function FlashCardApp(props) {
 function Card(props) {
     return (
         <>
-            <div className='question'>{props.question}</div>
-            <div className='answer'
-                hidden={!props.answerVisible}>{props.answer}</div>
-            <button 
-            className='greybutton'
-                onClick={props.onClick}>
+
+            <div className='question'>
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Question"
+                    multiline
+                    value={props.question}
+                    variant="outlined"
+                />
+            </div>
+            <div className='answer'>
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Answer"
+                    multiline
+                    value={props.answer}
+                    variant="outlined"
+                    hidden={!props.answerVisible}
+                />
+            </div>
+            <Button
+                variant='contained'
+                color='secondary'
+                onClick={props.onClick}
+            >
                 {props.isVisible ? 'Hide answer' : 'Show answer'}
-            </button>
-            <button
-                className='greybutton'
+            </Button>
+            <Button
+                variant='contained'
+                color='primary'
                 onClick={props.onNextCardClick}>
                 Next question
-        </button>
+            </Button>
         </>
     )
 }
@@ -142,50 +149,52 @@ function AddCard(props) {
         setAddCardSelectedCategory('csharp');
     }
 
+
+
     return (
         <>
-            <img
+            <Button
+                variant='contained'
+                color='primary'
                 data-testid='addCard'
                 onClick={handleNewCardClick}
-                alt="missing"
-                width='12px'
-                height='12px'
-                src={isAddingCard ? '/images/cancel.png' : '/images/add.png'}
-                margin-right='3px' />
-            {!isAddingCard ? <span>Add card</span>
-                : <>
-                    <label>Question</label>
-                    <input 
-                    type='text' 
-                    value={addCardQuestionText} 
-                    onChange={handleAddCardQuestionChange}
-                    data-testid='addCardQuestion'
-                    >
-                    </input>
-                    <label>Answer</label>
-                    <input 
-                    type='text' 
-                    value={addCardAnswerText} 
-                    onChange={handleAddCardAnswerChange}
-                    data-testid='addCardAnswer'
-                    >
-                    </input>
-                    <select 
-                    value={addCardSelectedCategory} 
-                    onChange={handleAddCardCategoryChange}
-                    >
-                        {props.categories.map(category => {
-                            return (<option value={category}>{category}</option>)
-                        })}
-                        {props.userCategories.map(category => {
-                            return (<option value={category}>{category}</option>)
-                        })}
-                    </select>
+            >{isAddingCard ? 'Cancel' : 'Add Card'}
+            </Button>
+            {!isAddingCard ? null
+                : <div className='addcard'>
+                    <form noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Question" value={addCardQuestionText} onChange={handleAddCardQuestionChange} />
+                        <TextField id="standard-basic" label="Answer" value={addCardAnswerText} onChange={handleAddCardAnswerChange} />
+                    </form>
 
-                    <button className='confirmCategory'
+                    <FormControl>
+                        <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={addCardSelectedCategory}
+                            onChange={handleAddCardCategoryChange}
+                        >
+                            {props.categories.map(category => {
+                                return (
+                                    <MenuItem value={category}>{category}</MenuItem>
+                                )
+                            })}
+                            {props.userCategories.map(category => {
+                                return (
+                                    <MenuItem value={category}>{category}</MenuItem>
+                                )
+                            })}
+                        </Select>
+                    </FormControl>
+                   
+
+                    <Button
+                        variant='contained'
+                        color='primary'
                         onClick={() => handleConfirmAddCard(addCardQuestionText, addCardAnswerText, addCardSelectedCategory)}>Confirm card
-            </button>
-                </>
+                </Button>
+                </div>
             }
         </>
     )
