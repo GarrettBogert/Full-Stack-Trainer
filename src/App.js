@@ -111,8 +111,8 @@ function App() {
     <div className="App">
       {renderNavBar(setCurrentPage)}
       <div className="column left">
-        {currentPage !== 'Home' ?
-          <><button onClick={deleteAllUserCategories}>Delete all custom categories</button>
+        {currentPage !== 'Home' ?   
+        <>      
             <div className='addCustom'>
               <AddCategory
                 handleConfirmCategory={handleConfirmCategory}
