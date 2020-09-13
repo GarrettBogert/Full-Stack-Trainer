@@ -113,8 +113,8 @@ export default function MultipleChoiceApp(props) {
    
     const onChangeSelectedAnswers = (event) => {
         let checkBoxes = [...event.currentTarget.children];
-        let checkedBoxes = checkBoxes.filter(box => box.checked);
-        let checkedValues = checkedBoxes.map(box => parseInt(box.value));
+        let checkedBoxes = checkBoxes.filter(box => box.control.checked);
+        let checkedValues = checkedBoxes.map(box => parseInt(box.control.value));
         setCurrentlySelectedAnswer(checkedValues);
     }
 
@@ -130,7 +130,8 @@ export default function MultipleChoiceApp(props) {
                                 value={index}
                                 name={'questionChoice'} />
                         }
-                        label={choice}
+                        label={userHasGuessed? 
+                        currentQuestion.correctAnswer.includes(index) ? choice + "(correct)" : choice + "(incorrect)" : choice}
                     />
                 )
             }
@@ -142,7 +143,8 @@ export default function MultipleChoiceApp(props) {
         return (
             currentQuestion.answerChoices.map((choice, index) => {
                 return (
-                    <FormControlLabel value={index} control={<Radio />} label={choice} />
+                    <FormControlLabel value={index} control={<Radio />}  label={userHasGuessed? 
+                        currentQuestion.correctAnswer === index ? choice + "(correct)" : choice : choice} />
                 )
             }
             )
