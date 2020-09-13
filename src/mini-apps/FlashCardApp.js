@@ -53,26 +53,28 @@ export default function FlashCardApp(props) {
     return (
         <>
             <Card
+            renderSelectableCategories={props.renderSelectableCategories}
                 question={question}
                 answer={answer}
                 answerVisible={answerVisible}
                 onClick={() => handleToggleAnswerClick()}
                 onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
             />       
-            
+
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}
                 categories={props.categories}
                 userCategories={props.userCategories} />
+              
         </>
+        
     )
 }
 
 function Card(props) {
     return (
         <>
-
             <div className='question'>
                 <TextField
                     id="outlined-multiline-static"
@@ -82,6 +84,7 @@ function Card(props) {
                     variant="outlined"
                 />
             </div>
+            {props.renderSelectableCategories()}
             <div className='answer'>
                 <TextField
                     id="outlined-multiline-static"
@@ -104,7 +107,7 @@ function Card(props) {
                 color='primary'
                 onClick={props.onNextCardClick}>
                 Next question
-            </Button>
+            </Button>           
         </>
     )
 }
@@ -152,8 +155,9 @@ function AddCard(props) {
 
 
     return (
-        <>
+        <div className='addcard'>
             <Button
+            size='small'
                 variant='contained'
                 color='primary'
                 data-testid='addCard'
@@ -196,7 +200,7 @@ function AddCard(props) {
                 </Button>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

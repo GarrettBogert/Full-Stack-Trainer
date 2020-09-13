@@ -9,6 +9,14 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import FormControl from '@material-ui/core/FormControl';
+import ListItemText from '@material-ui/core/ListItemText';
+import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const PAGES = ['Home', 'Flash cards', 'Multiple choice', 'Recruiter tracking'];
 const CATEGORIES = ['csharp', 'html', 'css', 'sql', 'javascript', 'Azure AZ-900'];
@@ -33,37 +41,70 @@ function App() {
   const [categories, setCategories] = useState(CATEGORIES);
   const [checkedCategories, setCheckedCategories] = useState([]);
 
+  function getStyles(name, theme) {
+    return {
+      fontWeight:
+        name.indexOf(name) === -1
+          ? theme.typography.fontWeightRegular
+          : theme.typography.fontWeightMedium,
+    };
+  }
+
+  const theme = useTheme();
+
+  const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+      maxWidth: 300,
+    },
+    chips: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    chip: {
+      margin: 2,
+    },
+    noLabel: {
+      marginTop: theme.spacing(3),
+    },
+  }));
+
+  const classes = useStyles();
+
   function renderSelectableCategories() {
-    return (   
-      <FormGroup
-        className='selectCategoriesContainer'>
-          <label>Select a category</label>
-        {categories.map(category => {
-          return (
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={handleCategoryCheckboxChange}
-                  checked={checkedCategories.includes(category)}
-                  name={category} />
-              }
-              label={category}
-            />
+    return (
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-mutiple-chip-label">Categories</InputLabel>
+        <Select
+          labelId="demo-mutiple-chip-label"
+          id="demo-mutiple-chip"
+          multiple
+          value={checkedCategories}
+          onChange={handleCategoryCheckboxChange}
+          input={<Input id="select-multiple-chip" />}
+          renderValue={() => (
+            <div className={classes.chips}>
+              {checkedCategories.map((value) => (
+                <Chip key={value} label={value} className={classes.chip} />
+              ))}
+            </div>
           )
-        })}
-        {userCategories.map(category => {
-          return (<FormControlLabel
-            control={
-              <Checkbox
-                onChange={handleCategoryCheckboxChange}
-                checked={checkedCategories.includes(category)}
-                name={category} />
-            }
-            label={category}
-          />)
-        })}
-        {addCategoryButton()}
-      </FormGroup>    
+          }
+        >
+          {categories.map((name) => (
+            <MenuItem key={name} value={name} style={getStyles(name, theme)}>
+              {name}
+            </MenuItem>
+          ))}
+          {userCategories.map((name) => (
+            <MenuItem key={name} value={name}>
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
     )
   }
 
@@ -101,12 +142,10 @@ function App() {
     )
   }
   const handleCategoryCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    if (checked) {
-      setCheckedCategories([...checkedCategories, name]);
-    } else {
-      setCheckedCategories(checkedCategories.filter(category => category !== name));
-    }
+    const { value } = event.target;
+    
+      setCheckedCategories(value);
+   
   };
 
 
@@ -172,10 +211,6 @@ function App() {
     }
   };
 
-  function deleteAllUserCategories() {
-    setUserCategories([]);
-  };
-
   const clearAddCategoryForm = () => {
     setAddCategoryText('');
   }
@@ -184,7 +219,6 @@ function App() {
     <div className="App">
       {renderNavBar(setCurrentPage)}
       <div className="column left">
-        {currentPage === "Flash cards" || currentPage === "Multiple choice" ? renderSelectableCategories() : null}
       </div>
 
       <div className="column center">
@@ -226,11 +260,4 @@ function Home() {
   )
 }
 
-function AddCategory(props) {
-  return (
-    <>
-
-    </>
-  )
-}
 export default App;

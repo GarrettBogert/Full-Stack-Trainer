@@ -232,7 +232,7 @@ export default function MultipleChoiceApp(props) {
                 </RadioGroup>
                 ) : null
             }
-
+           
             {renderRelevantButtons()}
             {
                 quizActive ?
@@ -249,9 +249,10 @@ export default function MultipleChoiceApp(props) {
                     onClick={handleCancelQuizClick}>
                     Cancel quiz
                     </Button> : null}
+                   
               
             {renderConsulationToBadQuizTaker()}
-            
+            {!quizActive ? props.renderSelectableCategories(): null}
 
         </>
     )
