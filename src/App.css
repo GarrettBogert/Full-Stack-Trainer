@@ -42,6 +42,10 @@ margin-top:10px;
  position:center;
 }
 
+.centered{
+  position:center;
+}
+
 .multipleChoice{
   display:flex;
   flex-direction:column;

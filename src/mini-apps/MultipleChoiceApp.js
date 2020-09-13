@@ -252,7 +252,10 @@ export default function MultipleChoiceApp(props) {
             }
 
             {renderConsulationForBadQuizTaker()}
+            <div className='centered'>
             {!quizActive ? props.renderSelectableCategories() : null}
+            </div>
+            
         </>
     )
 }
