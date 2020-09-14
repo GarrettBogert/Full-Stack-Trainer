@@ -18,8 +18,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const PAGES = ['Home', 'Flash cards', 'Multiple choice', 'Recruiter tracking'];
-const CATEGORIES = ['csharp', 'html', 'css', 'sql', 'javascript', 'Azure AZ-900'];
+const PAGES = ['Home', 'Flash cards', 'Multiple choice'];
+const CATEGORIES = ['csharp', 'html', 'css', 'MS SQL', 'javascript', 'Azure AZ-900'];
 
 function App() {
   const getLocalStorageCategories = () => {

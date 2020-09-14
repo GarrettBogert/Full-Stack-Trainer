@@ -58,12 +58,12 @@ export function getAll() {
         {
             question: "In SQL, what keyword is used to filter groups from the group by clause?",
             answer: "HAVING",
-            category: "sql"
+            category: "MS SQL"
         },
         {
             question: "In SQL, what operator is used to do string matching with wildcards?",
             answer: "LIKE",
-            category: "sql"
+            category: "MS SQL"
         },
         {
             question: "What does HTML stand for?",

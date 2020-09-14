@@ -66,21 +66,7 @@ export function getAll() {
             ],
             correctAnswer: [2,3,6],
             category: "csharp"
-        },
-        {
-            question: "Which of the following are not valid keywords of exception handling c#?",
-            answerChoices: [
-                "catch",
-                "try",
-                "toss",
-                "eventually",              
-                "throw",
-                "finally",   
-                "inject"            
-            ],
-            correctAnswer: [2,3,6],
-            category: "csharp"
-        },
+        },      
         {
             question: "Reference types are allocated on the Heap.",
             answerChoices: [
@@ -118,7 +104,7 @@ export function getAll() {
                 "LEN()",
                 "SUM()",],
             correctAnswer: 2,
-            category: "sql"
+            category: "MS SQL"
         },
         {
             question: "What character in csharp designates a type to be nullable when placed after the type name?",

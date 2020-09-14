@@ -260,6 +260,7 @@ export default function MultipleChoiceApp(props) {
             {
                 quizActive ?
                     <>
+                        <label className='small'>{`Current question's category: ${currentQuestion.category}`}</label>
                         <label className='small'>{`${correctlyAnsweredQuestions.length} correct answers.`}</label>
                         <label className='small'>{`${incorrectlyAnsweredQuestions.length} incorrect answers.`}</label>
                     </>
