@@ -18,6 +18,11 @@ img{
   width:70%;
 }
 
+img.logo{
+  width:34px;
+  margin-right:16px;
+}
+
 .center{  
   margin:15px;
   width:50%;
