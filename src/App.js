@@ -55,13 +55,13 @@ function App() {
   function getStyles(name, checkedCategories, theme) {
     return {
       fontWeight:
-      checkedCategories.indexOf(name) === -1
+        checkedCategories.indexOf(name) === -1
           ? theme.typography.fontWeightRegular
           : theme.typography.fontWeightMedium,
     };
   }
 
-  
+
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -86,37 +86,37 @@ function App() {
   function renderSelectableCategories() {
     return (
       <>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-mutiple-chip-label">Categories</InputLabel>
-        <Select
-          labelId="demo-mutiple-chip-label"
-          id="demo-mutiple-chip"
-          multiple
-          value={checkedCategories}
-          onChange={handleCategoryCheckboxChange}
-          input={<Input id="select-multiple-chip" />}
-          renderValue={() => (
-            <div className={classes.chips}>
-              {checkedCategories.map((value) => (
-                <Chip key={value} label={value} className={classes.chip} />
-              ))}
-            </div>
-          )
-          }
-          MenuProps={MenuProps}
-        >
-          {categories.map((name) => (
-            <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
-              {name}
-            </MenuItem>
-          ))}
-          {userCategories.map((name) => (
-            <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>        
-      </FormControl>     
+        <FormControl className={classes.formControl}>
+          <InputLabel id="demo-mutiple-chip-label">Categories</InputLabel>
+          <Select
+            labelId="demo-mutiple-chip-label"
+            id="demo-mutiple-chip"
+            multiple
+            value={checkedCategories}
+            onChange={handleCategoryCheckboxChange}
+            input={<Input id="select-multiple-chip" />}
+            renderValue={() => (
+              <div className={classes.chips}>
+                {checkedCategories.map((value) => (
+                  <Chip key={value} label={value} className={classes.chip} />
+                ))}
+              </div>
+            )
+            }
+            MenuProps={MenuProps}
+          >
+            {categories.map((name) => (
+              <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
+                {name}
+              </MenuItem>
+            ))}
+            {userCategories.map((name) => (
+              <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </>
     )
   }
@@ -128,15 +128,15 @@ function App() {
   function addCategoryButton() {
     return (
       <>
-      <Button
-        size='small'
+        <Button
+          size='small'
           variant='outlined'
           color='secondary'
-          onClick={isAddingCategory? handleCancelAddCategory : handleNewCategoryClick}
-        >{isAddingCategory? 'Cancel create category' : 'Create a category'}
+          onClick={isAddingCategory ? handleCancelAddCategory : handleNewCategoryClick}
+        >{isAddingCategory ? 'Cancel create category' : 'Create a category'}
         </Button>
-        {isAddingCategory ? 
-           <>
+        {isAddingCategory ?
+          <>
             <form noValidate autoComplete="off">
               <TextField id="standard-basic" label="Category" value={addCategoryText} onChange={handleAddCategoryNameChange} />
             </form>
@@ -146,7 +146,7 @@ function App() {
               color='primary'
               onClick={handleConfirmCategory}>
               Confirm category
-            </Button>           
+            </Button>
           </>
           : null
         }
@@ -155,9 +155,9 @@ function App() {
   }
   const handleCategoryCheckboxChange = (event) => {
     const { value } = event.target;
-    
-      setCheckedCategories(value);
-   
+
+    setCheckedCategories(value);
+
   };
 
 
@@ -167,7 +167,7 @@ function App() {
       case 'Flash cards':
         return (
           <FlashCardApp
-          renderAddCategory={addCategoryButton}
+            renderAddCategory={addCategoryButton}
             renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
             categories={categories}
@@ -268,9 +268,16 @@ const renderNavBar = (setCurrentPage) => {
 
 function Home() {
   return (
-    <p data-testid='home'>
-      Welcome to Full Stack Trainer. This application is a series of 'mini-apps' that will help aid in your journey to broadening your programming skills in an ever-demanding job market.
+    <>
+      <img
+        src='../images/1stpage.png'
+        alt='nothing'
+        height='400px'>
+      </img>
+      <p data-testid='home'>
+        Welcome to Full Stack Trainer. This application is a series of 'mini-apps' that will help aid in your journey to broadening your programming skills in an ever-demanding job market.
     </p>
+    </>
   )
 }
 
