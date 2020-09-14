@@ -39,7 +39,7 @@ function App() {
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [userCategories, setUserCategories] = useState(getLocalStorageCategories())
   const [categories, setCategories] = useState(CATEGORIES);
-  const [checkedCategories, setCheckedCategories] = useState([]);
+ 
 
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -81,9 +81,9 @@ function App() {
   }));
 
   const classes = useStyles();
-  const theme = useTheme();
+  const theme = useTheme(); 
 
-  function renderSelectableCategories(getCategories) {
+  function renderSelectableCategories(getCategories, checkedCategories, handleChangeCheckedCategories) {
     return (
       <>
         <FormControl className={classes.formControl}>
@@ -93,7 +93,7 @@ function App() {
             id="demo-mutiple-chip"
             multiple
             value={checkedCategories}
-            onChange={handleCategoryCheckboxChange}
+            onChange={handleChangeCheckedCategories}
             input={<Input id="select-multiple-chip" />}
             renderValue={() => (
               <div className={classes.chips}>
@@ -148,13 +148,6 @@ function App() {
       </>
     )
   }
-  const handleCategoryCheckboxChange = (event) => {
-    const { value } = event.target;
-
-    setCheckedCategories(value);
-
-  };
-
 
   const renderCurrentPage = (currentPage) => {
     switch (currentPage) {
@@ -165,10 +158,7 @@ function App() {
             renderAddCategory={addCategoryButton}
             renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
-            categories={categories}
-            checkedCategories={checkedCategories}
-            setCheckedCategories={setCheckedCategories}
-            handleCategoryCheckboxChange={handleCategoryCheckboxChange}
+            categories={categories}                               
           />
 
         );
@@ -181,10 +171,7 @@ function App() {
           <MultipleChoiceApp
             renderSelectableCategories={renderSelectableCategories}
             userCategories={userCategories}
-            categories={categories}
-            checkedCategories={checkedCategories}
-            setCheckedCategories={setCheckedCategories}
-            handleCategoryCheckboxChange={handleCategoryCheckboxChange}
+            categories={categories}                  
           />
         )
 

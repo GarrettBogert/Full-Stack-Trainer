@@ -24,6 +24,7 @@ export default function FlashCardApp(props) {
     const [answer, setAnswer] = useState("");
     const [question, setQuestion] = useState("Click 'next question' for question");
     const [userCards, setUserCards] = useState(getLocalStorageCards())
+    const [checkedCategories, setCheckedCategories] = useState([]);
 
     const handleToggleAnswerClick = () => {
         setAnswerVisible(!answerVisible);
@@ -37,8 +38,8 @@ export default function FlashCardApp(props) {
     }
 
     const handleNextCardClick = (setQuestion, setAnswer) => {
-        if (props.checkedCategories.length > 0) {
-            let card = FlashCards.getRandom(props.checkedCategories, userCards);
+        if (checkedCategories.length > 0) {
+            let card = FlashCards.getRandom(checkedCategories, userCards);
             if (card !== null) {
                 setQuestion(card.question);
                 setAnswer(card.answer);
@@ -50,6 +51,11 @@ export default function FlashCardApp(props) {
         }
     }
 
+    const handleCategoryCheckboxChange = (event) => {
+        const { value } = event.target;
+        setCheckedCategories(value);
+      };
+
     useEffect(() => {
         saveLocalStorageCards(userCards);
     }, [userCards]);
@@ -57,14 +63,14 @@ export default function FlashCardApp(props) {
     return (
         <>
             <h1>Flash cards</h1>
-            {props.checkedCategories.length === 0 ?
+            {checkedCategories.length === 0 ?
                 <>
                     <div>To get started, select one or many categories.</div>
                 </>
                 : null
             }
-            {props.renderSelectableCategories(categoriesWithFlashCards)}
-            {props.checkedCategories.length !== 0 ?
+            {props.renderSelectableCategories(categoriesWithFlashCards, checkedCategories, handleCategoryCheckboxChange)}
+            {checkedCategories.length !== 0 ?
                 <Card
                     question={question}
                     answer={answer}
