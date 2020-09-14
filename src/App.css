@@ -13,8 +13,12 @@
   height: 100%;
 }
 
-.center{
-  
+img{
+  height:70%;
+  width:70%;
+}
+
+.center{  
   margin:15px;
   width:50%;
   font-size: calc(10px + 2vmin);
