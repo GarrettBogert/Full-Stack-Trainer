@@ -151,6 +151,13 @@ export default function MultipleChoiceApp(props) {
         )
     }
 
+    
+    const categoriesWithQuizzes = () =>{
+        let categoriesThatHaveQuizzes = Questions.getAll().map(q=> q.category);
+        let distinctCategories = [...new Set(categoriesThatHaveQuizzes)];
+        return distinctCategories;
+    }
+
     function renderRelevantButtons() {
         return (
             quizActive ? <>
@@ -241,7 +248,7 @@ export default function MultipleChoiceApp(props) {
                 ) : null
             }
             <div className='centered'>
-                {!quizActive ? props.renderSelectableCategories() : null}
+                {!quizActive ? props.renderSelectableCategories(categoriesWithQuizzes) : null}
             </div>
             {renderRelevantButtons()}
             {

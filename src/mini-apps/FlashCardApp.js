@@ -29,6 +29,13 @@ export default function FlashCardApp(props) {
         setAnswerVisible(!answerVisible);
     }
 
+    const categoriesWithFlashCards = (category) => {
+        let cards = FlashCards.getAll().concat(getLocalStorageCards());
+        let categoriesWithFlashCards = cards.map(c=>c.category);
+        let distinctCategories = [...new Set(categoriesWithFlashCards)];
+        return distinctCategories;
+    }
+
     const handleNextCardClick = (setQuestion, setAnswer) => {
         if (props.checkedCategories.length > 0) {
             let card = FlashCards.getRandom(props.checkedCategories, userCards);
@@ -49,32 +56,32 @@ export default function FlashCardApp(props) {
 
     return (
         <>
-        <h1>Flash cards</h1>
-        {props.checkedCategories.length === 0 ?
+            <h1>Flash cards</h1>
+            {props.checkedCategories.length === 0 ?
                 <>
                     <div>To get started, select one or many categories.</div>
                 </>
                 : null
             }
-            {props.renderSelectableCategories()}
+            {props.renderSelectableCategories(categoriesWithFlashCards)}
             {props.checkedCategories.length !== 0 ?
-               <Card               
-               question={question}
-               answer={answer}
-               answerVisible={answerVisible}
-               onClick={() => handleToggleAnswerClick()}
-               onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
-           />   
-           : null 
+                <Card
+                    question={question}
+                    answer={answer}
+                    answerVisible={answerVisible}
+                    onClick={() => handleToggleAnswerClick()}
+                    onNextCardClick={() => handleNextCardClick(setQuestion, setAnswer)}
+                />
+                : null
             }
-                
+
             <AddCard
                 userCards={userCards}
                 setUserCards={setUserCards}
                 categories={props.categories}
                 userCategories={props.userCategories} />
-            {props.renderAddCategory()}    
-                
+            {props.renderAddCategory()}
+
         </>
     )
 }
@@ -84,13 +91,13 @@ function Card(props) {
         <>
             <div className='question'>
                 <TextField
-                    id="outlined-multiline-static"                    
+                    id="outlined-multiline-static"
                     multiline
                     value={props.question}
                     variant="outlined"
                 />
             </div>
-            
+
             <div className='answer'>
                 <TextField
                     id="outlined-multiline-static"
@@ -99,14 +106,14 @@ function Card(props) {
                     value={props.answer}
                     variant="outlined"
                     hidden={!props.answerVisible}
-                />            
+                />
             </div>
-            
+
             <Button
                 variant='contained'
                 color='secondary'
                 onClick={props.onClick}
-                hidden={props.question==="Click 'next question' for question"}
+                hidden={props.question === "Click 'next question' for question"}
             >
                 {props.answerVisible ? 'Hide answer' : 'Show answer'}
             </Button>

@@ -83,7 +83,7 @@ function App() {
   const classes = useStyles();
   const theme = useTheme();
 
-  function renderSelectableCategories() {
+  function renderSelectableCategories(getCategories) {
     return (
       <>
         <FormControl className={classes.formControl}>
@@ -105,16 +105,11 @@ function App() {
             }
             MenuProps={MenuProps}
           >
-            {categories.map((name) => (
+            {getCategories().map((name) => (
               <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
                 {name}
               </MenuItem>
-            ))}
-            {userCategories.map((name) => (
-              <MenuItem key={name} value={name} style={getStyles(name, checkedCategories, theme)}>
-                {name}
-              </MenuItem>
-            ))}
+            ))}           
           </Select>
         </FormControl>
       </>
