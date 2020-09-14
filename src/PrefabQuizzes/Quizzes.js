@@ -107,6 +107,51 @@ export function getAll() {
             category: "MS SQL"
         },
         {
+            question: "What does the LOWER function do in MS SQL?",
+            answerChoices: [
+                "Returns the lowest number in a list.",
+                "Returns true if first parameter is < the second parameter",
+                "Converts a string to lowercase",
+                "Returns true if string is in lowercase format.",],
+            correctAnswer: 2,
+            category: "MS SQL"
+        },
+        {
+            question: "How would you trim the white space from the beginning of a string in MS SQL?",
+            answerChoices: [
+                "TRIMSTART()",
+                "TRIMLEFT()",
+                "TRIM()",
+                "LTRIM()",],
+            correctAnswer: 3,
+            category: "MS SQL"
+        },    
+        {
+            question: "Which of the following are valid syntax for starting a transaction in MS SQL?",
+            answerChoices: [
+                "BEGIN TRANSACTION",
+                "BEGIN TRAN",
+                "BEGIN TRANS",
+                "INITIAL TRANSACTION",
+                "START TRANSACTION",
+                "TRANSACTION START",
+                ],
+            correctAnswer: [0,1],
+            category: "MS SQL"
+        },
+        {
+            question: "Common table expressions (CTE) begin with which keyword?",
+            answerChoices: [
+                "USING",
+                "TABLE",
+                "GIVEN",
+                "WITH",
+                "CTE",                
+                ],
+            correctAnswer: 3,
+            category: "MS SQL"
+        },       
+        {
             question: "What character in csharp designates a type to be nullable when placed after the type name?",
             answerChoices: ["?",
                 "!",
@@ -125,12 +170,128 @@ export function getAll() {
             category: "csharp"
         },
         {
-            question: "In javascript, which keyword would you use in declaring a variable you intend to access only within an if block?",
-            answerChoices: ["var",
-                "let",
-                "const",
+            question: "In javascript, when would you use the backtick '`' character?",
+            answerChoices: [
+                "To designate money data.",
+                "To designate a readonly string",
+                "To designate a string literal",
+            ],
+            correctAnswer: 2,
+            category: "javascript"
+        },
+        {
+            question: "Which character do jQuery expressions begin with?",
+            answerChoices: [
+                "@",
+                "#",
+                "$",
+                "*"
+            ],
+            correctAnswer: 2,
+            category: "javascript"
+        },
+        {
+            question: "The expression 2 === '2' evaluates to: ",
+            answerChoices: [
+                "true",
+                "false",
+                "Nan",
+                "undefined"
             ],
             correctAnswer: 1,
+            category: "javascript"
+        },
+        {
+            question: "The expression 10 == '10' evaluates to: ",
+            answerChoices: [
+                "true",
+                "false",
+                "NaN",
+                "undefined"
+            ],
+            correctAnswer: 0,
+            category: "javascript"
+        },
+        {
+            question: "Which expression is valid if you wanted to check if the variable named 'person' is undefined, without throwing an error?",
+            answerChoices: [
+                "person === null",
+                "person.isDefined",
+                "person.hasBeenAssigned",
+                "typeof(person) === 'undefined'"
+            ],
+            correctAnswer: 3,
+            category: "javascript"
+        },
+        {
+            question: `Given this code: 
+
+            let animals = ['cat','dog','pig']; 
+            let newAnimals = [...animals, 'pig'];
+
+            What is the value of newAnimals?`,
+            answerChoices: [
+                "['cat','dog']",
+                "['pig']",
+                "['cat',dog','pig','pig']",
+                "['cat',dog',['pig','pig']]",
+            ],
+            correctAnswer: 2,
+            category: "javascript"
+        },
+        {
+            question: `Given this code: 
+
+            const giveThing = () =>{
+                return ({name:'George',
+                         age:12,
+                         state:'VT'})
+            };
+
+            let {name, age} = giveThing();
+
+            What is the result of running this code?`,
+            answerChoices: [
+                "An error",
+                "A single object containing the name and age properties, but no state.",
+                "Two discreet variables containing the values of the name and age properties of the object returned by giveThing()",            
+            ],
+            correctAnswer: 2,
+            category: "javascript"
+        },
+        {
+            question: `Given this code: 
+
+            console.log(x);
+            let x = 2;
+
+            What is the result of running this code?`,
+            answerChoices: [
+                "A reference error 'x is not defined' occurs.",
+                "2 is printed to the console.",
+                "'null' is printed to the console."                          
+            ],
+            correctAnswer: 0,
+            category: "javascript"
+        },
+        {
+            question: `Given this code: 
+
+            console.log(x);
+            var x = 2;
+            console.log(x);
+
+            What is the result of running this code?`,
+            answerChoices: [
+                `The console prints:
+                'undefined'
+                 2`,
+                `The console prints:
+                 2
+                 2`,
+                "An error is thrown"                          
+            ],
+            correctAnswer: 0,
             category: "javascript"
         },
         {
