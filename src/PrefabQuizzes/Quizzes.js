@@ -297,8 +297,8 @@ export function getAll() {
         {
             question: "A platform as a service (PaaS) solution that hosts web apps in Azure provides full control of the operating systems that host applications.",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -306,8 +306,8 @@ export function getAll() {
         {
             question: "A platform as a service (PaaS) solution that hosts web apps in Azure provides the ability to scale the platform automatically.",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -315,8 +315,8 @@ export function getAll() {
         {
             question: "A platform as a service (PaaS) solution that hosts web apps in Azure provides professional development services to continuously add features to custom applications.",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -324,8 +324,8 @@ export function getAll() {
         {
             question: "Azure provides flexibility between capital expenditure (CapEx) and operation expenditure(OpEx).",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -333,8 +333,8 @@ export function getAll() {
         {
             question: "If you create two Azure virtual machines that use the B2S size, each virtual machine will always generate the same monthly costs.",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -342,8 +342,8 @@ export function getAll() {
         {
             question: "When an Azure virtual machine is stopped, you continue to pay storage costs associated to the virtual machine.",
             answerChoices: [
-                "yes",
-                "no",
+                "true",
+                "false",
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -411,9 +411,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            Your company plans to migrate all its data and resources to Azure.
+            question: `Your company plans to migrate all its data and resources to Azure.
             The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
             You need to deploy an Azure environment that supports the planned migration.
             Solution: You create an Azure App Service and Azure SQL databases.
@@ -426,9 +424,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            Your company plans to migrate all its data and resources to Azure.
+            question: `Your company plans to migrate all its data and resources to Azure.
             The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
             You need to deploy an Azure environment that supports the planned migration.
             Solution: You create an Azure App Service and Azure virtual machines that have Microsoft SQL Server installed.
@@ -441,9 +437,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            Your company plans to migrate all its data and resources to Azure.
+            question: `Your company plans to migrate all its data and resources to Azure.
             The company's migration plan states that only platform as a service (PaaS) solutions must be used in Azure.
             You need to deploy an Azure environment that supports the planned migration.
             Solution: You create an Azure App Service and Azure Storage accounts.
@@ -555,9 +549,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            You plan to deploy several Azure virtual machines.
+            question: `You plan to deploy several Azure virtual machines.
             You need to ensure that the services running on the virtual machines are available if a single data center fails.
             Solution: You deploy the virtual machines to two or more scale sets.
             Does this meet the goal?`,
@@ -569,9 +561,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            You plan to deploy several Azure virtual machines.
+            question: `You plan to deploy several Azure virtual machines.
             You need to ensure that the services running on the virtual machines are available if a single data center fails.
             Solution: You deploy the virtual machines to two or more availability zones.
             Does this meet the goal?`,
@@ -583,9 +573,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.
-            After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.
-            You plan to deploy several Azure virtual machines.
+            question: `You plan to deploy several Azure virtual machines.
             You need to ensure that the services running on the virtual machines are available if a single data center fails.
             Solution: You deploy the virtual machines to two or more regions.
             Does this meet the goal?`,
@@ -633,7 +621,7 @@ export function getAll() {
             category: "Azure AZ-900"
         },
         {
-            question: `What benefit describes a cloud service that performs quicly when load increases?`,
+            question: `What benefit describes a cloud service that performs quickly when load increases?`,
             answerChoices: [
                 "Disaster recovery",
                 "Fault tolerance",
@@ -657,8 +645,8 @@ export function getAll() {
         {
             question: `To implement a hybrid cloud model, a company must always migrate from a private cloud model`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -666,8 +654,8 @@ export function getAll() {
         {
             question: `A company can extend the computing resources of its internal network by using the public cloud`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -675,8 +663,8 @@ export function getAll() {
         {
             question: `In a public cloud model, only guest users at your company can access the resources in the cloud`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -684,8 +672,8 @@ export function getAll() {
         {
             question: `Azure resources can only access other resources in the same resource group`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -693,8 +681,8 @@ export function getAll() {
         {
             question: `If you delete a resource group, all the resources in the resource group will be deleted.`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -702,8 +690,8 @@ export function getAll() {
         {
             question: `A resource group can contain resources from multiple Azure regions`,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -734,8 +722,8 @@ export function getAll() {
             question: `All the Azure resources deployed to a single resource group must share the same Azure region.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -744,8 +732,8 @@ export function getAll() {
             question: `If you assign a tag to a resource group, all tthe Azure resources in that resource group are assigned to the same tag.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -754,8 +742,8 @@ export function getAll() {
             question: `If you set permissions to a resource group, all the Azure resources in that resource group inherit the permissions.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -1017,7 +1005,8 @@ export function getAll() {
         },
         {
             question: `You have an Azure environment. You need to create a new Azure virtual machine from an Android laptop.
-            Solution: You use the Azure portal.            
+            Solution: You use the Azure portal.  
+            Does this meet the goal?          
             `,
             answerChoices: [
                 "yes",
@@ -1908,8 +1897,8 @@ export function getAll() {
             question: `Azure Advisor can generate a list of Azure virtual machines that are protected by Azure Backup.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1918,8 +1907,8 @@ export function getAll() {
             question: `If you implement the security recommendations provided by Azure Advisor, your company's secure score will decrease.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -1928,8 +1917,8 @@ export function getAll() {
             question: `To maintain Microsoft support, you must implement the security recommendations provided by Azure Advisor within a period of 30 days.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2216,8 +2205,8 @@ export function getAll() {
             question: `If your company uses an Azure free account, you will only be exposed to a subset of Azure services
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2226,8 +2215,8 @@ export function getAll() {
             question: `All Azure free accounts expire after a specific period.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2236,8 +2225,8 @@ export function getAll() {
             question: `You can create up to 10 Azure free accounts by using the same Microsoft account
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
@@ -2735,8 +2724,8 @@ export function getAll() {
             question: `An Azure free account has a spending limit
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2745,8 +2734,8 @@ export function getAll() {
             question: `An Azure free account has a limit for the amount of data that can be uploaded to Azure.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 0,
             category: "Azure AZ-900"
@@ -2755,8 +2744,8 @@ export function getAll() {
             question: `An Azure free account can contain an unlimited number of web apps.
             `,
             answerChoices: [
-                "yes",
-                "no"
+                "true",
+                "false"
             ],
             correctAnswer: 1,
             category: "Azure AZ-900"
