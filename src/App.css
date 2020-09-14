@@ -4,31 +4,14 @@
   background-color:aliceblue;
 }
 
-.column{
-  float:left;
-  padding:10px;
-}
-
-.left, .right{  
-  width:25%;
-  height: 100%;
-}
-
 img{
-  height:70%;
-  width:70%;
+  height:50%;
+  width:50%;
 }
 
 img.logo{
   width:34px;
   margin-right:16px;
-}
-
-.center{  
-  margin:15px;
-  width:50%;
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
 }
 
 .miniapptitle{
@@ -52,14 +35,6 @@ margin-top:10px;
 
 .navbar-brand{
   font-weight: bold;
-}
-
-.selectCategoriesContainer{
-  padding-top: 40px;
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-content: center;
 }
 
 .addcard{
@@ -118,11 +93,3 @@ label.small{
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

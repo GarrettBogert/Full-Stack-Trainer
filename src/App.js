@@ -213,19 +213,10 @@ function App() {
 
   return (
     <div className="App">
-      {renderNavBar(setCurrentPage)}
-      <div className="column left">
-      </div>
-
-      <div className="column center">
+      {renderNavBar(setCurrentPage)}     
+      
         {renderCurrentPage(currentPage)}
-      </div>
-      <div className="column right">
-        <div className='addCustom'>
-
-        </div>
-      </div>
-
+      
     </div>
   )
 }
