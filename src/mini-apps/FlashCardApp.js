@@ -157,6 +157,8 @@ function AddCard(props) {
     }
 
     const handleConfirmAddCard = (question, answer, category) => {
+        if(typeof(question) === 'undefined' || typeof(answer) === 'undefined' || typeof(category) === 'undefined')
+        return;
         let card = {
             'question': question,
             'answer': answer,
