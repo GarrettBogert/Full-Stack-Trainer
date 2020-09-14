@@ -222,7 +222,7 @@ export default function MultipleChoiceApp(props) {
             <h1 className='miniapptitle'>Multiple choice quizzes</h1>
             {checkedCategories.length === 0 ?
                 <>
-                    <div>To get started, select one or many categories and click 'Start Quiz' to begin a quiz session</div>
+                    <div>To get started, select one or many categories below and click 'Start Quiz' to begin a quiz session</div>
                 </>
                 : null
             }
