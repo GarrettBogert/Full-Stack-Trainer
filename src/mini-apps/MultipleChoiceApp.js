@@ -152,9 +152,9 @@ export default function MultipleChoiceApp(props) {
         )
     }
 
-    
-    const categoriesWithQuizzes = () =>{
-        let categoriesThatHaveQuizzes = Questions.getAll().map(q=> q.category);
+
+    const categoriesWithQuizzes = () => {
+        let categoriesThatHaveQuizzes = Questions.getAll().map(q => q.category);
         let distinctCategories = [...new Set(categoriesThatHaveQuizzes)];
         return distinctCategories;
     }
@@ -195,7 +195,7 @@ export default function MultipleChoiceApp(props) {
     const handleCategoryCheckboxChange = (event) => {
         const { value } = event.target;
         setCheckedCategories(value);
-      };
+    };
 
     const handleStartQuizClick = () => {
         if (checkedCategories.length > 0) {
@@ -218,7 +218,7 @@ export default function MultipleChoiceApp(props) {
     }
 
     return (
-        <>        
+        <>
             <h1 className='miniapptitle'>Multiple choice quizzes</h1>
             {checkedCategories.length === 0 ?
                 <>
@@ -240,10 +240,13 @@ export default function MultipleChoiceApp(props) {
 
             {currentQuestion !== null ? currentQuestion.hasMultipleAnswers ?
                 (
-                    <FormGroup
-                        onChange={onChangeSelectedAnswers}>
-                        {getQuestionChoicesAsCheckbox()}
-                    </FormGroup>
+                    <div className="centered"> 
+                        <FormGroup
+                            onChange={onChangeSelectedAnswers}>
+                            {getQuestionChoicesAsCheckbox()}
+                        </FormGroup>
+                    </div>
+
                 )
                 :
                 (<RadioGroup
@@ -254,7 +257,7 @@ export default function MultipleChoiceApp(props) {
                 ) : null
             }
             <div className='centered'>
-                {!quizActive ? props.renderSelectableCategories(categoriesWithQuizzes, checkedCategories,handleCategoryCheckboxChange) : null}
+                {!quizActive ? props.renderSelectableCategories(categoriesWithQuizzes, checkedCategories, handleCategoryCheckboxChange) : null}
             </div>
             {renderRelevantButtons()}
             {

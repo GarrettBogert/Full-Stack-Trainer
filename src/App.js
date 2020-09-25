@@ -251,9 +251,9 @@ function Home() {
       <img
         src='../images/1stpage.png'
         alt='nothing'
-        height='400px'>
+       >
       </img>
-      <p data-testid='home'>
+      <p className='introtext' data-testid='home'>
         Welcome to Full Stack Trainer. This application is a series of 'mini-apps' that will help aid in your journey to broadening your programming skills in an ever-demanding job market.
     </p>
     </>
