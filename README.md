@@ -1,3 +1,5 @@
+This is a web application containing some premade flash cards and multiple choice questions on a small handful of programming languages/topics. The site also allows a user to create their own quizzes and flash cards on a topic of their choice. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
